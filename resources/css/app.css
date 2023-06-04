@@ -1,3 +1,152 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /* @keyframes AppearFromRight {
+        from {
+            right: -90%;
+        } to {
+            right: 0;
+        }
+    } */
+    @font-face {
+        font-family: IranSansWeb;
+        src: url(/public/fonts/IRANSansWeb.ttf);
+    }
+    
+    html, body {
+        @apply h-full w-full;
+    }
+    body {
+        background-color: #fcfcfc;
+    }
+    /* @key */
+    header {
+        background-image: url(/public/images/main-page-bg.webp);
+    }
+
+    .animation-1x {
+        animation-duration: 1000ms;
+    }
+    .animation-1\.5x {
+        animation-duration: 1500ms;
+    }
+    .animation-0\.5x {
+        animation-duration: 500ms;
+    }
+
+    .pointy-triangle {
+        display: inline-block;
+        content: '';
+        width: 15px;
+        height: 10px;
+        clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+        position: absolute;
+        z-index: 25;
+    }
+    .middle-10px {
+        right: calc(50% - 5px);
+    }
+    .middle-from-top-15 {
+        @apply -rotate-90;
+        top: calc(50% - 7.5px);
+    }
+    .middle-from-top-20 {
+        @apply -rotate-90;
+        top: calc(50% - 10px);
+    }
+    .pointer-menu-item {
+        @apply hover:bg-stone-100 relative rounded-sm p-3
+        after:pointy-triangle after:middle-from-top-15 after:-left-3
+        before:pointy-triangle before:middle-from-top-20 before:-left-[20px] before:w-[24px] before:h-[16px];
+    }
+    .pointer-menu-item.active {
+        @apply bg-stone-100 before:bg-x-grey after:bg-stone-100;
+    }
+    .grid-important {
+        @apply grid !important;
+    }
+}
+
+@layer components {
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-duration: var(--animate-duration);
+        animation-duration: var(--animate-duration);
+        -webkit-animation-fill-mode: initial;
+        animation-fill-mode: initial;
+    }
+    @keyframes growUp {
+        from {
+            @apply h-16;
+        }
+        to {
+            height: 60%;
+        }
+    }
+    .service-list > div {
+        > div {
+            transition: 500ms;
+            &:before {
+                content: '';
+                clip-path: ellipse(60% 100% at bottom center);
+                background-color: inherit;
+                position: absolute;
+                left: 0;
+                top: -40px;
+                z-index: 0;
+                height: 40px;
+                width: 100%;
+                transition: 300ms;
+            }
+            > span {
+                z-index: 3;
+                position: relative;
+            }
+            > p {
+                > a svg path {
+                    @apply fill-gray-800;
+                }
+                > a:hover svg path {
+                    @apply fill-black;
+                }
+            }
+        }
+        &:hover > div {
+            animation: growUp 500ms linear;
+            height: 60%;
+            > p {
+                transition: 1s;
+                display: block;
+            }
+        }
+    }
+    .bg-squares {
+        background-image: url(/public/images/white-black-rectangles.png);
+        background-size: 1.75rem 1rem;
+    }
+
+    .svg-500-800 {
+        @apply border-gray-500 text-gray-500 duration-300 hover:text-gray-800 hover:border-gray-800;
+        > svg path {
+            @apply fill-gray-500;
+        }
+        &:hover path {
+            @apply fill-gray-800;
+        }
+    }
+    .underlined-heading {
+        @apply relative mb-5;
+    }
+    .underlined-heading:after {
+        content: '';
+        height: 3px;
+        width: 90%;
+        position: absolute;
+        right: 5%;
+        background-color: #999;
+        @apply rounded-full -bottom-3;
+    }
+}
