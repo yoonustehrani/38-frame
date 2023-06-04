@@ -64,7 +64,7 @@
         </section>
         <div class="px-2 bg-squares md:w-full h-full w-4 md:h-5 bg-repeat-y md:bg-repeat-x"></div>
     </section>
-    {{-- <section class="w-4/5 mx-[10%] flex justify-start gap-4 py-8 my-6 font-iran-sans">
+    <section class="w-4/5 mx-[10%] flex justify-start gap-4 py-8 my-6 font-iran-sans">
         <div class="flex flex-col-reverse justify-center gap-1">
             <div class="flex items-center justify-start gap-3 px-4">
                 <div class="h-20 w-24 flex items-center">@php icon('066-photo camera') @endphp</div>
@@ -107,7 +107,7 @@
             </div>
         </div>
     </section>
-    <section>
+    {{-- <section>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut commodi corporis obcaecati. Minima odio consequuntur repellendus ex perspiciatis! Quasi optio saepe corporis mollitia similique doloribus facere vero nihil, exercitationem amet.
         Dolorum hic id nemo. Harum facere, sint tempora cumque minima laborum ad iusto obcaecati, maiores cupiditate eius rem doloremque eum ea eos eveniet repudiandae. Cumque culpa maxime nostrum nihil explicabo.
         Laborum iusto corporis vel, accusamus reiciendis illo earum maiores odit amet optio dolore perferendis ea esse, vitae suscipit doloremque aperiam vero fuga cum consequatur voluptates. Molestiae reprehenderit dolorum ea alias?
