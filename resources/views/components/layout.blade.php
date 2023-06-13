@@ -6,9 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Untitled Page' }}</title>
     @vite('resources/css/app.css')
+    <style>
+        :root {
+            --size: 50vmin;
+            --white: #fff;
+            --blue: #3051f1;
+            --purple: #c92bb7;
+            --red: #f73344;
+            --orange: #fa8e37;
+            --yellow: #fcdf8f;
+            --yellow_to: #fbd377;
+        }
+    </style>
+    {{-- <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'> --}}
 </head>
 <body class="overflow-y-auto overflow-x-hidden">
     {{ $slot }}
-    @vite('resources/js/app.js')
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
 </body>
 </html>

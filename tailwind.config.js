@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
+    "./resources/**/*.jsx",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
@@ -23,6 +24,10 @@ module.exports = {
           800: '#333333',
           DEFAULT: '#000000'
         }
+      },
+      backgroundImage: {
+        'zebra': 'repeating-linear-gradient(45deg, #ffbf70, #ffbf70 4px, #FE9920 4px, #FE9920 10px)',
+        'camera-on-table': 'url(/public/images/seller-camera.webp)'
       }
     },
   },
