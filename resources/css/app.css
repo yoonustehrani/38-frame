@@ -19,6 +19,9 @@
         @apply h-full w-full;
     }
     body {
+        @apply overflow-x-hidden;
+    }
+    body {
         background-color: #fcfcfc;
     }
     /* @key */

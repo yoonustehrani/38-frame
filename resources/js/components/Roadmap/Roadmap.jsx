@@ -23,8 +23,8 @@ function Roadmap({steps}) {
                     </div>
                 ))}
             </div>
-            <div className="px-8 mt-8 [direction:rtl] font-iran-sans">
-                <div className="bg-white border border-black/5 shadow-md rounded-md py-6 px-12">
+            <div className="md:px-8 mt-8 [direction:rtl] font-iran-sans">
+                <div className="bg-white border border-black/5 shadow-md rounded-md py-6 px-6 md:px-12">
                     <span className="w-full block text-center font-bold text-2xl mb-6">{steps[currentStep].description_title}</span>
                     <p className="text-gray-800 text-justify">{steps[currentStep].description}</p>
                 </div>
