@@ -19,7 +19,7 @@ function Gallery() {
     const exceptional = [1, 5]
 
     return (
-        <div className="bg-red-600 grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="grid grid-cols-2 overflow-hidden">
                 {col1.map((img, i) => (
                     <div className={`cursor-pointer ${ i == 2 ? 'col-span-2' : ''} h-full md:grayscale md:hover:grayscale-0 duration-500`}>

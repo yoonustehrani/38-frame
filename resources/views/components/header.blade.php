@@ -1,4 +1,4 @@
-<header class="bg-center bg-contain w-full h-3/4 flex flex-col justify-between items-center font-iran-sans ">
+<header class="bg-center bg-contain w-full h-3/4 flex flex-col justify-between items-center font-iran-sans">
     <x-nav />
     <div class="grow h-36 w-full">
         <div class="w-full h-full grid grid-cols-10">

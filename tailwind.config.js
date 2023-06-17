@@ -23,11 +23,15 @@ module.exports = {
           900: '#222222',
           800: '#333333',
           DEFAULT: '#000000'
-        }
+        },
+        'creamy': '#F8F3E8'
       },
       backgroundImage: {
         'zebra': 'repeating-linear-gradient(45deg, #ffbf70, #ffbf70 4px, #FE9920 4px, #FE9920 10px)',
-        'camera-on-table': 'url(/public/images/seller-camera.webp)'
+        'camera-on-table': 'url(/public/images/seller-camera.webp)',
+        'rope': 'repeating-linear-gradient(45deg, #F7DF9F, #DC961A 6px, #C17900 8px, #9E5000 10px)',
+        'yashika-sm': 'url(/public/images/Yashika-360x480.webp)',
+        'yashika-lg': 'url(/public/images/Yashika-1920X860.webp)',
       }
     },
   },

@@ -14,12 +14,8 @@
         font-family: IranSansWeb;
         src: url(/public/fonts/IRANSansWeb.ttf);
     }
-    
     html, body {
         @apply h-full w-full;
-    }
-    body {
-        @apply overflow-x-hidden;
     }
     body {
         background-color: #fcfcfc;
@@ -68,6 +64,9 @@
     }
     .grid-important {
         @apply grid !important;
+    }
+    .no-content {
+        content: '';
     }
 }
 
@@ -228,5 +227,11 @@
         &:hover > svg {
             @apply fill-rose-300;
         }
+    }
+    .input {
+        @apply text-lg py-1 px-2 w-72 bg-transparent border-slate-100/50 border rounded-md max-w-full;
+    }
+    .button {
+        @apply duration-300 border px-6 py-2;
     }
 }
