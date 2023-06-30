@@ -1,10 +1,9 @@
-import './bootstrap';
-import 'animate.css';
 import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import Loading from './components/Loading';
 const Roadmap = lazy(() => import('./components/Roadmap'));
 const Gallery = lazy(() => import('./components/Gallery'));
+const Blog = lazy(() => import('./components/Blog'));
 
 const reactRoadmapElement = document.getElementById('react-roadmap')
 const roadmapRoot = createRoot(reactRoadmapElement)
