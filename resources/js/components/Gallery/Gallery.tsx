@@ -1,4 +1,4 @@
-const shuffleArray = array => {
+const shuffleArray = (array: any[]) => {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         const temp = array[i];
@@ -8,16 +8,12 @@ const shuffleArray = array => {
     return array;
 }
 
-const images = shuffleArray(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
+const images: Array<string> = shuffleArray(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']);
 const col1 = images.slice(0, 5)
 const col2 = images.slice(5, 9)
-const shouldBeLargeCol2 = i => i == col2.indexOf(col2.at(0)) || i == col2.indexOf(col2.at(-1))
-// console.log(col2.length);
+const shouldBeLargeCol2 = (i: number) => i == col2.indexOf(col2.at(0) as string) || i == col2.indexOf(col2.at(-1) as string)
 
-function Gallery() {
-
-    const exceptional = [1, 5]
-
+const Gallery = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="grid grid-cols-2 overflow-hidden">

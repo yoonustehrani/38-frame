@@ -1,6 +1,17 @@
-import React, { useState, lazy, Suspense } from "react";
+import { useState, FC } from "react";
 
-function Roadmap({steps}) {
+export interface StepObject {
+    title: string
+    description_title: string
+    description: string
+    icon: string
+}
+
+interface RoadmapProps {
+    steps: StepObject[]
+}
+
+const Roadmap:FC<RoadmapProps> = ({steps}) => {
     const [currentStep, setCurrentStep] = useState(0)
     return (
         <>
@@ -16,7 +27,7 @@ function Roadmap({steps}) {
                 <div style={{ width: `${(100 / (steps.length - 1)) * currentStep}%` }} className="h-2 bg-zebra width-transition"></div>
             </div>
             <div className="grid grid-cols-5 text-center mt-2 font-iran-sans">
-                {steps.map(({title, description_title, description}, i) => (
+                {steps.map(({title}, i) => (
                     <div key={i} className="px-3 grow text-center pt-3 relative">
                         <span onClick={() => setCurrentStep(i)} className={`cursor-pointer duration-300 circleular-dot text-black ${i <= currentStep ? 'bg-x-yellow' : 'bg-gray-400'}`}>{i + 1}</span>
                         <span onClick={() => setCurrentStep(i)} className={`cursor-pointer duration-300 text-sm ${i <= currentStep ? 'text-black' : 'text-gray-500'}`}>{title}</span>
