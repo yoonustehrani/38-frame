@@ -18,14 +18,14 @@ const Gallery = () => {
         <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="grid grid-cols-2 overflow-hidden">
                 {col1.map((img, i) => (
-                    <div className={`cursor-pointer ${ i == 2 ? 'col-span-2' : ''} h-full md:grayscale md:hover:grayscale-0 duration-500`}>
+                    <div key={i} className={`cursor-pointer ${ i == 2 ? 'col-span-2' : ''} h-full md:grayscale md:hover:grayscale-0 duration-500`}>
                         <img className="h-full w-auto" src={`/images/gallery/${img}.jpg`} loading="lazy"/>
                     </div>  
                 ))}
             </div>
             <div className="grid grid-cols-2">
                 {col2.map((img, i) => (
-                    <div className={`cursor-pointer ${ shouldBeLargeCol2(i) ? 'col-span-2 max-h-96 flex justify-center items-center' : 'h-full'} md:grayscale md:hover:grayscale-0 duration-500 overflow-hidden`}>
+                    <div key={i} className={`cursor-pointer ${ shouldBeLargeCol2(i) ? 'col-span-2 max-h-96 flex justify-center items-center' : 'h-full'} md:grayscale md:hover:grayscale-0 duration-500 overflow-hidden`}>
                         <img src={`/images/gallery/${img}.jpg`} loading="lazy"/>
                     </div>
                 ))}

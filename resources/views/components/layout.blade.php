@@ -24,6 +24,7 @@
 <body class="overflow-y-auto overflow-x-hidden">
     {{ $slot }}
     @viteReactRefresh
-    @vite('resources/js/app.jsx')
+    @vite('resources/js/react-app.tsx')
+    @vite('resources/js/app.js')
 </body>
 </html>

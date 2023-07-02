@@ -309,16 +309,7 @@
             </div>
         </section>
     </section>
-    <section>
-        <div class="my-8 flex justify-center relative before:z-0 before:no-content before:w-full before:absolute before:h-2 before:bg-rope h-80">
-            <div class="grid grid-cols-4 w-3/4 gap-8">
-                <div class="bg-creamy shadow-md rounded-b-md relative -mt-1 z-10 px-3 py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores, culpa. Nobis itaque debitis eligendi fugit ducimus libero reprehenderit ut quod nam! Natus officia veniam eaque iste facilis odit exercitationem iusto!</div>
-                <div class="bg-creamy shadow-md rounded-b-md relative -mt-1 z-10 px-3 py-2">Suscipit, accusamus deserunt! Labore minus vitae id quam. Nihil illo voluptate similique, possimus dolor eaque. Accusantium non maiores, amet, deleniti veritatis corrupti, aperiam architecto saepe assumenda quibusdam distinctio optio voluptas?</div>
-                <div class="bg-creamy shadow-md rounded-b-md relative -mt-1 z-10 px-3 py-2">Vero illo quam earum vitae inventore, tenetur, beatae ex, perspiciatis delectus pariatur asperiores quasi animi ab vel nesciunt sequi! Vitae delectus aliquam asperiores odio dignissimos libero possimus recusandae excepturi fugit?</div>
-                <div class="bg-creamy shadow-md rounded-b-md relative -mt-1 z-10 px-3 py-2">Consequuntur facere incidunt debitis, quos excepturi iure veniam in unde enim, modi ex quas repellendus quis libero quia consectetur saepe deserunt eveniet! Officiis sit veritatis accusantium quod tempora maiores nisi.</div>
-            </div>
-        </div>
-    </section>
+    <section id="react-blog"></section>
     <x-footer />
 </x-layout>
 

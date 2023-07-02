@@ -21,7 +21,8 @@ function renderToRoot({element, toBeRendered}: elementRendererArgumentTypes) {
 }
 
 const roadmap = document.getElementById('react-roadmap') as HTMLElement
-const steps: StepObject[] = JSON.parse(roadmap.getAttribute('data-roadmap') as string)
+let json_string = roadmap.getAttribute('data-roadmap') as string;
+const steps: Array<StepObject> = JSON.parse(json_string);
 
 (() => {
     [
@@ -29,7 +30,7 @@ const steps: StepObject[] = JSON.parse(roadmap.getAttribute('data-roadmap') as s
             element: document.getElementById('react-blog'),
             toBeRendered: (
                 <Loading>
-                    <Blog />
+                    <Blog fetchPostsUrl=''/>
                 </Loading>
             )
         },
