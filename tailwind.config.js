@@ -34,6 +34,8 @@ module.exports = {
         'rope': 'repeating-linear-gradient(45deg, #F7DF9F, #DC961A 6px, #C17900 8px, #9E5000 10px)',
         'yashika-sm': 'url(/public/images/Yashika-360x480.webp)',
         'yashika-lg': 'url(/public/images/Yashika-1920X860.webp)',
+        'green-pattern': 'url(/public/images/main-page-bg.webp)',
+        'old-phone': 'url(/public/images/old-phone.webp)'
       }
     },
   },
