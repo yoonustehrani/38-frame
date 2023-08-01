@@ -1,4 +1,4 @@
-<nav class="grow-0 flex items-center gap-4 px-4 justify-between h-20 bg-x-green/80 shadow-md w-[90%] mt-4 rounded-md animate__animated animate__backInDown">
+<nav class="grow-0 flex items-center gap-4 px-4 justify-between h-20 bg-x-green/80 shadow-md w-[90%] mt-4 animate__animated animate__backInDown {{ $classNames ?? '' }}">
     <div class="flex gap-4 h-full">
         <div class="h-full py-2">
             <img 
@@ -11,7 +11,7 @@
         </div>
         <ul class="hidden lg:flex w-fit h-full justify-start items-center content-center gap-8 text-slate-50 font-semibold text-lg">
             <li>
-                <a href="#">صفحه اصلی</a>
+                <a href="{{ route('pages.home') }}">صفحه اصلی</a>
             </li>
             <li>
                 <a href="#">تاریکخانه ها / تعمیرکاران</a>
@@ -73,10 +73,10 @@
                 </div>
             </li>
             <li>
-                <a href="#">درباره ما</a>
+                <a href="{{ route('pages.about') }}">درباره ما</a>
             </li>
             <li>
-                <a href="#">تماس با ما</a>
+                <a href="{{ route('pages.contact') }}">تماس با ما</a>
             </li>
             <li>
                 <a href="#">ژورنال عکاسی</a>
@@ -96,4 +96,5 @@
             <span>ثبت نام</span>
         </a>
     </div>
+    {{ $slot }}
 </nav>

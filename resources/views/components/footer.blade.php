@@ -78,7 +78,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#4">
+                    <a href="{{ route('pages.contact') }}">
                         @php icon('circle-phone') @endphp
                         تماس با ما
                     </a>

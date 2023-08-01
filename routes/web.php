@@ -46,5 +46,8 @@ Route::get('/', function () {
             'description' => 'پس از ظاهر شدن نگاتیو‌هایتان می‌توانید آن‌ها را اسکن کنید یا حتی آن‌ها را به شیوه‌های مختلفی چاپ کنید. لابراتوار‌های عکاسی آنالوگ به اسکن و چاپ عکس‌های شما نیز می‌پردازند. پس از اسکن و تبدیل کردن نمایه‌ها به فایل از آن ها لذت ببرید و حتی می‌توانید آن ها را در «ژورنال 38فریم» منتشر کنید.'
         ]
     ];
-    return view('welcome', compact('roadmap'));
-});
+    return view('pages.home', compact('roadmap'));
+})->name('pages.home');
+
+Route::view('contact', 'pages.contact')->name('pages.contact');
+Route::view('about', 'pages.about')->name('pages.about');
