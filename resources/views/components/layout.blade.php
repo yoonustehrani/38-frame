@@ -22,7 +22,7 @@
 </head>
 <body class="overflow-y-auto overflow-x-hidden float-left">
     {{ $slot }}
-    <x-footer />
+    <x-footer classNames="float-left"/>
     @viteReactRefresh
     @vite('resources/js/react-app.tsx')
     @vite('resources/js/app.js')

@@ -9,7 +9,7 @@
                 class="h-full w-auto"
             >
         </div>
-        <ul class="hidden lg:flex w-fit h-full justify-start items-center content-center gap-8 text-slate-50 font-semibold text-lg">
+        <ul class="hidden lg:flex w-fit h-full justify-start items-center content-center gap-8 {{ $textColor ?? 'text-slate-50' }} font-semibold text-lg">
             <li>
                 <a href="{{ route('pages.home') }}">صفحه اصلی</a>
             </li>
@@ -82,7 +82,7 @@
                 <a href="#">ژورنال عکاسی</a>
             </li>
             <li>
-                <a href="#">وبلاگ</a>
+                <a href="{{ route('pages.blog.index') }}">وبلاگ</a>
             </li>
         </ul>
     </div>

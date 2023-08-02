@@ -1,4 +1,4 @@
-<footer class="mt-20 w-full md:h-80 bg-gray-800 flex justify-center relative font-iran-sans">
+<footer class="mt-20 w-full md:h-80 bg-gray-800 flex justify-center relative font-iran-sans {{ $classNames ?? '' }}">
     <section class="h-full w-11/12 p-4 bg-gray-700 rotate-1 absolute -top-12 left-auto rounded-t-lg shadow-md grid grid-rows-3 md:grid-rows-none md:grid-cols-3 gap-6">
         <div class="h-full duration-300 bg-gray-600 rounded-md p-4 text-slate-100">
             <p class="text-sm leading-loose text-justify">
