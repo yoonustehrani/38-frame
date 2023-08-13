@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>وبلاگ ۳۸ فریم</x-slot:title>
     <header class="bg-center bg-cover h-3/4 overflow-hidden w-full flex md:flex-col justify-center items-center font-iran-sans relative">
-        <x-nav classNames="absolute z-20 top-0 rounded-t-md bg-x-grey/90" textColor="text-gray-800" />
+        <x-nav classNames="absolute z-20 top-0 rounded-t-md bg-x-dark-blue/90" />
         <img class="h-full w-auto md:min-w-fit md:h-auto md:w-full opacity-90" src="/images/blog-bg.webp" alt="">
     </header>
     <section class="w-full float-left md:w-4/5 md:mx-[10%] flex flex-col md:flex-row gap-8 my-6 font-iran-sans">
