@@ -52,3 +52,7 @@ Route::get('/', function () {
 Route::view('contact', 'pages.contact')->name('pages.contact');
 Route::view('about', 'pages.about')->name('pages.about');
 Route::view('blog', 'pages.blog.index')->name('pages.blog.index');
+
+Route::prefix('auth')->name('auth.')->group(function() {
+    Route::view('/', 'auth.login')->name('login.show');
+});

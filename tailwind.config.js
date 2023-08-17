@@ -35,7 +35,8 @@ module.exports = {
         'yashika-sm': 'url(/public/images/Yashika-360x480.webp)',
         'yashika-lg': 'url(/public/images/Yashika-1920X860.webp)',
         'green-pattern': 'url(/public/images/main-page-bg.webp)',
-        'old-phone': 'url(/public/images/old-phone.webp)'
+        'old-phone': 'url(/public/images/old-phone.webp)',
+        'shark': 'url(/public/images/shark-background.webp)'
       }
     },
   },
