@@ -64,6 +64,14 @@
     .no-content {
         content: '';
     }
+    .svg-inherit svg {
+        height: inherit !important;
+        width: fit-content;
+        @apply inline;
+    }
+    ul.a-full li > a {
+        @apply w-full inline-block;
+    }
 }
 
 @layer components {
@@ -244,5 +252,13 @@
     }
     .svg-white svg {
         @apply fill-black/50 duration-300;
+    }
+    .userarea-menu {
+        & a {
+            @apply rounded-lg py-3 px-3 duration-300;
+        }
+        & a.active, a:hover {
+            @apply fill-emerald-700 text-emerald-800 bg-emerald-500/10;
+        }
     }
 }

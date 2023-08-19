@@ -56,3 +56,5 @@ Route::view('blog', 'pages.blog.index')->name('pages.blog.index');
 Route::prefix('auth')->name('auth.')->group(function() {
     Route::view('/', 'auth.login')->name('login.show');
 });
+
+Route::view('userarea', 'pages.userarea');
