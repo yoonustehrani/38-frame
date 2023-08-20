@@ -6,13 +6,22 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/react-app.tsx', 'resources/js/react-auth.tsx'],
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+                'resources/js/react-app.tsx',
+                'resources/js/react-auth.tsx',
+                'resources/js/react-userarea.tsx'
+            ],
             refresh: true,
         }),
         svgr(),
         react()
     ],
     server: {
-        host: true
+        host: '0.0.0.0',
+        hmr: {
+            host: '192.168.1.112',
+        },
     }
 });
