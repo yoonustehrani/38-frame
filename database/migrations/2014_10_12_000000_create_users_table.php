@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone_number')->unique()->nullable();
             $table->timestamp('phone_verified_at')->nullable();
-            $table->foreignId('role_id');
+            $table->foreignId('role_id')->nullable();
             $table->foreignId('city_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
