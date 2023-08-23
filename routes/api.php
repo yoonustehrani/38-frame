@@ -18,4 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('auth/google', 'AuthController@handleGoogleSignIn');
+Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn');
+Route::apiResource('ads', 'App\Http\Controllers\AdController');
