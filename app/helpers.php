@@ -126,3 +126,13 @@ if (! function_exists('numberToWords')) {
         return '';
     }
 }
+
+if (! function_exists('random_phone_number')) {
+    function random_phone_number() {
+        $phone = '09';
+        for ($i=0; $i < 9; $i++) { 
+            $phone .= fake()->randomDigit();
+        }
+        return $phone;
+    }
+}
