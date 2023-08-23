@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class SiteCategory extends Model
 {
     use HasFactory;
+
+    protected $fillabled = ['name', 'label'];
 }
