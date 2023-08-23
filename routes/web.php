@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,4 +58,4 @@ Route::prefix('auth')->name('auth.')->group(function() {
     Route::view('/', 'auth.login')->name('login.show');
 });
 
-Route::view('userarea', 'pages.userarea');
+Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*');
