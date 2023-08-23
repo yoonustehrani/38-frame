@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,12 +19,14 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => random_int(1000, 50000),
-            'name' => fake()->firstName('male') . ' ' . fake()->lastName('male'),
-            'avatar' => '/images/yoosof.webp'
-            // 'email' => fake()->unique()->safeEmail(),
-            // 'email_verified_at' => now(),
-            // 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'username' => fake()->userName(),
+            'credit' => (random_int(1, 1000) / 10) * 10_000,
+            'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'phone_number' => random_phone_number(),
+            'phone_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'city_id' => City::whereName('مشهد')->first()->id
             // 'remember_token' => Str::random(10),
         ];
     }
