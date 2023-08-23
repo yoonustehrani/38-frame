@@ -261,4 +261,7 @@
             @apply fill-emerald-700 text-emerald-800 bg-emerald-500/10;
         }
     }
+    .button-x-dark-blue-outline {
+        @apply border-2 border-x-dark-blue text-x-dark-blue hover:bg-x-dark-blue hover:text-slate-50 hover:fill-slate-50 duration-300 text-lg px-3 py-1 rounded-md;
+    }
 }
