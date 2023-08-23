@@ -9,6 +9,7 @@
     @viteReactRefresh
     @vite('resources/js/react-userarea.tsx')
 </head>
-<body id="react-userarea" class="h-full w-full overflow-hidden flex">
+<body class="h-full w-full">
+    <div id="react-userarea" class="h-full w-full overflow-hidden flex"></div>
 </body>
 </html>

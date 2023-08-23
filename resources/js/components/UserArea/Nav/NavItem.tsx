@@ -1,23 +1,24 @@
 import { FC } from "react";
-
+import { NavLink } from "react-router-dom";
 interface NavItemProps {
     uri: string
     title: string
     active?: boolean
-    children: React.ReactNode
+    className?:string
+    children?: React.ReactNode
 }
  
-const NavItem: FC<NavItemProps> = ({ uri, title, children, active = false }) => {
+const NavItem: FC<NavItemProps> = ({ uri, title, children, className = '' }) => {
     return (
         <li>
-            <a href={uri} className={active ? 'active' : ''}>
+            <NavLink to={uri} className={({ isActive }) => isActive ? 'active' : className}>
                 {children !== null && (
                     <div className="inline-block h-5 svg-inherit">
                         {children}
                     </div>
                 )}
                 <span className="mx-2 text-lg">{title}</span>
-            </a>
+            </NavLink>
         </li>
     );
 }
