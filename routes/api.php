@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SiteCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn');
 Route::apiResource('ads', 'App\Http\Controllers\AdController');
+Route::get('site-categories', function() {
+    return SiteCategory::whereType(null)->get();
+})->name('site-categories.index');
