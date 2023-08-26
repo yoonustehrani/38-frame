@@ -46,8 +46,8 @@ const ProfileSettings: FC<ProfileSettingsProps> = () => {
                     </div>
                     <div>
                         <div className="relative">
-                            <label htmlFor="email" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">شماره تلفن</label>
-                            <input id="email" type="email" name="email" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
+                            <label htmlFor="phone_number" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">شماره تلفن</label>
+                            <input id="phone_number" type="phone_number" name="phone_number" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
                         </div>
                     </div>
                     <div>
