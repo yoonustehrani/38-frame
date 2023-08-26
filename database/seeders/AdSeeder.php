@@ -16,21 +16,22 @@ class AdSeeder extends Seeder
     public function run(): void
     {
         $city = City::whereName('مشهد')->first();
+        $user = User::factory()->create();
         $state = [
             'city_id' => $city->id,
             'province' => $city->province->id
         ];
         Ad::factory()->count(3)->for(
-            User::factory(), 'publisher'
+            $user, 'publisher'
         )->state($state)->create();
         Ad::factory()->count(2)->for(
-            User::factory(), 'publisher'
+            $user, 'publisher'
         )->expired()->state($state)->create();
         Ad::factory()->count(1)->for(
-            User::factory(), 'publisher'
+            $user, 'publisher'
         )->awaiting_confirmation()->state($state)->create();
         Ad::factory()->count(2)->for(
-            User::factory(), 'publisher'
+            $user, 'publisher'
         )->rejected()->state($state)->create();
     }
 }

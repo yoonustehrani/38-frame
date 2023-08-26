@@ -16,6 +16,7 @@ return new class extends Migration
             $table->ulid('id');
             $table->morphs('publisher'); // App\Models\User or App\Models\Shop
             $table->string('title', 90);
+            $table->string('price')->nullable();
             $table->foreignId('category_id')->nullable()->references('id')->on('site_categories')->nullOnDelete()->cascadeOnUpdate();
             $table->enum('delivery_type', array_map(fn($type) => $type->value, AdDeliveryType::cases()));
             // TODO: add new enum class for status field
