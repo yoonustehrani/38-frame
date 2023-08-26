@@ -10,4 +10,5 @@ class SiteCategory extends Model
     use HasFactory;
 
     protected $fillabled = ['name', 'label'];
+    public $timestamps = false;
 }
