@@ -14,6 +14,11 @@ class Ad extends Model
         'expires_at' => 'datetime',
         'published_at' => 'datetime'
     ];
+    public $appends = ['status_fa'];
+
+    public function getStatusFaAttribute() {
+        return __("models.{$this->table}.status.{$this->attributes['status']}");
+    }
     public function publisher()
     {
         return $this->morphTo();
