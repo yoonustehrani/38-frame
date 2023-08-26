@@ -14,7 +14,7 @@ class AdController extends Controller
     public User $user;
     public function __construct()
     {
-        Auth::login(new User(['email' => 'kir@kir.com']));
+        Auth::login(User::latest()->first());
         $this->user = auth()->user();
     }
     /**
@@ -22,7 +22,7 @@ class AdController extends Controller
      */
     public function index()
     {
-        
+        return $this->user->ads()->latest()->get();
     }
 
     /**
@@ -56,7 +56,7 @@ class AdController extends Controller
      */
     public function show(Ad $ad)
     {
-        //
+        return $ad;
     }
 
     /**
