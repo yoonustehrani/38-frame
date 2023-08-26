@@ -6,6 +6,8 @@ import ProfileSettings from './Pages/Settings/ProfileSettings'
 import SocialSettings from './Pages/Settings/SocialSettings'
 import Error404 from './Pages/Error404'
 import AuthSettings from './Pages/Settings/AuthSettings'
+import Ads from './Pages/Ads/Ads'
+import CreateAd from './Pages/Ads/CreateAd'
 // import Dashboard from './Pages/Dashboard'
 // import UserSettings from './Pages/UserSettings'
 
@@ -33,6 +35,19 @@ const routes: RouteObject[] = [
                     {
                         path: 'auth',
                         Component: AuthSettings
+                    }
+                ]
+            },
+            {
+                path: '/ads',
+                children: [
+                    {
+                        index: true,
+                        Component: Ads
+                    },
+                    {
+                        path: 'create',
+                        Component: CreateAd
                     }
                 ]
             }
