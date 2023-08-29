@@ -69,6 +69,7 @@
         width: fit-content;
         @apply inline;
     }
+    
     ul.a-full li > a {
         @apply w-full inline-block;
     }
@@ -263,5 +264,17 @@
     }
     .button-x-dark-blue-outline {
         @apply border-2 border-x-dark-blue text-x-dark-blue hover:bg-x-dark-blue hover:text-slate-50 hover:fill-slate-50 duration-300 text-lg px-3 py-1 rounded-md;
+    }
+    /**
+    this is for userarea
+    */
+    .form-input {
+        @apply w-full bg-transparent border border-black/10 rounded-md;
+    }
+    .form-input.ltr {
+        @apply [direction:ltr] placeholder:text-right text-left;
+    }
+    .form-textarea {
+        @apply form-input w-3/4 h-32 py-2 pt-3 px-3;
     }
 }
