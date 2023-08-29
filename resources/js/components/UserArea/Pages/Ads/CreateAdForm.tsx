@@ -3,6 +3,7 @@ import { SiteCategory, UploadingFiles, createAdAction, createAdActionTypes, init
 import FormSection from "../../components/FormSection";
 import FormSubtitle from "../../components/FormSubtitle";
 import { Checkbox, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import FilesList from "./FilesList";
 
 interface CreateAdFormProps {
     handleAddFiles: React.ChangeEventHandler<HTMLInputElement>
@@ -66,19 +67,7 @@ const CreateAdForm: FC<CreateAdFormProps> = ({handleSubmit, dispatch, handleAddF
                     </div>
                 </div>
             </div>
-            {files.length > 0 && (
-                <div className="col-span-full flex flex-wrap gap-4 py-4">
-                {files.map(({src, name, sizeInKb, allowed}) => (
-                    <div key={src} className={`relative ring-2 ${allowed ? 'ring-x-green ring-opacity-20' : 'ring-red-500'} w-40 overflow-hidden rounded-md flex flex-col items-center justify-center gap-2 p-2`}>
-                        <button type="button" className="bg-red-500 bg-opacity-50 hover:bg-opacity-100 duration-500 text-slate-50 absolute rounded-full text-xs px-2 py-1 left-1 top-1" onClick={handleRemoveFile} data-src={src}>حذف</button>
-                        {! allowed && <span className="bg-red-600 bg-opacity-80 text-slate-50 absolute rounded-full text-xs px-2 py-1 mx-2 text-center">حجم عکس بیش از 500 کیلوبایت است</span>}
-                        <img className="h-auto w-full" src={src} alt={name} />
-                        <span className="text-xs text-center">{name}</span>
-                        <span className="text-xs text-center bg-gray-200 px-2 rounded-full">{Math.ceil(sizeInKb * 10) / 10} کیلوبایت</span>
-                    </div>
-                ))}
-            </div>
-            )}
+            <FilesList files={files} onRemoveFile={handleRemoveFile}/>
             <FormSubtitle text="توضیحات تکمیلی">
                 <svg className="ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512"><g id="_01_align_center" data-name="01 align center"><path d="M24,24H12.018A12,12,0,1,1,24,11.246l0,.063ZM12.018,2a10,10,0,1,0,0,20H22V11.341A10.018,10.018,0,0,0,12.018,2Z"/><rect x="7" y="7" width="6" height="2"/><rect x="7" y="11" width="10" height="2"/><rect x="7" y="15" width="10" height="2"/></g></svg>
             </FormSubtitle>
