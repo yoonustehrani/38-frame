@@ -1,6 +1,8 @@
 <?php
 
 use App\Enums\AdDeliveryType;
+use App\Enums\AdPricingType;
+use App\Enums\AdStatusType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,14 +20,9 @@ return new class extends Migration
             $table->string('title', 90);
             $table->string('price')->nullable();
             $table->foreignId('category_id')->nullable()->references('id')->on('site_categories')->nullOnDelete()->cascadeOnUpdate();
-            $table->enum('delivery_type', array_map(fn($type) => $type->value, AdDeliveryType::cases()));
-            // TODO: add new enum class for status field
-            $table->enum('status', [
-                'awaiting_confirmation',
-                'rejected',
-                'confirmed',
-                'expired'
-            ]);
+            $table->enum('delivery_type', get_enum_values(AdDeliveryType::class));
+            $table->enum('pricing_type', get_enum_values(AdPricingType::class));
+            $table->enum('status', get_enum_values(AdStatusType::class))->default(AdStatusType::AwaitingConfirmation);
             $table->text('description');
             $table->foreignId('province');
             $table->foreignId('city_id')->nullable()->references('id')->on('cities')->nullOnDelete()->cascadeOnUpdate();
