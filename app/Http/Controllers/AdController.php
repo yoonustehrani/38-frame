@@ -32,7 +32,8 @@ class AdController extends Controller
     public function store(StoreAdRequest $request)
     {
         $ad = new Ad();
-        $ad->fill($request->except(['photos', 'address_line']));
+        // ->except(['address_line'])
+        $ad->fill($request->get('ad'));
         $ad->city_id = $this->user->city_id;
         $ad->province = 17;
         $ad->status = (string) AdStatusType::AwaitingConfirmation->value;
