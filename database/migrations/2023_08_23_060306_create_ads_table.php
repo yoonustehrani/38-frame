@@ -15,14 +15,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ads', function (Blueprint $table) {
-            $table->ulid('id');
+            $table->ulid('id')->primary();
             $table->morphs('publisher'); // App\Models\User or App\Models\Shop
             $table->string('title', 90);
             $table->string('price')->nullable();
-            $table->foreignId('category_id')->nullable()->references('id')->on('site_categories')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->references('id')->on('site_categories')->cascadeOnUpdate();
             $table->enum('delivery_type', get_enum_values(AdDeliveryType::class));
             $table->enum('pricing_type', get_enum_values(AdPricingType::class));
-            $table->enum('status', get_enum_values(AdStatusType::class))->default(AdStatusType::AwaitingConfirmation);
+            $table->enum('status', get_enum_values(AdStatusType::class))->default(AdStatusType::AwaitingConfirmation->value);
             $table->text('description');
             $table->foreignId('province');
             $table->foreignId('city_id')->nullable()->references('id')->on('cities')->nullOnDelete()->cascadeOnUpdate();
