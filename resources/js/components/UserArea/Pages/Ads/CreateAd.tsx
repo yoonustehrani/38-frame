@@ -1,4 +1,4 @@
-import { FC, FormEventHandler, StrictMode, useLayoutEffect, useState } from "react";
+import { FC, StrictMode, useLayoutEffect, useState } from "react";
 import BreadCrumb, { BreadCrumbItem } from "../../components/BreadCrumb";
 import { fetchSiteCategories, requestAdCreation } from "./api";
 import { ThemeProvider } from "@emotion/react";
@@ -42,12 +42,7 @@ const CreateAd: FC = () => {
                         {` `}
                         فرم ایجاد آگهی در ۳۸ فریم
                     </h2>
-                    {categories && (
-                        <CreateAdForm 
-                            handleSubmit={handleFormSubmit}
-                            categories={categories}
-                        />
-                    )}
+                    {categories && <CreateAdForm handleSubmit={handleFormSubmit} categories={categories}/>}
                 </section>
             </ThemeProvider>
         </StrictMode>
