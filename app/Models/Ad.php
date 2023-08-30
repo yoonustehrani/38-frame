@@ -15,6 +15,7 @@ class Ad extends Model
         'expires_at' => 'datetime',
         'published_at' => 'datetime'
     ];
+    protected $fillable = ['category_id', 'title', 'price', 'description', 'phone_number', 'pricing_type', 'delivery_type'];
     public $appends = ['status_fa'];
 
     public function getStatusFaAttribute() {
