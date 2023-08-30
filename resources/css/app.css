@@ -269,10 +269,13 @@
     this is for userarea
     */
     .form-input {
-        @apply w-full bg-transparent border border-black/10 rounded-md;
+        @apply w-full bg-transparent border border-black/10 rounded-md outline-none focus:ring-4 focus:ring-gray-900/10 focus:border-gray-900;
     }
     .form-input.ltr {
         @apply [direction:ltr] placeholder:text-right text-left;
+    }
+    .form-input.invalid {
+        @apply border-red-500 focus:ring-red-500/10;
     }
     .form-textarea {
         @apply form-input w-3/4 h-32 py-2 pt-3 px-3;

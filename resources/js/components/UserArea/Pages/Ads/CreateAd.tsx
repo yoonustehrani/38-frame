@@ -5,6 +5,8 @@ import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
 import CreateAdForm from "./CreateAdForm";
 import { SiteCategory, reducerState } from "./types";
+import { adDetailsSchema } from "./validationSchema";
+import { ValidationError } from "yup";
 
 const CreateAd: FC = () => {
     const [categories, setCategories] = useState<SiteCategory[]>()
@@ -18,12 +20,23 @@ const CreateAd: FC = () => {
         return () => cancel()
     }, [])
     const handleFormSubmit = (data: reducerState) => {
-        let newAdData = {...data, photos: data.photos.filter(f => f.allowed).map(f => f.file)}
-        requestAdCreation(newAdData)[0].then(res => {
-            if (res.hasErrors()) {
-                console.log(res.getErrors());
-            }
-        })
+        // try {
+        //     const v = adDetailsSchema.validateSync(data.ad, {strict: true, abortEarly: false})
+
+        // } catch (errorPacket) {
+        //     if (errorPacket instanceof ValidationError) {
+        //         errorPacket.inner.map(e => {
+        //             console.log(e.path);
+        //         })
+                
+        //     }
+        // }
+        // let newAdData = {...data, photos: data.photos.filter(f => f.allowed).map(f => f.file)}
+        // requestAdCreation(newAdData)[0].then(res => {
+        //     if (res.hasErrors()) {
+        //         console.log(res.getErrors());
+        //     }
+        // })
     }
     return (
         <StrictMode>
