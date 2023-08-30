@@ -1,12 +1,4 @@
-export interface newAdInstance {
-    photos: UploadingFiles[],
-    title: string
-    description: string
-    price: number | null
-    category_id: number
-    phone_number: string
-    address: string | null
-}
+
 
 export interface SiteCategory {
     id: number
@@ -14,36 +6,60 @@ export interface SiteCategory {
 }
 
 export interface UploadingFiles {
+    file: File,
     sizeInKb: number
     allowed: boolean
     src: string
     name: string
-    file: File
 }
 
-export const initialFormValues: newAdInstance = {
+export interface AdObject {
+    title: string
+    description: string
+    price: number | null
+    category_id: number
+    phone_number: string
+    address: string | null
+    pricing_type: pricingType
+    delivery_type: number
+}
+
+export interface reducerState {
+    photos: UploadingFiles[],
+    ad: AdObject
+}
+
+export const initialFormValues: reducerState = {
     photos: [],
-    title: '',
-    description: '',
-    phone_number: '',
-    address: null,
-    price: null,
-    category_id: 1
+    ad: {
+        title: '',
+        description: '',
+        phone_number: '',
+        address: null,
+        price: null,
+        category_id: 1,
+        pricing_type: 'price',
+        delivery_type: 1
+    } 
 }
 
+// export type kos = 
 export const createAdActionTypes = {
-    SET_CATEGORY: 'SET_CATEGORY',
-    SET_TITLE: 'SET_TITLE',
-    SET_PRICE: 'SET_PRICE',
-    SET_PRICING_TYPE: 'SET_PRICING_TYPE',
-    SET_PHONE_NUMBER: 'SET_PHONE_NUMBER',
-    SET_DELIVERY_TYPE: 'SET_DELIVERY_TYPE',
-    SET_DESCRIPTION: 'SET_DESCRIPTION',
-    SET_ADDRESS: 'SET_ADDRESS'
+    MODIFY_ADD: 'MODIFY_ADD',
+    ATTACH_PHOTOS: 'ATTACH_PHOTOS',
+    REMOVE_PHOTO: 'REMOVE_PHOTO'
 } as const
 
+// export type modifyAdAction<> = {
+//     action: 'MODIFY_ADD',
+//     payload: [
+//         keyof AdObject,
+//         AdObject[keyof AdObject]
+//     ]
+// }
 export type createAdAction = {
     type: keyof typeof createAdActionTypes
     payload: any
 }
+
 export type pricingType = 'negotiation' | 'trade-off' | 'price';
