@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AdStatusType;
 use App\Http\Requests\StoreAdRequest;
 use App\Models\Ad;
 use App\Models\User;
@@ -32,8 +33,11 @@ class AdController extends Controller
     {
         $ad = new Ad();
         $ad->fill($request->except(['photos', 'address_line']));
+        $ad->city_id = $this->user->city_id;
+        $ad->province = 17;
+        $ad->status = (string) AdStatusType::AwaitingConfirmation->value;
         // Todo: add address_line to meta
-        $ad->save();
+        $this->user->ads()->save($ad);
         /**
          * @var \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[] $photos
          */
