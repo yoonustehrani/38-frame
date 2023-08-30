@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\AdStatusType;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +18,7 @@ class Ad extends Model
     public $appends = ['status_fa'];
 
     public function getStatusFaAttribute() {
-        return __("models.{$this->table}.status.{$this->attributes['status']}");
+        return AdStatusType::tryFrom($this->attributes['status'])->label();
     }
     public function publisher()
     {
