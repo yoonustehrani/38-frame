@@ -138,9 +138,7 @@ if (! function_exists('random_phone_number')) {
 }
 
 if (! function_exists('get_enum_values')) {
-    function get_enum_values(string $enumClass) {
-        $enumClass = '\App\Enums\AdPricingType';
-        $enum = app()->make($enumClass);
-        return array_map(fn($type) => $type->value, $enum::cases());
+    function get_enum_values($enumClass) {
+        return array_map(fn($type) => $type->value, $enumClass::cases());
     }
 }
