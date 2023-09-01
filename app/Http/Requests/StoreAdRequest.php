@@ -25,36 +25,38 @@ class StoreAdRequest extends FormRequest
      */
     public function rules(): array
     {
+        // $this->input('ad.delivery_type'),
         return [
-            'ad' => [
-                'title' => 'required|string|min:3|max:80',
-                'description' => 'required|string|min:3',
-                'delivery_type' => [
-                    'required',
-                    Rule::enum(AdDeliveryType::class)
-                ],
-                'pricing_type' => [
-                    'required',
-                    Rule::enum(AdPricingType::class)
-                ],
-                'price' => [
-                    Rule::requiredIf($this->input('pricing_type') === AdPricingType::Price->value),
-                    'numeric',
-                    'min:0',
-                    'max:' . ((string) 500_000_000)
-                ],
-                'address' => [
-                    Rule::requiredIf($this->input('delivery_type') !== AdDeliveryType::Shipment->value),
-                    'string',
-                    'min:3',
-                    'max:100'
-                ],
-                'phone_number' => 'required|string|numeric|digits:11|string|regex:/09[0-9]{9}/',
+            'ad.title' => 'required|string|min:3|max:80',
+            'ad.description' => 'required||min:3',
+            'ad.delivery_type' => [
+                'required',
+                Rule::enum(AdDeliveryType::class)
             ],
+            'ad.pricing_type' => [
+                'required',
+                Rule::enum(AdPricingType::class)
+            ],
+            'ad.price' => [
+                Rule::excludeIf($this->input('ad.pricing_type') != AdPricingType::Price->value),
+                Rule::requiredIf($this->input('ad.pricing_type') == AdPricingType::Price->value),
+                'numeric',
+                'min:0',
+                'max:' . ((string) 500_000_000)
+            ],
+            'ad.address' => [
+                Rule::excludeIf($this->input('ad.delivery_type') == AdDeliveryType::Shipment->value),
+                Rule::requiredIf($this->input('ad.delivery_type') != AdDeliveryType::Shipment->value),
+                'string',
+                'min:3',
+                'max:100'
+            ],
+            'ad.phone_number' => 'required|string|numeric|digits:11|string|regex:/09[0-9]{9}/',
             'meta' => [
                 'address_line' => 'nullable|string|numeric',
                 'only_sms' => 'nullable'
             ],
+            'photos' => 'required|array',
             'photos.*' => [
                 'required',
                 File::types(['jpg', 'png', 'webp'])
