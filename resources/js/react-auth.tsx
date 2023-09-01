@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Auth from './components/Auth'
+import Request from './utils/HttpClient/Request';
 
 interface AuthPageWindow extends Window {
     onGoogleLibraryLoad: any;
@@ -25,18 +26,17 @@ if(authElement) {
                             let data = {
                                 token: response.credential
                             }
-                            await fetch('http://localhost:8000/api/auth/google', {
-                                method: "POST",
-                                mode: "cors",
-                                cache: "no-cache",
-                                credentials: "same-origin",
+                            const [GoogleAuthRequest] = new Request({
                                 headers: {
                                     "Content-Type": "application/json",
                                 },
-                                redirect: "follow",
-                                referrerPolicy: "no-referrer",
-                                body: JSON.stringify(data),
-                            });
+                                baseURL: location.origin + '/api'
+                            }).to('/auth/google').method('post').send(data)
+                            GoogleAuthRequest.then(res => {
+                                if (! res.hasErrors()) {
+                                    location.href = location.origin + '/userarea'
+                                }
+                            })
                         },
                         auto_select: true,
                         context: "signin", // "signup" | "signin"

@@ -1,5 +1,7 @@
-import { FC, useEffect, useReducer, useRef} from "react";
+import { FC, useEffect, useLayoutEffect, useReducer, useRef, useState} from "react";
 import Form from "./Form";
+import { requestLogin, requestSanctumCSRFCookie } from "./api";
+import HttpResponse from "../../utils/HttpClient/HttpResponse";
 
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PASSWORD = 'SET_PASSWORD'
@@ -24,23 +26,34 @@ const Auth: FC<AuthProps> = ({GetGoogleLibrary}) => {
     const GoogleAreaRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         if (credentials.email && credentials.password) {
-            
+            requestSanctumCSRFCookie()[0].then(() => {
+                const [loginRequest, cancel] = requestLogin(credentials)
+                function loginCheckAndRedirect(res: HttpResponse) {
+                    if (res.hasErrors()) {
+                        console.log(res.getErrors());
+                    } else {
+                        location.href = location.origin + '/userarea'
+                    }
+                }
+                loginRequest.then(loginCheckAndRedirect)
+                return () => cancel()
+            })
         }
     }, [credentials])
-    // useEffect(() => {
-    //     if (GoogleAreaRef.current) {
-    //         GetGoogleLibrary().run().then(gLib => {
-    //             gLib.renderButton(GoogleAreaRef.current as HTMLDivElement, {
-    //                 type: "standard",
-    //                 theme: "filled_black",
-    //                 size: "large",
-    //                 shape: "pill",
-    //                 text: "signup_with",
-    //                 locale: "fa"
-    //             });
-    //         })
-    //     }
-    // }, [GoogleAreaRef])
+    useEffect(() => {
+        if (GoogleAreaRef.current) {
+            GetGoogleLibrary().run().then(gLib => {
+                gLib.renderButton(GoogleAreaRef.current as HTMLDivElement, {
+                    type: "standard",
+                    theme: "filled_black",
+                    size: "large",
+                    shape: "pill",
+                    text: "signup_with",
+                    locale: "fa"
+                });
+            })
+        }
+    }, [GoogleAreaRef])
     return (
         <div className="bg-x-green/40 rounded-2xl w-11/12 md:w-1/2 xl:w-1/3 py-6 flex flex-col items-center gap-8 font-iran-sans px-4">
             <img width="100" src="/images/logo-300w.webp" alt=""/>

@@ -31,9 +31,6 @@ const Form: React.FC<FormProps> = ({dispatch}) => {
                 setStage('password')
                 setDisabled(false)
                 break;
-            case 'password':
-
-                break;
         }
     }
     return (

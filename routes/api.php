@@ -15,12 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function() {
+    Route::apiResource('ads', 'App\Http\Controllers\AdController');
+    Route::get('site-categories', function() {
+        return SiteCategory::whereType(null)->get();
+    })->name('site-categories.index');
+    
+    Route::prefix('user')->name('user.')->group(function() {
+        Route::get('/', function (Request $request) {
+            return $request->user();
+        });
+        Route::get('/shop', function(Request $request) {
+            return $request->user()->shop()->first();
+        });
+        Route::patch('settings/social', function(Request $request) {
+            return \App\Models\User::latest()->first();
+        });
+    });
 });
 
 Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn');
-Route::apiResource('ads', 'App\Http\Controllers\AdController');
-Route::get('site-categories', function() {
-    return SiteCategory::whereType(null)->get();
-})->name('site-categories.index');
+Route::post('auth/login', 'App\Http\Controllers\AuthController@login');

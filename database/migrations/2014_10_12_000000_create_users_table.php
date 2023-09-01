@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->bigInteger('credit');
+            $table->string('username')->nullable()->unique();
+            $table->bigInteger('credit')->unsigned()->default(0);
             $table->string('password');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -22,8 +22,10 @@ return new class extends Migration
             $table->timestamp('phone_verified_at')->nullable();
             $table->foreignId('role_id')->nullable();
             $table->foreignId('city_id')->nullable();
+            $table->tinyText('avatar');
             $table->rememberToken();
             $table->timestamps();
+            $table->binary('meta');
         });
     }
 
