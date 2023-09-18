@@ -21,6 +21,7 @@ class ShopController extends Controller
      */
     public function store(StoreShopRequest $request)
     {
+        $this->authorize('create', Shop::class);
         $details = collect($request->validated())->except(['iban']);
         $shop = new Shop($details->toArray());
         try {
