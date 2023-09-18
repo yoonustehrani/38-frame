@@ -12,18 +12,16 @@ use Illuminate\Support\Facades\Storage;
 
 class AdController extends Controller
 {
-    public User $user;
     public function __construct()
     {
-        Auth::login(User::latest()->first());
-        $this->user = auth()->user();
+        
     }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->user->ads()->latest()->get();
+        return $request->user()->ads()->latest()->get();
     }
 
     /**
@@ -31,14 +29,15 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
+        return $request->all();
         $ad = new Ad();
         // ->except(['address_line'])
         $ad->fill($request->get('ad'));
-        $ad->city_id = $this->user->city_id;
+        $ad->city_id = $request->user()->city_id;
         $ad->province = 17;
         $ad->status = (string) AdStatusType::AwaitingConfirmation->value;
         // Todo: add address_line to meta
-        $this->user->ads()->save($ad);
+        $request->user()->ads()->save($ad);
         /**
          * @var \Illuminate\Http\UploadedFile|\Illuminate\Http\UploadedFile[] $photos
          */
