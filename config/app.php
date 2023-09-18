@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'fa_IR',
+    'faker_locale' => 'fa-IR',
 
     /*
     |--------------------------------------------------------------------------
@@ -194,6 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
 
     ],
 
