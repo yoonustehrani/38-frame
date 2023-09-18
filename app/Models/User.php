@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->morphMany(Ad::class, 'publisher');
     }
+
+    public function shop()
+    {
+        return $this->hasOne(Shop::class, 'owner_id');
+    }
 }
