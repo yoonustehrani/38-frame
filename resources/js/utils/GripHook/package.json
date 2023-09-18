@@ -1,0 +1,18 @@
+{
+  "name": "@alibaba-aero/griphook",
+  "version": "1.0.4",
+  "description": "Validate and visualize Iranian bank info",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://git.alibaba.ir/j.izadfar/griphook.git"
+  },
+  "keywords": [
+    "iran",
+    "js",
+    "bank"
+  ],
+  "author": "Javid Izadfar",
+  "license": "MIT"
+}
