@@ -46,8 +46,16 @@ class Request
             url: this.targetUrl,
             method: this.HttpRequestMethod,
             cancelToken: source.token,
+            onDownloadProgress: progressEvent => {
+                console.log('download');
+                console.log(progressEvent);
+            },
+            onUploadProgress: progressEvent => {
+                console.log('upload');
+                console.log(progressEvent);
+            },
             data
-        }
+        } as AxiosRequestConfig
         return [this.request(options) as Promise<HttpResponse>, source.cancel as Canceler]
     }
     private async request(config: AxiosRequestConfig) {
