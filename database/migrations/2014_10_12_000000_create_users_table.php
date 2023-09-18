@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('role_id')->nullable();
             $table->foreignId('city_id')->nullable();
             $table->tinyText('avatar');
+            $table->string('iban', 24)->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->binary('meta');
