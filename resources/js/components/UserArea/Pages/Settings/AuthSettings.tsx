@@ -43,4 +43,4 @@ const AuthSettings: FC<AuthSettingsProps> = () => {
     );
 }
  
-export default AuthSettings;
+export {AuthSettings as Component};

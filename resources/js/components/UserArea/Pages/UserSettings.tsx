@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigation } from "react-router-dom";
 
 interface UserSettingsProps {
     
@@ -29,6 +29,8 @@ const Tabs = [
 ];
 
 const UserSettings: FC<UserSettingsProps> = () => {
+    const navigation = useNavigation()
+    console.log(navigation);
     return (
         <>
             <h1 className="font-bold text-2xl">تنظیمات حساب کاربری</h1>
@@ -58,11 +60,11 @@ const UserSettings: FC<UserSettingsProps> = () => {
                             ))}
                         </ul>
                     </nav>
-                    <Outlet />
+                    {navigation.state === 'loading' ? <div>در حال لود کردن</div> : <Outlet />}
                 </section>
             </section>
         </>
     );
 }
  
-export default UserSettings;
+export {UserSettings as Component}

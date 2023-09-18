@@ -1,15 +1,18 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
+import authContext from "./context/authContext";
+import { User } from "./types";
 interface TopNavProps {
     
 }
  
 const TopNav: FC<TopNavProps> = () => {
+    const user = useContext(authContext) as User
     return (
         <div className="w-full fixed lg:sticky top-0 left-0 z-30 flex flex-row-reverse gap-4 justify-start items-center shadow-md bg-white h-16 px-4">
             <Link to={'/settings'}>
                 <div className="h-12 w-12 rounded-full overflow-hidden cursor-pointer">
-                    <img className="h-full w-auto" src="https://lh3.googleusercontent.com/a/AAcHTtcj0a4dP5eddufZTseCn5LISSUSSDzdQ10R8fQ6miVnRgtnsY9l9LfRYwOo89k4cSNJLCmARbHvdkilFlwa4Y0wrU4=s288-c-no" alt="" />
+                    <img className="h-full w-auto" src={user.avatar} alt="" />
                 </div>
             </Link>
             <Link to={'/signout'}>

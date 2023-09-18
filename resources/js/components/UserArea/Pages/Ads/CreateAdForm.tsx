@@ -9,13 +9,15 @@ import Input from "../../components/Form/Input";
 import yupFormContext from "../../context/yupFormContext";
 import { adDetailsSchema } from "./validationSchema";
 import TextArea from "../../components/Form/TextArea";
+import { useNavigation } from "react-router-dom";
 
 interface CreateAdFormProps {
     handleSubmit: (data: reducerState) => void
     categories: SiteCategory[]
+    submitting: boolean
 }
 
-const CreateAdForm: FC<CreateAdFormProps> = ({handleSubmit, categories}) => {
+const CreateAdForm: FC<CreateAdFormProps> = ({handleSubmit, categories, submitting}) => {
     const fileInputRef = useRef<HTMLInputElement>(null)
     const [state, dispatch] = useReducer(provideAdReducer, initialFormValues)
     function setAdInfo<Key extends keyof AdObject>(key: Key, value: AdObject[Key]) {
@@ -130,7 +132,9 @@ const CreateAdForm: FC<CreateAdFormProps> = ({handleSubmit, categories}) => {
                 )}
             </yupFormContext.Provider>
             <div className="col-span-full flex justify-center">
-                <button type='submit' className="text-lg duration-300 text-white bg-emerald-700 py-1 px-3 rounded-md border border-b-4 border-b-emerald-900/90 w-fit">ثبت آگهی</button>
+                <button type='submit' className="text-lg duration-300 text-white bg-emerald-700 py-1 px-3 rounded-md border border-b-4 border-b-emerald-900/90 w-fit">
+                    {submitting ? 'در حال ارسال' : 'ثبت آگهی'}
+                </button>
             </div>
         </form>
     );

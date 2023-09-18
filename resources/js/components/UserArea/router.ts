@@ -65,7 +65,7 @@ const routes: RouteObject[] = [
                     },
                     {
                         path: 'register',
-                        lazy: () => import('./Pages/Register/Shop')
+                        lazy: () => import('./Pages/Shop/RegisterShop')
                     },
                     // {
                     //     path: 'lab'

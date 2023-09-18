@@ -13,6 +13,6 @@ export const fetchSiteCategories = () => {
     return new Request(ApiConfig).to('/site-categories').send()
 }
 
-export const requestAdCreation = (data: {[key: string]: unknown}) => {
+export const requestAdCreation = (data: FormData) => {
     return new Request({...ApiConfig, headers: {...ApiConfig.headers, "Content-Type": "multipart/form-data" }}).method('post').to('/ads').send(data)
 }

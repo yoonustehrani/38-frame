@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import BreadCrumb, { BreadCrumbItem } from "../../components/BreadCrumb";
-import { Link } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import PlusIcon from "../../../Icons/PlusIcon";
 import { fetchAds } from "./api";
 import Table from '@mui/material/Table';
@@ -38,6 +38,8 @@ const formatJalali = (date: string, time = false) => {
 }
 const Ads: FC<AdsProps> = () => {
     const [ads, setAds] = useState<{[key: string]: any}[] | null>(null)
+    const params = useSearchParams()
+    console.log(params);
     useEffect(() => {
         let [request, cancel] = fetchAds()
         request.then(res => {
@@ -107,4 +109,4 @@ const Ads: FC<AdsProps> = () => {
     );
 }
  
-export default Ads;
+export {Ads as Component}

@@ -265,6 +265,9 @@
     .button-x-dark-blue-outline {
         @apply border-2 border-x-dark-blue text-x-dark-blue hover:bg-x-dark-blue hover:text-slate-50 hover:fill-slate-50 duration-300 text-lg px-3 py-1 rounded-md;
     }
+    .button-x-yellow-outline {
+        @apply border-2 border-x-yellow text-x-yellow hover:bg-x-yellow hover:text-slate-50 hover:fill-slate-50 duration-300 text-lg px-3 py-1 rounded-md;
+    }
     /**
     this is for userarea
     */
@@ -279,5 +282,17 @@
     }
     .form-textarea {
         @apply form-input w-3/4 h-32 py-2 pt-3 px-3;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0.1;
+        } 100% {
+            opacity: 1;
+        }
+    }
+    .fadeIn {
+        animation: fadeIn 0.5s ease-in-out;
+        transition: opacity 1s ease-in-out;
+        opacity: 1;
     }
 }
