@@ -29,7 +29,7 @@ class AdController extends Controller
      */
     public function store(StoreAdRequest $request)
     {
-        return $request->all();
+        $this->authorize('create', Ad::class);
         $ad = new Ad();
         // ->except(['address_line'])
         $ad->fill($request->get('ad'));
