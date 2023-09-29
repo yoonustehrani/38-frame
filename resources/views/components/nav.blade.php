@@ -1,4 +1,4 @@
-<nav class="grow-0 flex items-center gap-4 px-4 justify-between h-20 bg-x-green/80 shadow-md w-[90%] mt-4 animate__animated animate__backInDown {{ $classNames ?? '' }}">
+<nav class="grow-0 absolute z-10 flex items-center gap-4 px-4 justify-between h-20 shadow-md w-[90%] mt-4 animate__animated animate__backInDown {{ $classNames ?? 'bg-x-green/80' }}">
     <div class="flex gap-4 h-full">
         <div class="h-full py-2">
             <img 
