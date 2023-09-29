@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SiteCategory extends Model
+class Merchandise extends Model
 {
     use HasFactory;
-
-    protected $fillabled = ['name', 'label', 'type', 'description'];
-    public $timestamps = false;
 }

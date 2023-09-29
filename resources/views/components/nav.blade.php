@@ -14,7 +14,7 @@
                 <a href="{{ route('pages.home') }}">صفحه اصلی</a>
             </li>
             <li>
-                <a href="#">تاریکخانه ها / تعمیرکاران</a>
+                <a href="{{ route('pages.labs.index') }}">تاریکخانه ها / تعمیرکاران</a>
             </li>
             <li class="relative before:bg-x-grey before:delay-150 before:rotate-180 before:pointy-triangle before:middle-10px before:bottom-3 h-full flex items-center">
                 <a data-has-sub href="#">فروشگاه ۳۸ فریم</a>
