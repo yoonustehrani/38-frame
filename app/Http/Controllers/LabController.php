@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateLabRequest;
 use App\Http\Resources\LabCollection;
 use App\Http\Resources\LabResource;
 use App\Models\Lab;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
@@ -29,6 +30,16 @@ class LabController extends Controller
             }
             if ($request->has('city')) {
                 $query->where('city_id', $request->query('city'));
+            }
+            if ($request->has('services')) {
+                $services = $request->query('services');
+                if (gettype($services) == 'array') {
+                    $query->whereHas('services', function($query) use($services) {
+                        $query->whereIn('lab_service.service_id', $services)
+                            ->groupBy('lab_id')
+                            ->havingRaw('COUNT(distinct `lab_service`.`service_id`) = ' . count($services));
+                    });
+                }
             }
             return new LabCollection($query->paginate(8)->withQueryString());
         }
