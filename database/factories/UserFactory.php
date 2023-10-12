@@ -19,14 +19,16 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->userName(),
+            'username' => fake()->unique()->userName(),
             'credit' => (random_int(1, 1000) / 10) * 10_000,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'phone_number' => random_phone_number(),
             'phone_verified_at' => now(),
             'password' => bcrypt('password'),
-            'city_id' => City::whereName('مشهد')->first()->id
+            'city_id' => City::whereName('مشهد')->first()->id,
+            'avatar' => 'images/yoosof.webp',
+            'meta' => [],
             // 'remember_token' => Str::random(10),
         ];
     }
