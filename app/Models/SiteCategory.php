@@ -11,4 +11,10 @@ class SiteCategory extends Model
 
     protected $fillabled = ['name', 'label', 'type', 'description'];
     public $timestamps = false;
+
+
+    public function services()
+    {
+        return $this->hasMany(LabService::class, 'category_id');
+    }
 }
