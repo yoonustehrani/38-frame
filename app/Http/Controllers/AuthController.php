@@ -28,7 +28,10 @@ class AuthController extends Controller
     }
     public function logout(Request $request)
     {
-
+        auth('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return ['okay' => true];
     }
     public function handleGoogleSignIn(Request $request)
     {
