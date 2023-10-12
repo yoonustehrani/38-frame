@@ -18,7 +18,10 @@ class SiteCategorySeeder extends Seeder
             ['name' => 'camera', 'label' => 'دوربین عکاسی', 'description' => ''],
             ['name' => 'photography_equipments', 'label' => 'تجهیزات عکاسی', 'description' => ''],
             ['name' => 'lab_material', 'label' => 'تجهیزات تاریکحانه', 'description' => ''],
-            ['name' => 'accessory', 'label' => 'اکسسوری مربوط به عکاسی', 'description' => '']
+            ['name' => 'accessory', 'label' => 'اکسسوری مربوط به عکاسی', 'description' => ''],
+            ['name' => 'process_photo', 'label' => 'خدمات ظهور عکس', 'description' => '', 'type' => 'service'],
+            ['name' => 'scan_photo', 'label' => 'خدمات اسکن عکس', 'description' => '', 'type' => 'service'],
+            ['name' => 'repairment', 'label' => 'خدمات تعمیرات دوربین و تجهیزات عکاسی', 'description' => '', 'type' => 'service'],
         ];
         foreach ($categories as $category) {
             (new SiteCategory($category))->saveQuietly();
