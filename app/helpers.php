@@ -142,3 +142,22 @@ if (! function_exists('get_enum_values')) {
         return array_map(fn($type) => $type->value, $enumClass::cases());
     }
 }
+
+if (! function_exists('persian_numbers')) {
+    function persian_numbers(int|float|string $number) {
+        $number = (string) $number;
+        $numbers = collect([
+            '1' => '۱',
+            '2' => '۲',
+            '3' => '۳',
+            '4' => '۴',
+            '5' => '۵',
+            '6' => '۶',
+            '7' => '۷',
+            '8' => '۸',
+            '9' => '۹',
+            '0' => '۰',
+        ]);
+        return str_replace($numbers->keys()->toArray(), $numbers->values()->toArray(), $number);
+    }
+}
