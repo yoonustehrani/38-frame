@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
+            $table->tinyText('description');
+            $table->tinyText('avatar');
             $table->longText('body');
             $table->foreignId('author_id')->references('id')->on('users')->cascadeOnUpdate();
             $table->enum('status', [
@@ -21,6 +24,7 @@ return new class extends Migration
                 'draft'
             ]);
             $table->timestamps();
+            $table->timestamp('published_at');
         });
     }
 

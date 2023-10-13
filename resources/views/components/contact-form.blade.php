@@ -1,4 +1,4 @@
-<section class="md:h-fit my-20 w-full overflow-hidden bg-yashika-sm bg-contain md:bg-cover md:bg-yashika-lg flex justify-center items-center relative">
+<section class="md:h-fit my-10 md:my-20 w-full overflow-hidden bg-yashika-sm bg-contain md:bg-cover md:bg-yashika-lg flex justify-center items-center relative">
     <section class="w-full bg-black/95 text-white font-iran-sans">
         <div class="w-4/5 mx-[10%] h-full flex flex-col pb-8 gap-6">
             <div class="col-span-full flex justify-center items-center text-3xl font-bold h-32">

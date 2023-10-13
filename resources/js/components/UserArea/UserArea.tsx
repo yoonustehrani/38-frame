@@ -1,18 +1,30 @@
 import { FC, StrictMode, useLayoutEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
+import { getRouter } from "./router";
 import { User } from "./types";
 import Request from "../../utils/HttpClient/Request";
 import authContext from "./context/authContext";
-interface UserAreaProps {
-    
-}
+
 const ApiConfig = {
     baseURL: window.location.origin + '/api',
     headers: {'Accept': 'application/json'}
 }
+
+interface UserAreaProps {
+    
+}
+
 const UserArea: FC<UserAreaProps> = () => {
     const [user, setUser] = useState<null | User>(null)
+    const Auth = { 
+        user,
+        login: (user: User) => {
+            setUser(user)
+        },
+        logout: () => {
+            setUser(null)
+        }
+    }
     const [loading, setLoading] = useState(true)
     useLayoutEffect(() => {
         if (! user) {
@@ -20,19 +32,19 @@ const UserArea: FC<UserAreaProps> = () => {
             requestUser.then(res => {
                 if (! res.hasErrors()) {
                     setUser(res.getContent() as User)
-                    setLoading(false)
                 }
+                setLoading(false)
             })
             return () => cancelRequest()
         }
     }, [user])
-    return ! loading && (
-        <StrictMode>
-            <authContext.Provider value={user}>
-                <RouterProvider router={router} />
+    if (! loading) {
+        return (
+            <authContext.Provider value={Auth}>
+                <RouterProvider router={getRouter(user != null)} />
             </authContext.Provider>
-        </StrictMode>
-    );
+        )
+    }
 }
  
 export default UserArea;

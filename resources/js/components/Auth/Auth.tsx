@@ -1,14 +1,24 @@
-import { FC, useEffect, useLayoutEffect, useReducer, useRef, useState} from "react";
+import { FC, useCallback, useContext, useEffect, useLayoutEffect, useReducer, useRef, useState} from "react";
 import Form from "./Form";
 import { requestLogin, requestSanctumCSRFCookie } from "./api";
 import HttpResponse from "../../utils/HttpClient/HttpResponse";
+import Request from "../../utils/HttpClient/Request";
+import authContext from "../UserArea/context/authContext";
 
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PASSWORD = 'SET_PASSWORD'
 
 interface AuthProps {
-    GetGoogleLibrary: () => {run: () => Promise<typeof google.accounts.id>}
+    // GetGoogleLibrary: () => {run: () => Promise<typeof google.accounts.id>}
 }
+
+
+// interface AuthPageWindow extends Window {
+//     onGoogleLibraryLoad: any;
+// }
+// declare let window: AuthPageWindow;
+
+type handleFunction = (response: google.accounts.id.CredentialResponse) => void
 
 const credentialsReducer = (state: AuthFormState, action: CredentialsAction) => {
     switch (action.type) {
@@ -21,9 +31,40 @@ const credentialsReducer = (state: AuthFormState, action: CredentialsAction) => 
     }
 }
 
-const Auth: FC<AuthProps> = ({GetGoogleLibrary}) => {
+const Auth: FC<AuthProps> = () => {
+    const Auth = useContext(authContext)
     const [credentials, dispatch] = useReducer(credentialsReducer, {email: null, password: null})
     const GoogleAreaRef = useRef<HTMLDivElement>(null)
+    const GetGoogleLibrary = useCallback(function (handleCredentialResponse?: handleFunction) {
+            return {
+                run: () => new Promise<typeof google.accounts.id>((resolve, reject) => {
+                    google.accounts.id.initialize({
+                        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID as string,
+                        callback: async function handleCredentialResponse(response: google.accounts.id.CredentialResponse) {
+                            let data = {
+                                token: response.credential
+                            }
+                            const [GoogleAuthRequest] = new Request({
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                baseURL: location.origin + '/api'
+                            }).to('/auth/google').method('post').send(data)
+                            GoogleAuthRequest.then(res => {
+                                if (! res.hasErrors()) {
+                                    Auth.login(res.getContent())
+                                }
+                            })
+                        },
+                        auto_select: true,
+                        context: "signin", // "signup" | "signin"
+                        itp_support: true
+                    });
+                    google.accounts.id.prompt()
+                    resolve(google.accounts.id)
+                })
+            }
+    }, [])
     useEffect(() => {
         if (credentials.email && credentials.password) {
             requestSanctumCSRFCookie()[0].then(() => {
@@ -32,7 +73,7 @@ const Auth: FC<AuthProps> = ({GetGoogleLibrary}) => {
                     if (res.hasErrors()) {
                         console.log(res.getErrors());
                     } else {
-                        location.href = location.origin + '/userarea'
+                        Auth.login(res.getContent())
                     }
                 }
                 loginRequest.then(loginCheckAndRedirect)

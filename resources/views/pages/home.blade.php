@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>38Frame website</x-slot:title>
     <x-header/>
-    <section class="w-4/5 mx-[10%] grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 py-4 md:py-8">
+    <section data-animation="bounceInUp" class="opacity-0 w-4/5 mx-[10%] grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 py-4 md:py-8">
         <div class="md:col-span-2 font-iran-sans">
             <div class="flex flex-col md:flex-row items-center md:items-start gap-2 h-fit">
                 <div class="h-20 w-20">@php icon('077-photo camera') @endphp</div>
@@ -26,10 +26,10 @@
         </div>
     </section>
     <div class="w-full py-4 overflow-x-hidden">
-        <section class="w-screen md:rotate-1 h-fit bg-[#111] py-3 flex justify-center items-center flex-col gap-1">
+        <section class="w-screen md:rotate-1 h-fit bg-[#111] py-3 flex justify-center items-center flex-col gap-1 overflow-hidden">
             <div class="px-2 bg-squares h-full md:h-5 w-4 md:w-full bg-repeat-y md:bg-repeat-x"></div>
             <section class="md:w-4/5 md:mx-[10%] grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-3 font-iran-sans service-list">
-                <div class="rounded-md overflow-hidden relative">
+                <div data-animation="bounceInRight" class="rounded-md overflow-hidden relative">
                     <img src="/images/service-camera-shop.webp" alt="">
                     <div class="absolute w-full text-center bg-x-yellow/90 bottom-0 left-0 flex flex-col items-center justify-center gap-4 h-16 px-4">
                         <span class="text-2xl -mt-3 font-semibold">خرید و فروش تجهیزات آنالوگ</span>
@@ -42,14 +42,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="rounded-md overflow-hidden relative">
+                <div data-animation="bounceInUp" class="rounded-md overflow-hidden relative">
                     <img src="/images/service-darkroom.webp" alt="">
                     <div class="absolute w-full text-center bg-x-yellow/90 bottom-0 left-0 flex flex-col items-center justify-center gap-4 h-16 px-4">
-                        <span class="text-2xl -mt-3 font-semibold">معرفی تاریکخانه و تعمیرکاران</span>
+                        <a href="{{ route('pages.labs.index') }}"><span class="text-2xl -mt-3 font-semibold">معرفی تاریکخانه و تعمیرکاران</span></a>
                         <p class="hidden text-gray-800">ما به معرفی خدمات تعمیرکاران، لابراتوار‌ها و تاریکخانه ها مانند ظهور و اسکن در همه شهرها می‌پردازیم و خدمات آن ها را به لحاظ کیفیت و هزینه مقایسه می‌کنیم.</p>
                     </div>
                 </div>
-                <div class="rounded-md overflow-hidden relative">
+                <div data-animation="bounceInLeft" class="rounded-md overflow-hidden relative">
                     <img src="/images/service-photographer-journal.webp" alt="">
                     <div class="absolute w-full text-center bg-x-yellow/90 bottom-0 left-0 flex flex-col items-center justify-center gap-4 h-16 px-4">
                         <span class="text-2xl -mt-3 font-semibold">بازنشر نمایه های شما!</span>
@@ -66,7 +66,7 @@
             <div class="px-2 bg-squares md:w-full h-full w-4 md:h-5 bg-repeat-y md:bg-repeat-x"></div>
         </section>
     </div>
-    <section class="w-4/5 mx-[10%] flex flex-col md:flex-row justify-start gap-4 py-8 my-6 font-iran-sans">
+    <section data-animation="zoomIn" class="w-4/5 mx-[10%] flex flex-col md:flex-row justify-start gap-4 py-8 my-6 font-iran-sans">
         <div class="flex flex-col-reverse text-center md:text-right justify-center gap-1">
             <div class="flex items-center justify-start gap-3 px-4">
                 <div class="h-20 w-24 flex items-center">@php icon('066-photo camera') @endphp</div>
@@ -79,14 +79,14 @@
         <p class="w-full md:w-2/3 text-gray-900 flex flex-col justify-center text-justify pr-2">
             <span class="font-bold text-xl">آنالوگ، زنده است! </span>
             «عکاسی آنالوگ زنده است و نبض دارد.» این باور ما در 38فریم است. ما خوره و نِردهای آنالوگ هستیم. ما از گرین ساخته شدیم و داخل سایت 38فریم به هر چیزی در خصوص عکاسی آنالوگ می‌پردازیم. 38فریم حامی جریان عکاسی آنالوگ در ایران است. از معرفی لابراتوار ها و ایجاد یک بازار برای خرید و فروش آسون تجهیزات آنالوگ تا هر چیزی برای حمایت از آنالوگ.
-            <a class="svg-500-800 rounded-md w-fit inline-flex items-center gap-2 mt-3 px-4 py-2 border-2 border-dashed" href="#">ما را بیشتر بشناسید
+            <a class="svg-500-800 rounded-md w-fit inline-flex items-center gap-2 mt-3 px-4 py-2 border-2 border-dashed" href="{{ route('pages.labs.index') }}">ما را بیشتر بشناسید
                 <x-icon-left-arrow size="16"/>
             </a>
         </p>
     </section>
     <div class="w-full py-4 overflow-x-hidden">
         <section class="bg-x-dark-blue w-screen md:w-[101%] md:-rotate-1 flex justify-center py-6 font-iran-sans">
-            <div class="w-4/5 grid grid-cols-1 md:grid-cols-3 place-content-center gap-4">
+            <div data-animation="slideInRight" class="w-4/5 grid grid-cols-1 md:grid-cols-3 place-content-center gap-4">
                 <div class="h-64 md:h-72 rounded-md bg-blue-100 flex flex-col gap-3 md:gap-6 justify-center items-center">
                     <div class="flex flex-col md:flex-row-reverse items-center gap-2 md:gap-6">
                         <div class="h-32 w-auto">@php icon('computer') @endphp</div>
@@ -112,7 +112,7 @@
         </section>
     </div>
     <section class="my-6 w-full md:w-3/5 md:mx-[20%] px-4 py-6 [direction:ltr]">
-        <h2 class="mb-14 font-iran-sans font-bold text-4xl text-center">چگونه عکاسی آنالوگ را آغاز کنیم؟</h2>
+        <h2 data-animation="bounce" class="mb-14 font-iran-sans font-bold text-4xl text-center">چگونه عکاسی آنالوگ را آغاز کنیم؟</h2>
         <div id="react-roadmap" data-roadmap="{{ json_encode($roadmap) }}"></div>
     </section>
     <section class="my-6 w-full md:w-4/5 md:mx-[10%] flex flex-col md:flex-row justify-center gap-8 px-4 py-6 font-iran-sans">
@@ -220,23 +220,26 @@
             </div>
         </section>
     </section>
-    <section class="mb-20 bg-gray-600 mt-20 md:w-[101%] md:px-[1%] grid grid-cols-1 md:grid-cols-2 md:rotate-1 h-fit md:h-96">
-        <div class="text-white font-iran-sans p-8 leading-loose order-2 md:order-1">
+    {{--  md:w-[101%] md:px-[1%] md:rotate-1 --}}
+    {{-- justify-between gap-6 --}}
+    {{-- order-2 md:order-1 --}}
+    <section class="mb-20 bg-gray-600 mt-20 flex justify-center h-fit md:h-96">
+        <div class="text-white font-iran-sans p-8 leading-loose">
             <h4 class="text-3xl font-bold">آیا فروشنده تجهیزات آنالوگ هستید؟</h4>
             <h5 class="text-2xl my-6">کالا های آنالوگ خود را 38 فریم بفروشید!</h5>
             <p>اگر فروشنده تجهیزات و کالا های آنالوگ هستید یا هر گونه لوازم آنالوگی را در پیج اینستاگرام خود به فروش می‌رسانید؛ در 38فریم با برند و نام تجاری فروشگاه خودتان تجهیزات و لوازم آنالوگ را به آسانی بفروشید! برای دریافت اطلاعات بیشتر و ثبت نام به عنوان فروشنده کلیک کنید.</p>
             <div class="text-center">
-                <a class="svg-500-800-white rounded-md w-fit inline-flex items-center gap-2 mt-3 px-4 py-2 border-2 border-dashed" href="#">
+                <a class="svg-500-800-white rounded-md w-fit inline-flex items-center gap-2 mt-3 px-4 py-2 border-2 border-dashed" href="{{ route('pages.contact') }}">
                     ثبت نام به عنوان فروشنده
                     <x-icon-left-arrow size="16"/>
                 </a>
             </div>
         </div>
-        <div class="p-3 h-48 md:h-auto relative flex justify-center order-1 md:order-2">
-            <div class="absolute -top-14 md:-top-16 ml-4 md:ml-12 h-[130%] aspect-square bg-gray-700/50 rounded-full"></div>
-            <div class="absolute -top-16 h-[130%] aspect-square rounded-full border-4 border-gray-700 bg-camera-on-table bg-cover bg-right overflow-hidden">
+        <div class="h-48 md:h-auto relative flex justify-center">
+            <img src="{{ asset('images/seller-camera.webp') }}" alt="">
+            {{-- <div class="absolute h-full bg-camera-on-table bg-cover bg-right aspect-video overflow-hidden">
                 <div class="absolute w-full h-full bg-black/10"></div>
-            </div>
+            </div> --}}
         </div>
     </section>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans">

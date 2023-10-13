@@ -1,10 +1,11 @@
-import { ReactNode, lazy } from 'react';
+import { ReactNode, StrictMode, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import Loading from './components/Loading';
 import { StepObject } from './components/Roadmap/Roadmap';
 const Roadmap = lazy(() => import('./components/Roadmap'));
 const Gallery = lazy(() => import('./components/Gallery'));
 const Blog = lazy(() => import('./components/Blog'));
+const Labs = lazy(() => import('./components/Labs/Labs'))
 
 type elementRendererArgumentTypes = {
     element: HTMLElement | null
@@ -20,9 +21,12 @@ function renderToRoot({element, toBeRendered}: elementRendererArgumentTypes) {
     }
 }
 
-const roadmap = document.getElementById('react-roadmap') as HTMLElement
-let json_string = roadmap.getAttribute('data-roadmap') as string;
-const steps: Array<StepObject> = JSON.parse(json_string);
+const roadmap = document.getElementById('react-roadmap')
+var steps: Array<StepObject> = [];
+if (roadmap) {
+    let json_string = roadmap.getAttribute('data-roadmap') as string;
+    steps = JSON.parse(json_string);
+}
 
 (() => {
     [
@@ -48,6 +52,16 @@ const steps: Array<StepObject> = JSON.parse(json_string);
                 <Loading>
                     <Roadmap steps={steps}/>
                 </Loading>
+            )
+        }, 
+        {
+            element: document.getElementById('react-labs'),
+            toBeRendered: (
+                <StrictMode>
+                    <Loading>
+                        <Labs />
+                    </Loading>
+                </StrictMode>
             )
         }
     ].map(renderToRoot)

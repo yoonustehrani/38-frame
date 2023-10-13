@@ -1,5 +1,5 @@
 <x-layout title="تاریکخانه ها و تعمیرکاران">
-    <header class="bg-center bg-cover h-3/4 overflow-hidden w-full flex md:flex-col justify-center items-center font-iran-sans relative">
+    <header class="bg-center bg-cover h-auto md:h-3/4 overflow-hidden w-full flex md:flex-col justify-center items-center font-iran-sans relative">
         <x-nav classNames="absolute top-0 rounded-md bg-x-dark-blue/90" />
         {{-- /images/bg-blurry.webp --}}
         <img class="h-full w-auto md:min-w-fit md:h-auto md:w-full" src="/images/bg-printed-photos.webp" alt="">
@@ -69,7 +69,7 @@
         </section>
     </section>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans px-4" id="lab-list">
-        <div class="flex items-center">
+        <div class="flex flex-col md:flex-row items-center">
             <img class="h-28 w-auto p-3" src="/icons/040-photography.png" loading="lazy" alt="">
             <div>
                 <h2 class="font-bold my-3 text-4xl">
@@ -79,6 +79,6 @@
                 <p class="text-gray-700 text-lg">لیست تاریکخانه ها و لابراتوار های آنالوگ</p>
             </div>
         </div>
-        <section id="react-labs" class="w-11/12 flex flex-col gap-6 md:flex-row overflow-x-auto overflow-y-hidden mt-8"></section>
+        <section id="react-labs" class="w-11/12 flex flex-col md:gap-6 md:flex-row items-start overflow-x-auto overflow-y-hidden mt-8"></section>
     </section>
 </x-layout>

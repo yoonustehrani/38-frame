@@ -19,34 +19,3 @@ const PlusIcon: FC<IconProps> = ({size = 50, color = '#000000'}) => {
 }
  
 export default PlusIcon;
-
-{/* <g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g> */}

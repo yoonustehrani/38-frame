@@ -48,6 +48,7 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
         const animationName = `${prefix}${animation}`;
         const node = element;
         node.classList.add(`${prefix}animated`, animationName);
+        node.classList.remove('opacity-0')
         // When the animation ends, we clean the classes and resolve the Promise
         function handleAnimationEnd(event) {
           event.stopPropagation();
@@ -60,6 +61,38 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
+
+    function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                console.log(entry.target, entry.isIntersecting);
+                // Add the desired Animate.css class to trigger the animation
+                animateCSS(entry.target, entry.target.getAttribute('data-animation'))
+                // Stop observing the element to avoid unnecessary animations
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+    
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(handleIntersection, {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px', // No margin
+        threshold: 0.4, // Trigger when 20% of the element is visible
+    });
+    
+    // Observe the target element
+    setTimeout(() => {
+        document.querySelectorAll('[data-animation]').forEach(element => {
+            element.classList.add('animate__animated', 'opacity-0')
+            observer.observe(element)
+        })
+    }, 100);
+
+
+
+
     let elements = document.getElementsByClassName('pointer-menu-item')
     const hideElement = element => element.classList.add('hidden')
     const unHideElement = element => element.classList.remove('hidden')
@@ -126,4 +159,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     })
     
+
+    // accordion
+    document.querySelectorAll('section[data-accordion] > div').forEach((accordionElement, i) => {
+        let siblings = Array.from(accordionElement.parentNode.children).filter((v, j) => j !== i)
+        function toggleAccordion(e) {
+            siblings.map(s => {
+                s.querySelector('p').classList.add('hidden')
+            })
+            e.currentTarget.parentNode.querySelector('p')?.classList.toggle('hidden')
+        }
+        accordionElement.querySelector('div').addEventListener('click', toggleAccordion)
+    })
 })

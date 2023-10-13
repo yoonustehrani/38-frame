@@ -1,5 +1,4 @@
-<x-layout>
-    <x-slot:title>وبلاگ ۳۸ فریم</x-slot:title>
+<x-layout title="وبلاگ ۳۸ فریم">
     <header class="bg-center bg-cover h-3/4 overflow-hidden w-full flex md:flex-col justify-center items-center font-iran-sans relative">
         <x-nav classNames="absolute z-20 top-0 rounded-t-md bg-x-dark-blue/90" />
         <img class="h-full w-auto md:min-w-fit md:h-auto md:w-full opacity-90" src="/images/blog-bg.webp" alt="">
@@ -64,10 +63,7 @@
     </section>
     <section class="w-4/5 mx-[10%] float-left mt-6 mb-12 md:px-6 py-4">
         <div class="w-full grid grid-cols-4 gap-6 font-iran-sans">
-            @foreach (App\Models\Post::factory()->count(12)->make() as $post)
-                @php
-                    $post->author = App\Models\User::factory()->make();
-                @endphp
+            @foreach ($posts as $post)
                 <x-blog-card :post="$post"/>
             @endforeach
         </div>

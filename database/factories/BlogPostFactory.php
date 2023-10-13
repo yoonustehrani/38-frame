@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\BlogPost>
  */
-class PostFactory extends Factory
+class BlogPostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -23,7 +23,10 @@ class PostFactory extends Factory
             'description' => fake()->sentences(5, true),
             'slug' => \Str::kebab($title),
             'avatar' => '/images/blog-' . rand(1, 4) . '.webp',
-            'views' => fake()->randomNumber(5)
+            // 'views' => fake()->randomNumber(5),
+            'author_id' => User::factory(),
+            'published_at' => now(),
+            'status' => 'published'
         ];
     }
 }

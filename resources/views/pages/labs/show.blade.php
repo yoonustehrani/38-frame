@@ -74,7 +74,7 @@
                 </div>
             </section>
             <section class="py-6 bg-white border border-black/10 shadow-sm rounded-lg flex flex-col justify-center gap-2 px-8">
-                <h2 class="font-bold text-lg text-gray-800 flex items-center">درباره {{ $lab->brand }} <span class="bg-purple-500/40 py-px text-purple-800 mx-2 px-2 rounded-md font-bold text-xs">از {{ persian_numbers($lab->founded_in_year) }}</span></h2>
+                <h2 class="font-bold text-lg text-gray-800 flex flex-wrap gap-2 justify-center md:justify-start items-center">درباره {{ $lab->brand }} <span class="bg-purple-500/40 py-px text-purple-800 mx-2 px-2 rounded-md font-bold text-xs">از {{ persian_numbers($lab->founded_in_year) }}</span></h2>
                 <p class="text-gray-600">{{ $lab->bio }}</p>
             </section>
         </div>

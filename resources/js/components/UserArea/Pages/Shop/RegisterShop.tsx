@@ -66,7 +66,7 @@ function getLevelKeys (level: number) {
 
 const RegisterShop: FC = () => {
     const [level, setLevel] = useState(0)
-    const [displayAllErrors, setDisplayAllErrors] = useState(true)
+    const [displayAllErrors, setDisplayAllErrors] = useState(false)
     if (level > levels.length) return null
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {

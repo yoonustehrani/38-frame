@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\LabController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -53,13 +54,9 @@ Route::get('/', function () {
 
 Route::get('labs', [LabController::class, 'index'])->name('pages.labs.index');
 Route::get('labs/{lab}', [LabController::class, 'show'])->name('pages.labs.show');
-
 Route::view('contact', 'pages.contact')->name('pages.contact');
 Route::view('about', 'pages.about')->name('pages.about');
-Route::view('blog', 'pages.blog.index')->name('pages.blog.index');
-
-Route::prefix('auth')->name('auth.')->group(function() {
-    Route::view('/', 'auth.login')->name('login.show');
-});
-
-Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*');
+Route::get('blog', [BlogPostController::class, 'index'])->name('pages.blog.index');
+Route::get('blog/{slug}', [BlogPostController::class, 'show'])->name('pages.blog.show');
+Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
+Route::view('38panel/{path?}', 'pages.admin')->where('path', '.*')->name('admin');

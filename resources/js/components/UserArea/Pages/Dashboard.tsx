@@ -10,7 +10,7 @@ const ApiConfig = {
     headers: {'Accept': 'application/json'}
 }
 
-export async function loader() {
+async function loader() {
     const [res] = new Request(ApiConfig).to('/user/shop').send()
     let shop = null
     try {
@@ -40,7 +40,7 @@ const Dashboard: FC<DashboardProps> = () => {
                             <span className="text-base font-thin">سفارش ها را آنلاین دریافت کنید و فایل ها را آنلاین به مشتریان تان تحویل دهید.</span>
                         </p>
                         {/* <ArrowIcon className="inline-block" to="left" size={40}/> */}
-                        <a href="/lab" className="text-lg duration-300 text-gray-800 bg-zinc-300 py-1 px-3 rounded-md border border-b-4 border-b-zinc-500/60 w-fit">احداث تاریکخانه آنلاین</a>
+                        <Link to="/lab/register" className="text-lg duration-300 text-gray-800 bg-zinc-300 py-1 px-3 rounded-md border border-b-4 border-b-zinc-500/60 w-fit">احداث تاریکخانه آنلاین</Link>
                     </div>
                     <img className="w-3/4 md:w-auto md:h-full rounded-full border-4 border-x-yellow/20" src="/images/darkroom.webp" alt="" />
                 </section>
@@ -67,4 +67,4 @@ const Dashboard: FC<DashboardProps> = () => {
     );
 }
 
-export {Dashboard as Component}
+export {Dashboard as Component, loader}

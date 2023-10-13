@@ -1,6 +1,7 @@
 import { RouteObject, createBrowserRouter } from 'react-router-dom'
 import Root from './Root'
 import Error404 from './Pages/Error404'
+import Auth from '../Auth'
 // import Dashboard from './Pages/Dashboard'
 // import UserSettings from './Pages/UserSettings'
 // const fakeLazy = (seconds: number, path: string) => {
@@ -71,6 +72,22 @@ const routes: RouteObject[] = [
                     //     path: 'lab'
                     // }
                 ]
+            },
+            {
+                path: '/lab',
+                children: [
+                    {
+                        index: true,
+                        lazy: () => import('./Pages/Lab/Lab')
+                    },
+                    {
+                        path: 'register',
+                        lazy: () => import('./Pages/Lab/RegisterLab')
+                    },
+                    // {
+                    //     path: 'lab'
+                    // }
+                ]
             }
         ]
     },
@@ -80,6 +97,15 @@ const routes: RouteObject[] = [
     }
 ]
 
-export const router = createBrowserRouter(routes, {
-    basename: '/userarea'
-})
+export const getRouter = (isLoggedIn: boolean) => {
+    return isLoggedIn ? createBrowserRouter(routes, { basename: '/userarea'}) : createBrowserRouter([{
+        path: '*',
+        element: (
+            <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
+                <section className="h-full w-full overflow-x-hidden overflow-y-auto bg-black/80 flex justify-center items-center">
+                    <Auth />
+                </section>
+            </main>
+        )
+    }], {basename: '/userarea'})
+}
