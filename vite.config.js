@@ -10,7 +10,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/react-app.tsx',
-                'resources/js/react-auth.tsx',
+                // 'resources/js/react-auth.tsx',
                 'resources/js/react-userarea.tsx'
             ],
             refresh: true,
