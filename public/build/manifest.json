@@ -230,7 +230,7 @@
     "src": "resources/js/components/Labs/Labs.tsx"
   },
   "resources/js/components/Roadmap/index.ts": {
-    "file": "assets/index-5ece1419.js",
+    "file": "assets/index-395d9eda.js",
     "imports": [
       "_client-58cc365f.js"
     ],
@@ -285,7 +285,7 @@
     "src": "resources/js/components/UserArea/Pages/Dashboard.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-89b25925.js",
+    "file": "assets/AcceptPolicyForm-d9efb47e.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
@@ -418,7 +418,7 @@
     "src": "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-d9efb47e.js",
+    "file": "assets/AcceptPolicyForm-89b25925.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
@@ -534,7 +534,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-a50a721b.js",
+    "file": "assets/react-app-57585a91.js",
     "imports": [
       "_client-58cc365f.js"
     ],
