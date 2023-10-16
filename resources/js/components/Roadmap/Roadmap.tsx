@@ -18,7 +18,7 @@ const Roadmap:FC<RoadmapProps> = ({steps}) => {
             <div className="grid grid-cols-5 text-center">
                 {steps.map(({icon}, i) => (
                     <div key={`${i}--${icon}`} onClick={() => setCurrentStep(i)} className={`h-12 cursor-pointer flex justify-center w-auto ${i <= currentStep ? '' : 'grayscale'}`}>
-                        <img className="h-full w-auto" src={`/icons/${icon}.svg`} alt="" />
+                        <img className="h-full w-auto" src={`/images/icons/${icon}.svg`} alt="" />
                     </div>
                 ))}
             </div>
