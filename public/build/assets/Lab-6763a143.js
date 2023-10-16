@@ -1,0 +1,1 @@
+import{r,j as a,F as e}from"./client-58cc365f.js";import{f as o}from"./react-userarea-bbb4809d.js";import"./Request-e20e83b2.js";const m=()=>{const t=o();return r.useLayoutEffect(()=>{t("/lab/register")},[]),a(e,{children:"فروشگاه"})};export{m as Component};
