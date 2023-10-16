@@ -6,7 +6,7 @@
     <section class="w-full float-left md:w-4/5 md:mx-[10%] flex flex-col md:flex-row gap-8 my-6 font-iran-sans">
         <section class="sticky z-10 md:px-4">
             <div class="flex justify-center md:justify-start items-center px-6">
-                <img class="h-32 w-auto p-3" src="/icons/011-documents.svg" loading="lazy" alt="">
+                <img class="h-32 w-auto p-3" src="/images/icons/011-documents.svg" loading="lazy" alt="">
                 <div>
                     <h3 class="font-bold my-3 text-gray-800 text-4xl">
                         وبلاگ
@@ -24,25 +24,25 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 w-max">
                 <li>
                     <a href="#1" class="bg-x-grey duration-500 hover:bg-gray-600 hover:text-white py-3 px-4 rounded-l-full h-auto">
-                        <img class="h-9 pl-2 w-auto inline-block" src="/icons/048-bag.svg" alt="">
+                        <img class="h-9 pl-2 w-auto inline-block" src="/images/icons/048-bag.svg" alt="">
                         <span>مقاله خبری از اخبار آنالوگ</span>
                     </a>
                 </li>
                 <li>
                     <a href="#2" class="bg-x-grey duration-500 hover:bg-gray-600 hover:text-white py-3 px-4 rounded-l-full h-auto">
-                        <img class="h-9 pl-2 w-auto inline-block" src="/icons/096-folder.svg" alt="">
+                        <img class="h-9 pl-2 w-auto inline-block" src="/images/icons/096-folder.svg" alt="">
                         <span>مقاله آموزشی عکاسی</span>
                     </a>
                 </li>
                 <li>
                     <a href="#3" class="bg-x-grey duration-500 hover:bg-gray-600 hover:text-white py-3 px-4 rounded-l-full h-auto">
-                        <img class="h-9 pl-2 w-auto inline-block" src="/icons/001-folder.svg" alt="">
+                        <img class="h-9 pl-2 w-auto inline-block" src="/images/icons/001-folder.svg" alt="">
                         <span>مقاله معرفی و تحلیل فیلم یا دوربین</span>
                     </a>
                 </li>
                 <li>
                     <a href="#4" class="bg-x-grey duration-500 hover:bg-gray-600 hover:text-white py-3 px-4 rounded-l-full h-auto">
-                        <img class="h-9 pl-2 w-auto inline-block" src="/icons/035-chair.svg" alt="">
+                        <img class="h-9 pl-2 w-auto inline-block" src="/images/icons/035-chair.svg" alt="">
                         <span>مقاله متفرقه ( تاریخچه، دانستنی و...)</span>
                     </a>
                 </li>

@@ -19,7 +19,7 @@
     </header>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans px-4">
         <div class="flex items-center">
-            <img class="h-28 w-auto p-3" src="/icons/046-cable.svg" loading="lazy" alt="">
+            <img class="h-28 w-auto p-3" src="/images/icons/046-cable.svg" loading="lazy" alt="">
             <div>
                 <h3 class="font-bold my-3 text-4xl">
                     با
@@ -41,7 +41,7 @@
     <section class="w-4/5 mx-[10%] grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 py-4 md:py-8 overflow-hidden">
         <div class="md:col-span-2 font-iran-sans">
             <div class="flex flex-col md:flex-row items-center md:items-start gap-2 h-fit">
-                <img class="h-24" src="/icons/014-file.svg" alt="">
+                <img class="h-24" src="/images/icons/014-file.svg" alt="">
                 <div class="text-right">
                     <span class="text-gray-700">&rdquo; آیا می توانم در ۳۸ فریم فروشنده شوم؟ &ldquo;</span>
                     <h2 class="text-[3rem] font-bold"><span class="text-[#8279C0]">فروش</span> در ۳۸ فریم</h2>
@@ -64,19 +64,19 @@
     <section class="w-4/5 mx-[10%] my-4 px-6 font-iran-sans">
         <div class="w-full grid grid-cols-2 md:flex md:justify-center gap-2 md:gap-6 text-gray-800">
             <a class="bg-gray-100 hover:bg-gray-200 duration-300 rounded-full flex justify-center items-center gap-2 px-3 py-2" href="#instagram">
-                <img class="h-7 w-7" src="/icons/social/instagram.svg" alt="">
+                <img class="h-7 w-7" src="/images/icons/social/instagram.svg" alt="">
                 اینستاگرام
             </a>
             <a class="bg-gray-100 hover:bg-gray-200 duration-300 rounded-full flex justify-center items-center gap-2 px-3 py-2" href="#telegram">
-                <img class="h-7 w-7" src="/icons/social/telegram.svg" alt="">
+                <img class="h-7 w-7" src="/images/icons/social/telegram.svg" alt="">
                 تلگرام
             </a>
             <a class="bg-gray-100 hover:bg-gray-200 duration-300 rounded-full flex justify-center items-center gap-2 px-3 py-2" href="#whatsapp">
-                <img class="h-7 w-7" src="/icons/social/whatsapp.svg" alt="">
+                <img class="h-7 w-7" src="/images/icons/social/whatsapp.svg" alt="">
                 واتس اپ
             </a>
             <a class="bg-gray-100 hover:bg-gray-200 duration-300 rounded-full flex justify-center items-center gap-3 px-3 py-2" href="#linkedin">
-                <img class="h-7 w-7" src="/icons/social/linkedin.svg" alt="">
+                <img class="h-7 w-7" src="/images/icons/social/linkedin.svg" alt="">
                 لینکداین
             </a>
         </div>

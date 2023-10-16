@@ -148,11 +148,11 @@
                                 </span>
                                 <span class="flex flex-col items-center gap-2">
                                     <span class="text-gray-700">ارسال رایگان</span>
-                                    <img class="w-5 h-5" src="/icons/yes.svg" alt="">
+                                    <img class="w-5 h-5" src="/images/icons/yes.svg" alt="">
                                 </span>
                                 <span class="flex flex-col items-center gap-2">
                                     <span class="text-gray-700">سالم</span>
-                                    <img class="w-5 h-5" src="/icons/no.svg" alt="">
+                                    <img class="w-5 h-5" src="/images/icons/no.svg" alt="">
                                 </span>
                             </div>
                             <hr class="my-3">
@@ -196,11 +196,11 @@
                                 </span>
                                 <span class="flex flex-col items-center gap-2">
                                     <span class="text-gray-700">ارسال رایگان</span>
-                                    <img class="w-5 h-5" src="/icons/yes.svg" alt="">
+                                    <img class="w-5 h-5" src="/images/icons/yes.svg" alt="">
                                 </span>
                                 <span class="flex flex-col items-center gap-2">
                                     <span class="text-gray-700">سالم</span>
-                                    <img class="w-5 h-5" src="/icons/yes.svg" alt="">
+                                    <img class="w-5 h-5" src="/images/icons/yes.svg" alt="">
                                 </span>
                             </div>
                             <hr class="my-3">
@@ -244,7 +244,7 @@
     </section>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans">
         <div class="flex items-center">
-            <img src="/icons/068-shutter.svg" class="h-28 w-auto p-3" alt="">
+            <img src="/images/icons/068-shutter.svg" class="h-28 w-auto p-3" alt="">
             <div>
                 <h3 class="font-bold my-3 text-3xl"><span class="text-x-yellow">ژورنال</span> 38 فریم</h3>
                 <p class="text-gray-700">در "ژورنال ۳۸فریم" می‌توانید نمایه‌های آنالوگ خود را آپلود و نشر کنید. ژورنال ما گوشه‌ای از عکاسی‌های آنالوگ شماست.</p>

@@ -17,7 +17,7 @@
                 </span>
             @endif
             <div class="flex flex-row-reverse items-center gap-1">
-                <img class="h-5 w-5" src="/icons/eye.svg" alt="" />
+                <img class="h-5 w-5" src="/images/icons/eye.svg" alt="" />
                 <span class="italic">{{ $post->views }}</span>
             </div>
         </div>

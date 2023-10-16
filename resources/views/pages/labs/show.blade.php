@@ -53,13 +53,13 @@
                             <li class="flex flex-wrap justify-center items-center gap-2 font-sans w-fit">
                                 @if ($lab->meta->social->instagram)
                                     <a class="bg-rose-200/40 text-rose-800 inline-flex flex-row-reverse gap-1 items-center justify-center py-1 px-2 rounded-lg" rel="nofollow" href="https://t.me/{{ $lab->meta->social->telegram_channel }}">
-                                        <img class="w-4 h-4 inline" width="20" src="{{ asset('icons/social/instagram.svg') }}" alt="">
+                                        <img class="w-4 h-4 inline" width="20" src="{{ asset('images/icons/social/instagram.svg') }}" alt="">
                                         <span class="inline-block">{{ $lab->meta->social->instagram }}</span>
                                     </a>
                                 @endif
                                 @if ($lab->meta->social->telegram_channel)
                                     <a class="bg-sky-200/40 text-sky-800 inline-flex flex-row-reverse gap-1 items-center justify-center py-1 px-2 rounded-lg" rel="nofollow" href="https://t.me/{{ $lab->meta->social->telegram_channel }}">
-                                        <img class="w-4 h-4 inline" width="20" src="{{ asset('icons/social/telegram.svg') }}" alt="">
+                                        <img class="w-4 h-4 inline" width="20" src="{{ asset('images/icons/social/telegram.svg') }}" alt="">
                                         <span class="inline-block">{{ $lab->meta->social->telegram_channel }}</span>
                                     </a>
                                 @endif

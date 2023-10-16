@@ -6,7 +6,7 @@
     </header>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans px-4">
         <div class="flex items-center">
-            <img class="h-28 w-auto p-3" src="/icons/040-photography.png" loading="lazy" alt="">
+            <img class="h-28 w-auto p-3" src="/images/icons/040-photography.png" loading="lazy" alt="">
             <div>
                 <h1 class="font-bold my-3 text-4xl">
                     تاریکخانه های آنالوگ
@@ -70,7 +70,7 @@
     </section>
     <section class="my-12 flex flex-col justify-center items-center font-iran-sans px-4" id="lab-list">
         <div class="flex flex-col md:flex-row items-center">
-            <img class="h-28 w-auto p-3" src="/icons/040-photography.png" loading="lazy" alt="">
+            <img class="h-28 w-auto p-3" src="/images/icons/040-photography.png" loading="lazy" alt="">
             <div>
                 <h2 class="font-bold my-3 text-4xl">
                     تاریکخانه های
