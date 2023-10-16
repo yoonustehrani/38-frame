@@ -24,7 +24,6 @@ class BlogPostFactory extends Factory
             'slug' => \Str::kebab($title),
             'avatar' => '/images/blog-' . rand(1, 4) . '.webp',
             // 'views' => fake()->randomNumber(5),
-            'author_id' => User::factory(),
             'published_at' => now(),
             'status' => 'published'
         ];

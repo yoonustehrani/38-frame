@@ -58,3 +58,4 @@ Route::get('cities/{city}', function($city) {
 Route::apiResource('lab-services', 'App\Http\Controllers\LabServiceController');
 Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn');
 Route::post('auth/login', 'App\Http\Controllers\AuthController@login');
+Route::get('posts', 'App\Http\Controllers\BlogPostController@index')->name('posts.index');

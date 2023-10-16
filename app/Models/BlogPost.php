@@ -11,6 +11,6 @@ class BlogPost extends Model
 
     public function author()
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class, 'author_id')->select('id', 'username', 'avatar');
     }
 }

@@ -18,10 +18,10 @@ export default defineConfig({
         svgr(),
         react()
     ],
-    server: {
-        host: '0.0.0.0',
-        hmr: {
-            host: '192.168.1.112',
-        },
-    }
+    // server: {
+    //     host: '0.0.0.0',
+    //     hmr: {
+    //         host: ,
+    //     },
+    // }
 });
