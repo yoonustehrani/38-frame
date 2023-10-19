@@ -180,7 +180,7 @@
     "src": "public/images/white-black-rectangles.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-05d40c4e.css",
+    "file": "assets/app-f7a12ae0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -192,12 +192,12 @@
     "css": [
       "assets/app-71173e01.css"
     ],
-    "file": "assets/app-481091bd.js",
+    "file": "assets/app-4bd6120f.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/components/Blog/index.ts": {
-    "file": "assets/index-4af4d108.js",
+    "file": "assets/index-d0a5f016.js",
     "imports": [
       "_client-58cc365f.js",
       "_Request-e20e83b2.js"
@@ -534,7 +534,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-57585a91.js",
+    "file": "assets/react-app-5177058c.js",
     "imports": [
       "_client-58cc365f.js"
     ],
