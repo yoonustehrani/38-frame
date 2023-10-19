@@ -23,8 +23,10 @@ class BlogPostController extends Controller
 
     public function show(string $slug)
     {
-        $post = BlogPost::whereSlug($slug)->firstOrFail();
-        return $post;
+        $post = BlogPost::whereSlug($slug)->with('author')->firstOrFail();
+        if (request()->has('debug')) {
+            return $post;
+        }
         return view('pages.blog.show', compact('post'));
     }
 }
