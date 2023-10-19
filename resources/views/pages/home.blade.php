@@ -1,5 +1,4 @@
-<x-layout>
-    <x-slot:title>38Frame website</x-slot:title>
+<x-layout title="38Frame website">
     <x-header/>
     <section data-animation="bounceInUp" class="opacity-0 w-4/5 mx-[10%] grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 py-4 md:py-8">
         <div class="md:col-span-2 font-iran-sans">
@@ -223,7 +222,7 @@
     {{--  md:w-[101%] md:px-[1%] md:rotate-1 --}}
     {{-- justify-between gap-6 --}}
     {{-- order-2 md:order-1 --}}
-    <section class="mb-20 bg-gray-600 mt-20 flex justify-center h-fit md:h-96">
+    <section class="mb-20 bg-gray-600 mt-20 flex flex-col md:flex-row items-center justify-center h-fit md:h-96">
         <div class="text-white font-iran-sans p-8 leading-loose">
             <h4 class="text-3xl font-bold">آیا فروشنده تجهیزات آنالوگ هستید؟</h4>
             <h5 class="text-2xl my-6">کالا های آنالوگ خود را 38 فریم بفروشید!</h5>
@@ -235,7 +234,7 @@
                 </a>
             </div>
         </div>
-        <div class="h-48 md:h-auto relative flex justify-center">
+        <div class="h-48 md:h-full relative flex justify-center">
             <img src="{{ asset('images/seller-camera.webp') }}" alt="">
             {{-- <div class="absolute h-full bg-camera-on-table bg-cover bg-right aspect-video overflow-hidden">
                 <div class="absolute w-full h-full bg-black/10"></div>

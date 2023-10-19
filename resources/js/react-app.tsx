@@ -33,9 +33,11 @@ if (roadmap) {
         {
             element: document.getElementById('react-blog'),
             toBeRendered: (
-                <Loading>
-                    <Blog fetchPostsUrl=''/>
-                </Loading>
+                <StrictMode>
+                    <Loading>
+                        <Blog fetchPostsUrl=''/>
+                    </Loading>
+                </StrictMode>
             )
         },
         {

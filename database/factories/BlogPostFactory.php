@@ -20,6 +20,7 @@ class BlogPostFactory extends Factory
         $title = fake()->words(3, true);
         return [
             'title' => $title,
+            'subtitle' => fake()->words(4, true),
             'description' => fake()->sentences(5, true),
             'slug' => \Str::kebab($title),
             'avatar' => '/images/blog-' . rand(1, 4) . '.webp',

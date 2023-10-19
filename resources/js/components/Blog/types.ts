@@ -5,7 +5,7 @@ export type BlogPost = {
     avatar: string
     url: string
     author: {
-        name: string
+        username: string
         url: string
         avatar: string
     }

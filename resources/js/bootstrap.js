@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleIntersection(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                console.log(entry.target, entry.isIntersecting);
                 // Add the desired Animate.css class to trigger the animation
                 animateCSS(entry.target, entry.target.getAttribute('data-animation'))
                 // Stop observing the element to avoid unnecessary animations
