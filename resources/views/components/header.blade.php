@@ -1,17 +1,16 @@
-<header class="bg-center bg-contain w-full h-3/4 flex flex-col justify-between items-center font-iran-sans bg-green-pattern">
+<header class="bg-center bg-contain w-full h-2/3 min-h-[580px] sm:h-3/4 flex flex-col justify-between items-center font-iran-sans bg-green-pattern">
     <x-nav classNames="rounded-md bg-x-green/80"/>
     <div class="grow h-36 w-full">
-        <div class="w-full h-full grid grid-cols-10">
-            <div class="col-span-3 relative">
-                <img data-animation="fadeInRight" class="opacity-0 absolute right-0 bottom-0 h-auto max-h-full" src="/images/cameraman-1200h.webp" alt="image">
-                {{-- <picture >
-                    <source media="(max-width: 768px)" srcset="/images/cameraman-360w.webp"/>
-                    <source media="(min-width: 769px)" srcset="/images/cameraman-1200h.webp"/>
-                </picture> --}}
+        <div class="w-full h-full flex flex-col-reverse items-center justify-between pt-32 sm:pt-0 sm:grid sm:grid-cols-10">
+            <div class="sm:col-span-3 relative w-full h-72 sm:w-auto sm:h-auto">
+                <picture data-animation="fadeInRight" class="opacity-0 sm:absolute right-0 bottom-0 h-auto max-h-full" src="/images/cameraman-1200h.webp">
+                    <source media="(min-width: 769px)" srcset="{{ asset('images/cameraman-1200h.webp') }}"/>
+                    <img src="{{ asset('images/cameraman-360w.webp') }}" class="h-auto max-h-full"/>
+                </picture>
             </div>
-            <div class="col-span-7 flex flex-col justify-center leading-loose">
-                <h1 data-animation="zoomInDown" class="opacity-0 text-4xl font-bold text-black rounded-t-lg bg-x-green/40 w-fit p-3 mb-1 low-layer">۳۸فریم | نخستین جامعه عکاسی آنالوگ ایران</h1>
-                <p data-animation="zoomInUp" class="opacity-0 text-2xl text-gray-950 rounded-b-lg bg-x-green/40 w-fit p-3 low-layer">خانواده عکاسی آنالوگ «۳۸فریم» اولین مرجع عکاسی آنالوگ در ایران</p>
+            <div class="sm:col-span-7 flex flex-col justify-center leading-loose px-3 sm:px-0">
+                <h1 data-animation="zoomInDown" class="opacity-0 text-2xl sm:text-4xl font-bold text-black rounded-t-lg bg-x-green/40 w-fit p-3 mb-1 low-layer">۳۸فریم | نخستین جامعه عکاسی آنالوگ ایران</h1>
+                <p data-animation="zoomInUp" class="opacity-0 text-xl sm:text-2xl text-gray-950 rounded-b-lg bg-x-green/40 w-fit p-3 low-layer">خانواده عکاسی آنالوگ «۳۸فریم» اولین مرجع عکاسی آنالوگ در ایران</p>
                 {{-- <div class="py-3 flex justify-start gap-3">
                     <a class="rounded-full bg-gray-900/90 hover:bg-gray-800 text-white flex items-center justify-between h-9" href="#2">
                         <span class="bg-gray-800 rounded-full w-9 h-full flex justify-center items-center">@php icon('cash-on-delivery') @endphp</span>
@@ -25,16 +24,5 @@
                 </div> --}}
             </div>
         </div>
-        {{-- <div>
-            <div class="w-full bg-red-600">
-                
-            </div>
-        </div>
-         class=" delay-300"
-        
-        <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt nulla ducimus quasi atque nisi est tenetur libero! Maiores dignissimos in hic veritatis reiciendis sit placeat harum doloremque laboriosam soluta! At.</p>
-        </div>
-        --}}
     </div> 
 </header>
