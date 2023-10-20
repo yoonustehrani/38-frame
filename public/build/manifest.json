@@ -180,7 +180,7 @@
     "src": "public/images/white-black-rectangles.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-f7a12ae0.css",
+    "file": "assets/app-d7ae84c7.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -192,7 +192,7 @@
     "css": [
       "assets/app-71173e01.css"
     ],
-    "file": "assets/app-4bd6120f.js",
+    "file": "assets/app-045b7029.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
