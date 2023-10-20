@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(handleIntersection, {
         root: null, // Use the viewport as the root
         rootMargin: '0px', // No margin
-        threshold: 0.4, // Trigger when 20% of the element is visible
+        threshold: 0.25, // Trigger when 20% of the element is visible
     });
     
     // Observe the target element
