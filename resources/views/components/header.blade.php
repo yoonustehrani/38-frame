@@ -3,7 +3,7 @@
     <div class="grow h-36 w-full">
         <div class="w-full h-full flex flex-col-reverse items-center justify-between pt-32 sm:pt-0 sm:grid sm:grid-cols-10">
             <div class="sm:col-span-3 relative w-full h-72 sm:w-auto sm:h-auto">
-                <picture data-animation="fadeInRight" class="opacity-0 sm:absolute right-0 bottom-0 h-auto max-h-full" src="/images/cameraman-1200h.webp">
+                <picture data-animation="fadeInRight" class="opacity-0 absolute sm:relative right-0 bottom-0 h-auto max-h-full" src="/images/cameraman-1200h.webp">
                     <source media="(min-width: 769px)" srcset="{{ asset('images/cameraman-1200h.webp') }}"/>
                     <img src="{{ asset('images/cameraman-360w.webp') }}" class="h-auto max-h-full"/>
                 </picture>
