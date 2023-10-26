@@ -5,7 +5,7 @@ import { toPersian } from "../../../../utils/Number/numbers";
 import LevelController from "./Forms/Register/components/LevelController";
 import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik";
 import { registerLabFormValidationSchema } from "./validationSchemas";
-import {formGeneralErrorsContext} from '../../context/formContext'
+import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 import { sendShopRegisteringRequest } from "./api";
 
 const levels = [

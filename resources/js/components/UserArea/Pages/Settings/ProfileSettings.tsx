@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
 import { FC, useContext } from "react";
-import authContext from "../../context/authContext";
+import authContext from "../../../WebPanel/context/authContext";
 
 interface ProfileSettingsProps {
     
@@ -8,11 +8,11 @@ interface ProfileSettingsProps {
  
 const ProfileSettings: FC<ProfileSettingsProps> = () => {
     const auth = useContext(authContext)
-    return auth && (
+    return auth.user && (
         <section className="w-full mt-8 flex flex-col lg:flex-row gap-4 lg:gap-8">
             <section className="w-full lg:w-1/3 border border-black/5 shadow-md rounded-xl h-96 flex flex-col gap-8 justify-center items-center">
                 <div className="h-32 w-32 ring-4 ring-x-yellow ring-opacity-30 rounded-full overflow-hidden cursor-pointer">
-                    <img className="h-full w-auto" src={auth.avatar} alt="" />
+                    <img className="h-full w-auto" src={auth.user.avatar} alt="" />
                 </div>
                 <p className="text-gray-400 text-sm text-center">
                     <span>عکس ها با فرمت jpeg، jpg، png و webp قابل آپلود هستند.</span>
@@ -43,19 +43,19 @@ const ProfileSettings: FC<ProfileSettingsProps> = () => {
                     <div>
                         <div className="relative">
                             <label htmlFor="username" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">نام کاربری</label>
-                            <input defaultValue={auth.username} id="username" type="text" name="username" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
+                            <input defaultValue={auth.user.username} id="username" type="text" name="username" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
                         </div>
                     </div>
                     <div>
                         <div className="relative">
                             <label htmlFor="phone_number" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">شماره تلفن</label>
-                            <input defaultValue={auth.phone_number} id="phone_number" type="phone_number" name="phone_number" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
+                            <input defaultValue={auth.user.phone_number} id="phone_number" type="phone_number" name="phone_number" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
                         </div>
                     </div>
                     <div>
                         <div className="relative">
                             <label htmlFor="email" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">آدرس ایمیل</label>
-                            <input defaultValue={auth.email} id="email" type="email" name="email" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
+                            <input defaultValue={auth.user.email} id="email" type="email" name="email" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
                         </div>
                     </div>
                     <div className="col-span-full flex justify-center">

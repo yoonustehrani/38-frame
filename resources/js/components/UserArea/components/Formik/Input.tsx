@@ -1,7 +1,7 @@
 import { FC, ReactNode, useContext } from "react";
 import FormSection from "../FormSection";
 import { useField } from "formik";
-import { formGeneralErrorsContext } from "../../context/formContext";
+import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 
 interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     name: string,

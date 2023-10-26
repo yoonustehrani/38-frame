@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Nav from "./Nav/Nav";
-import NavItem from "./Nav/NavItem";
+import Nav from "../UserArea/Nav/Nav";
+import NavItem from "../UserArea/Nav/NavItem";
 
 interface SideMenuProps {
     

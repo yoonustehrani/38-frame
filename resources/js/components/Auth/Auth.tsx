@@ -3,7 +3,7 @@ import Form from "./Form";
 import { requestLogin, requestSanctumCSRFCookie } from "./api";
 import HttpResponse from "../../utils/HttpClient/HttpResponse";
 import Request from "../../utils/HttpClient/Request";
-import authContext from "../UserArea/context/authContext";
+import authContext from "../WebPanel/context/authContext";
 
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PASSWORD = 'SET_PASSWORD'

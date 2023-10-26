@@ -6,10 +6,9 @@ import FormSection from "../../components/FormSection";
 import FormSubtitle from "../../components/FormSubtitle";
 import FilesList from "./FilesList";
 import Input from "../../components/Form/Input";
-import yupFormContext from "../../context/yupFormContext";
+import yupFormContext from "../../../WebPanel/context/yupFormContext";
 import { adDetailsSchema } from "./validationSchema";
 import TextArea from "../../components/Form/TextArea";
-import { useNavigation } from "react-router-dom";
 
 interface CreateAdFormProps {
     handleSubmit: (data: reducerState) => void

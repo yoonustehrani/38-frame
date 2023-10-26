@@ -1,7 +1,7 @@
 import { FC, ReactNode, useContext } from "react";
 import FormSection from "../FormSection";
 import { useField } from "formik";
-import { formGeneralErrorsContext } from "../../context/formContext";
+import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 
 interface SelectBoxProps extends React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> {
     name: string,

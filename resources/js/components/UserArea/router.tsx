@@ -1,6 +1,6 @@
 import { RouteObject, createBrowserRouter } from 'react-router-dom'
-import Root from './Root'
-import Error404 from './Pages/Error404'
+import Root from '../WebPanel/Root'
+import Error404 from '../WebPanel/Error404'
 import Auth from '../Auth'
 // import Dashboard from './Pages/Dashboard'
 // import UserSettings from './Pages/UserSettings'
