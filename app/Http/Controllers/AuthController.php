@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,9 +21,27 @@ class AuthController extends Controller
             return response()->json($request->user());
         }
         return response()->json([
-            'error' => [
+            'errors' => [
                 'message' => 'Login failed',
-                'email' => 'The provided credentials do not match our records.'
+                'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
+            ]
+        ], 419);
+    }
+    public function adminLogin(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+        $user = User::whereEmail($request->input('email'))->first();
+        if (Hash::check($request->input('password'), $user->password) && $user->isAdmin()) {
+            Auth::loginUsingId($user->getKey());
+            return response()->json($request->user());
+        }
+        return response()->json([
+            'errors' => [
+                'message' => 'Login failed',
+                'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
             ]
         ], 419);
     }
@@ -35,21 +54,7 @@ class AuthController extends Controller
     }
     public function handleGoogleSignIn(Request $request)
     {
-        list($headersB64, $payloadB64, $sig) = explode('.', $request->input('token'));
-        $payload = json_decode(base64_decode($payloadB64), true);
-        if (
-            now()->lt(new \Carbon\Carbon($payload['exp'])
-            && $payload['aud'] != config('services.google.client_id'))
-            && ! in_array($payload['iss'], ['accounts.google.com', 'https://accounts.google.com'])
-        ) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
-        $googleUser = [
-            'email' => $payload['email'],
-            'name' => $payload['name'],
-            'picture' => $payload['picture'],
-            // 'email_verfied' => $payload['email_verfied']
-        ];
+        $googleUser = extract_google_user_from_token($request->input('token'));
         $user = User::whereEmail($googleUser['email'])->first();
         if (! $user) {
             $user = new User([
@@ -64,5 +69,16 @@ class AuthController extends Controller
         }
         Auth::loginUsingId($user->getKey());
         return response()->json($user);
+    }
+    public function handleGoogleAdminSignIn(Request $request)
+    {
+        $googleUser = extract_google_user_from_token($request->input('token'));
+        $user = User::whereEmail($googleUser['email'])->first();
+        if (! $user) abort(419, 'هیچ کاربری با این ایمیل وجود ندارد.');
+        Auth::loginUsingId($user->getKey());
+        if ($user->isAdmin()) {
+            return response()->json($user);
+        }
+        return abort(403, 'دسترسی شما مجاز نیست.');
     }
 }

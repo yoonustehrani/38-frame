@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Input from "../../../../components/Formik/Input";
-import FormSubtitle from "../../../../components/FormSubtitle";
+import Input from "../../../../../WebPanel/components/Formik/Input";
+import FormSubtitle from "../../../../../WebPanel/components/FormSubtitle";
 
 interface ContactInfoFormProps {
     

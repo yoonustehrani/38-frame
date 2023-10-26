@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import {errorType, SERVER_FAULT, NETWORK_FAULT} from './types';
 
-class HttpErrorResponse
+export class HttpErrorResponse
 {
     statusCode: number;
     response: unknown;
@@ -10,6 +10,9 @@ class HttpErrorResponse
         this.statusCode = errStatus
         this.response = errData
         this.typeOfError = errType
+    }
+    getStatus() {
+        return this.statusCode ?? null
     }
     getResponse() {
         return this.response ?? null
@@ -25,8 +28,6 @@ class HttpResponse
         this.returnedResponse = response?.data
     }
     public setErrors(error: any): HttpResponse {
-        console.log(error);
-        
         if (error instanceof AxiosError) {
             if (error.response) {
                 // error status code >= 400
@@ -55,6 +56,9 @@ class HttpResponse
     }
     public hasErrors(): boolean {
         return this.ErrorResponse instanceof HttpErrorResponse
+    }
+    public getErrorObject() {
+        return this.ErrorResponse
     }
     public getErrors() {
         return this.ErrorResponse?.getResponse()

@@ -6,7 +6,7 @@ import LevelController from "./Forms/Register/components/LevelController";
 import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik";
 import { registerLabFormValidationSchema } from "./validationSchemas";
 import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
-import { sendShopRegisteringRequest } from "./api";
+// import { sendShopRegisteringRequest } from "./api";
 
 const levels = [
     {
@@ -57,13 +57,6 @@ const levels = [
                 onlySms: false
             },
         }
-    },
-    {
-        lazy: () => import('./Forms/Register/AcceptPolicyForm'),
-        title: 'شرایط و ضوابط',
-        initialValues: {
-            accpect_policy: ''
-        }
     }
 ] as const
 
@@ -75,19 +68,19 @@ function getLevelKeys (level: number) {
 
 
 const RegisterLab: FC = () => {
-    const [level, setLevel] = useState(0)
+    const [level, setLevel] = useState(1)
     const [displayAllErrors, setDisplayAllErrors] = useState(false)
     if (level > levels.length) return null
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {
-        const [response, cancel] = sendShopRegisteringRequest(values)
-        response.then(r => {
-            if (r.hasErrors()) {
-                console.error(r.getContent());
-                return
-            }
-            console.log(r.getContent());
-        })
+        // const [response, cancel] = sendShopRegisteringRequest(values)
+        // response.then(r => {
+        //     if (r.hasErrors()) {
+        //         console.error(r.getContent());
+        //         return
+        //     }
+        //     console.log(r.getContent());
+        // })
     }
     const nextLevel = level < (levels.length - 1) ? () => { 
         setLevel(l => l + 1)

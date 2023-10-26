@@ -29,7 +29,7 @@ const BreadCrumb: FC<BreadCrumbProps> = ({ children }) => {
         return Children.toArray(children);
     }, [children])
     return (
-        <nav className="my-4 text-sm">
+        <nav className="my-4 text-sm w-full">
             <ul className="flex gap-4 text-gray-800">
                 {Children.map(arrayOfChildren, (child, index) => {
                     const Element = cloneElement(child as InvokableReactChildCustom, {isLastItem: index === (arrayOfChildren.length - 1)});

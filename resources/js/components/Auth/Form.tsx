@@ -1,8 +1,11 @@
-import { useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import ActionButton from "./ActionButton"
+import ArrowIcon from "../Icons/ArrowIcon"
 
 interface FormProps {
     dispatch: React.Dispatch<CredentialsAction>
+    credentials: AuthFormState
+    loading: boolean
 }
 
 const inputData = {
@@ -16,20 +19,17 @@ const inputData = {
     }
 }
 
-const Form: React.FC<FormProps> = ({dispatch}) => {
+const Form: React.FC<FormProps> = ({dispatch, credentials, loading}) => {
     const inputRef = useRef<HTMLInputElement>(null)
     const [stage, setStage] = useState<'email' | 'password'>('email')
-    const [disabled, setDisabled] = useState(false)
     const handleActionButtonClick = () => {
         if (inputRef.current === null) return
         const actionType = 'SET_' + stage.toUpperCase() as CredentialsAction['type']
-        setDisabled(true)
         dispatch({type: actionType, payload: inputRef.current.value})
         switch (stage) {
             case 'email':
                 inputRef.current.value = ''
                 setStage('password')
-                setDisabled(false)
                 break;
         }
     }
@@ -38,12 +38,33 @@ const Form: React.FC<FormProps> = ({dispatch}) => {
             <label htmlFor={stage} className="text-white">{stage == 'email' ? 'ایمیل یا شماره تلفن' : 'رمز عبور'} :</label>
             <input 
                 ref={inputRef}
-                disabled={disabled}
+                disabled={loading}
                 id={stage}
+                key={stage}
                 className="text-left input bg-slate-50 hover:outline-none [direction:ltr] placeholder-shown:[direction:rtl] placeholder:text-right shadow-md w-full py-3 px-4"
                 {...inputData[stage]}
+                defaultValue={credentials[stage] ?? ''}
             />
-            <ActionButton disabled={disabled} handleWith={handleActionButtonClick}/>
+            <div className="grid grid-rows-1 grid-flow-col">
+                {loading ? (
+                    <ActionButton disabled={loading} handleWith={handleActionButtonClick} className={stage === 'email' ? 'rounded-lg' : 'rounded-l-lg'} text={'در حال ارسال ...'} />
+                ) : (
+                    <>
+                        {stage === 'password' && (
+                            <ActionButton disabled={loading} handleWith={() => {
+                                dispatch({type: 'SET_PASSWORD', payload: ''})
+                                setStage('email')
+                            }} className="rounded-r-lg border-l-2 border-black/10" text="بازگشت">
+                                <ArrowIcon to="right" size={30} className={loading ? 'fill-gray-500' : ''}/>
+                            </ActionButton>
+                        )}
+                        <ActionButton disabled={loading} handleWith={handleActionButtonClick} className={stage === 'email' ? 'rounded-lg' : 'rounded-l-lg'} text={stage === 'password' ? 'ارسال' : 'ادامه'}>
+                            <ArrowIcon to="left" size={30} className={loading ? 'fill-gray-500' : ''}/>
+                        </ActionButton>
+                    </>
+                )}
+                
+            </div>
         </div>
     );
 }

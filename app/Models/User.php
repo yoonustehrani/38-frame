@@ -56,13 +56,18 @@ class User extends Authenticatable
         return $this->hasOne(Shop::class, 'owner_id');
     }
 
-    public function roles()
+    public function role()
     {
-        // return $this->;
+        return $this->belongsTo(Role::class);
     }
+
+    // public function roles()
+    // {
+    //     // return $this->;
+    // }
 
     public function isAdmin()
     {
-        return ! is_null($this->role_id);
+        return ! is_null($this->role) && $this->role->name === 'admin';
     }
 }

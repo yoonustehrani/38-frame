@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import BreadCrumb, { BreadCrumbItem } from "../../components/BreadCrumb";
+import BreadCrumb, { BreadCrumbItem } from "../../../WebPanel/components/BreadCrumb";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import PlusIcon from "../../../Icons/PlusIcon";
 import { fetchAds } from "./api";

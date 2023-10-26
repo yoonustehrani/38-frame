@@ -5,6 +5,7 @@ use App\Http\Controllers\LabController;
 use App\Http\Controllers\ShopController;
 use App\Http\Resources\CityResource;
 use App\Models\City;
+use App\Models\LabService;
 use App\Models\SiteCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,12 @@ Route::middleware('auth:sanctum')->group(function() {
     });
     Route::apiResource('shops/{shop}/merchandise', ShopController::class);
     Route::apiResource('shops', ShopController::class)->only(['destroy', 'store', 'update']);
+
+
+    Route::get('service-categorys/{category}/services', function($category, Request $request) {
+        return LabService::whereCategoryId($category)->get();
+    })->name('labs.categorys.services');
+
     Route::post('auth/logout', 'App\Http\Controllers\AuthController@logout');
     // Route::post('labs/register', [ShopController::class, 'store'])->name('labs.store');
 });
@@ -63,4 +70,6 @@ Route::get('cities/{city}', function($city) {
 Route::apiResource('lab-services', 'App\Http\Controllers\LabServiceController');
 Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn')->name('auth.login.google');
 Route::post('auth/login', 'App\Http\Controllers\AuthController@login')->name('auth.login');
+Route::post('admin/auth/google', 'App\Http\Controllers\AuthController@handleGoogleAdminSignIn')->name('auth.login.google');
+Route::post('admin/auth/login', 'App\Http\Controllers\AuthController@adminLogin')->name('auth.login');
 Route::get('posts', 'App\Http\Controllers\BlogPostController@index')->name('posts.index');

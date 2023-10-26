@@ -1,5 +1,5 @@
 import { FC } from "react";
-import NavItem from "./NavItem";
+import NavItem from "../../WebPanel/NavItem";
 
 interface NavProps {
     

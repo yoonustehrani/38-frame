@@ -1,7 +1,6 @@
-import { FC, ReactNode, useContext } from "react";
+import { FC, ReactNode, useMemo, useRef, useState } from "react";
+import useYupValidation from "../../../UserArea/hooks/useYupValidation";
 import FormSection from "../FormSection";
-import { useField } from "formik";
-import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 
 interface TextAreaProps extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
     name: string,
@@ -11,15 +10,16 @@ interface TextAreaProps extends React.DetailedHTMLProps<React.TextareaHTMLAttrib
 type TextAreaPropsFinal = TextAreaProps & ({id?: string, label?: undefined} | {label: string, id: string})
 
 const TextArea: FC<TextAreaPropsFinal> = ({className, children, ...props}) => {
-    const [field, {error, touched}] = useField(props);
-    const displayErrors = useContext(formGeneralErrorsContext)
-    const hasErrors = (displayErrors || touched) && error
+    const ref = useRef<HTMLTextAreaElement>(null)
+    const [touched, setTouched] = useState(false)
+    const validation = useYupValidation(props.name, ref.current?.value)
+    const hasErrors = touched && validation && validation.errors.length
     return (
         <FormSection className={`col-span-full ${hasErrors ? 'text-red-600' : 'text-gray-600'}`} label={props.label ? { for: props.id, text: `${props.label}${props.required ? ' *' : ''}` } : undefined}>
-            <textarea className={`form-textarea ${hasErrors && 'invalid'} ${className}`} {...field}/>
+            <textarea ref={ref} className={`form-textarea ${hasErrors && 'invalid'} ${className}`} onBlur={() => !touched && setTouched(true)} {...props}/>
             {hasErrors && (
                 <div className="text-red-600 my-2 text-sm">
-                    {error}
+                    {validation.errors.map(e => (<span key={e}>{e}</span>))}
                 </div>
             )}
             {children}

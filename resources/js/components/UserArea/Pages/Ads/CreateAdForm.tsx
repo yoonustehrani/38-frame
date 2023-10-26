@@ -2,13 +2,13 @@ import { FC, useReducer, useRef } from "react";
 import { AdObject, SiteCategory, createAdActionTypes, initialFormValues, pricingType, reducerState } from "./types";
 import { provideAdReducer } from "./reducer";
 import { Checkbox, FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import FormSection from "../../components/FormSection";
-import FormSubtitle from "../../components/FormSubtitle";
+import FormSection from "../../../WebPanel/components/FormSection";
+import FormSubtitle from "../../../WebPanel/components/FormSubtitle";
 import FilesList from "./FilesList";
-import Input from "../../components/Form/Input";
+import Input from "../../../WebPanel/components/Form/Input";
 import yupFormContext from "../../../WebPanel/context/yupFormContext";
 import { adDetailsSchema } from "./validationSchema";
-import TextArea from "../../components/Form/TextArea";
+import TextArea from "../../../WebPanel/components/Form/TextArea";
 
 interface CreateAdFormProps {
     handleSubmit: (data: reducerState) => void

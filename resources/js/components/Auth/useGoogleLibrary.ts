@@ -24,7 +24,6 @@ export default function useGoogleLibrary(renderArea: HTMLDivElement | null, call
     }, []);
     useEffect(() => {
         if (renderArea && googleAuthInitialized) {
-            console.log(renderArea);
             google.accounts.id.renderButton(renderArea, {
                 type: "standard",
                 theme: "filled_black",

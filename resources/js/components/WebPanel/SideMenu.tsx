@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import NavItem from "../UserArea/Nav/NavItem";
+import NavItem from "./NavItem";
 
 interface SideMenuProps {
     children?: ReactNode

@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import SideMenu from "../WebPanel/SideMenu";
 import TopNav from "./TopNav";
+import Nav from "./Nav/Nav";
 
 interface RootProps {
     
@@ -13,7 +14,7 @@ const Root: FC<RootProps> = () => {
     return (
         <>
             <SideMenu>
-                
+                <Nav />
             </SideMenu>
             <main className="h-full grow overflow-x-hidden overflow-y-auto relative">
                 <TopNav />

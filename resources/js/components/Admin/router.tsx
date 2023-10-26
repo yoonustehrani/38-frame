@@ -2,6 +2,7 @@ import { RouteObject, createBrowserRouter } from 'react-router-dom'
 import Root from './Root'
 import Auth from '../Auth'
 import Error404 from '../WebPanel/Error404'
+import Error403 from './Pages/Error403'
 // import Dashboard from './Pages/Dashboard'
 // import UserSettings from './Pages/UserSettings'
 // const fakeLazy = (seconds: number, path: string) => {
@@ -26,6 +27,19 @@ const routes: RouteObject[] = [
                 index: true,
                 lazy: () => import('./Pages/Dashboard')
             },
+            {
+                path: '/labs',
+                children: [
+                    {
+                        index: true,
+                        lazy: () => import('./Pages/Labs/Labs')
+                    },
+                    {
+                        path: 'create',
+                        lazy: () => import('./Pages/Labs/CreateLab')
+                    }
+                ]
+            }
         ]
     },
     {
@@ -34,15 +48,28 @@ const routes: RouteObject[] = [
     }
 ]
 
-export const getRouter = (isLoggedIn: boolean) => {
-    return isLoggedIn ? createBrowserRouter(routes, { basename: '/38panel'}) : createBrowserRouter([{
-        path: '*',
-        element: (
-            <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
-                <section className="h-full w-full overflow-x-hidden overflow-y-auto bg-black/80 flex justify-center items-center">
-                    <Auth />
-                </section>
-            </main>
-        )
-    }], {basename: '/38panel'})
+export const getRouter = (isLoggedIn: boolean, userAllowed: boolean) => {
+    if (! userAllowed) {
+        return createBrowserRouter([
+            {
+                path: '*',
+                Component: Error403
+            }
+        ])
+    }
+    if (isLoggedIn) {
+        return createBrowserRouter(routes, { basename: '/38panel'})
+    }
+    return createBrowserRouter([
+        {
+            path: '*',
+            element: (
+                <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
+                    <section className="h-full w-full overflow-x-hidden overflow-y-auto bg-black/80 flex justify-center items-center">
+                        <Auth endpoint='/admin/auth/login' googleEndpoint='/admin/auth/google'/>
+                    </section>
+                </main>
+            )
+        }
+    ], {basename: '/38panel'})
 }

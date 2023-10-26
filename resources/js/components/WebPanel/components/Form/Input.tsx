@@ -1,5 +1,5 @@
 import { FC, ReactNode, useMemo, useRef, useState } from "react";
-import useYupValidation from "../../hooks/useYupValidation";
+import useYupValidation from "../../../UserArea/hooks/useYupValidation";
 import FormSection from "../FormSection";
 
 interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {

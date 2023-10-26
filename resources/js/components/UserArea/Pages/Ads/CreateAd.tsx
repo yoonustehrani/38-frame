@@ -1,5 +1,5 @@
 import { FC, useLayoutEffect, useState } from "react";
-import BreadCrumb, { BreadCrumbItem } from "../../components/BreadCrumb";
+import BreadCrumb, { BreadCrumbItem } from "../../../WebPanel/components/BreadCrumb";
 import { fetchSiteCategories, requestAdCreation } from "./api";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";

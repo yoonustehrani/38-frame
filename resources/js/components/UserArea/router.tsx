@@ -103,7 +103,7 @@ export const getRouter = (isLoggedIn: boolean) => {
         element: (
             <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
                 <section className="h-full w-full overflow-x-hidden overflow-y-auto bg-black/80 flex justify-center items-center">
-                    <Auth endpoint='/auth/login'/>
+                    <Auth endpoint='/auth/login' googleEndpoint='/auth/google'/>
                 </section>
             </main>
         )

@@ -23,12 +23,15 @@ const UserArea: FC<UserAreaProps> = () => {
         },
         logout: () => {
             setUser(null)
+        },
+        disallow: () => {
+            
         }
     }
     const [loading, setLoading] = useState(true)
     useLayoutEffect(() => {
         if (! user) {
-            const [requestUser, cancelRequest] = (new Request(ApiConfig).to('/admin').send())
+            const [requestUser, cancelRequest] = (new Request(ApiConfig).to('/user').send())
             requestUser.then(res => {
                 if (! res.hasErrors()) {
                     setUser(res.getContent() as User)
