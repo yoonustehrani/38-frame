@@ -1,18 +1,17 @@
-import { FC } from "react";
-import Nav from "../UserArea/Nav/Nav";
+import { FC, ReactNode } from "react";
 import NavItem from "../UserArea/Nav/NavItem";
 
 interface SideMenuProps {
-    
+    children?: ReactNode
 }
 
-const SideMenu: FC<SideMenuProps> = () => {
+const SideMenu: FC<SideMenuProps> = ({children}) => {
     return (
         <aside className="h-full pb-4 shrink-0 border-l border-dashed border-gray-300 px-3 hidden lg:flex lg:flex-col">
             <section className="py-3 flex grow-0 justify-center">
                 <img width="50" src="/images/logo-300w.webp" alt=""/>
             </section>
-            <Nav />
+            {children}
             <ul className="userarea-menu a-full sticky bottom-0 font-iran-sans">
                 <NavItem uri="/signout" title="خروج" className="text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">

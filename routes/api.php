@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\ShopController;
 use App\Http\Resources\CityResource;
@@ -26,7 +27,11 @@ Route::middleware('auth:sanctum')->group(function() {
             $request->query('type') ?: null
         )->get();
     })->name('site-categories.index');
-    
+    Route::prefix('admin')->middleware('onlyAdmin')->name('admin.')->group(function() {
+        Route::get('/', function(Request $request) {
+            return $request->user();
+        });
+    });
     Route::prefix('user')->name('user.')->group(function() {
         Route::get('/', function (Request $request) {
             return $request->user();
@@ -56,6 +61,6 @@ Route::get('cities/{city}', function($city) {
     return (new CityResource(City::with('province')->findOrFail($city)));
 });
 Route::apiResource('lab-services', 'App\Http\Controllers\LabServiceController');
-Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn');
-Route::post('auth/login', 'App\Http\Controllers\AuthController@login');
+Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn')->name('auth.login.google');
+Route::post('auth/login', 'App\Http\Controllers\AuthController@login')->name('auth.login');
 Route::get('posts', 'App\Http\Controllers\BlogPostController@index')->name('posts.index');

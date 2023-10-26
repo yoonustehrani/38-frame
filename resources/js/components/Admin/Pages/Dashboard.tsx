@@ -16,19 +16,10 @@ const Dashboard: FC<DashboardProps> = () => {
     // }
     return (
         <div>
-            <section className="w-full md:px-6 md:py-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <section className="md:h-72 shadow-sm shadow-gray-400 rounded-md overflow-hidden px-4 py-3 flex flex-col-reverse md:flex-row items-center md:items-start justify-between" style={{ background: grad }}>
-                    <div className="py-2 px-3 flex flex-col items-center md:items-start justify-center gap-4">
-                        <h3 className="text-2xl md:text-3xl text-center md:text-right leading-relaxed text-gray-900 font-bold">به سکان ۳۸ فریم خوش آمدید.!</h3>
-                        <p className="text-gray-700 font-bold text-lg text-justify">
-                            <span></span>
-                            <br />
-                            <span className="text-base font-thin">سفارش ها را آنلاین دریافت کنید و فایل ها را آنلاین به مشتریان تان تحویل دهید.</span>
-                        </p>
-                        {/* <ArrowIcon className="inline-block" to="left" size={40}/> */}
-                        <Link to="/lab/register" className="text-lg duration-300 text-gray-800 bg-zinc-300 py-1 px-3 rounded-md border border-b-4 border-b-zinc-500/60 w-fit">احداث تاریکخانه آنلاین</Link>
-                    </div>
+            <section className="w-full md:px-6 md:py-4 flex gap-8">
+                <section className="md:h-24 shadow-sm shadow-gray-400 rounded-md overflow-hidden px-4 py-2 flex flex-col md:flex-row items-center md:items-center justify-between gap-6" style={{ background: grad }}>
                     <img className="w-3/4 md:w-auto md:h-full rounded-full border-4 border-x-yellow/20" src="/images/darkroom.webp" alt="" />
+                    <h3 className="text-xl md:text-2xl text-center md:text-right leading-relaxed text-gray-900 font-bold">به سکان ۳۸ فریم خوش آمدید!</h3>
                 </section>
                 <section></section>
             </section>

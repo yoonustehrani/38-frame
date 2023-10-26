@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
-import authContext from "./context/authContext";
-import { User } from "./types";
+import authContext from "../WebPanel/context/authContext";
+import { User } from "../WebPanel/types";
 import Request from "../../utils/HttpClient/Request";
 interface TopNavProps {
     

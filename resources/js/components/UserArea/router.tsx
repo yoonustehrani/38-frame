@@ -1,5 +1,5 @@
 import { RouteObject, createBrowserRouter } from 'react-router-dom'
-import Root from '../WebPanel/Root'
+import Root from './Root'
 import Error404 from '../WebPanel/Error404'
 import Auth from '../Auth'
 // import Dashboard from './Pages/Dashboard'
@@ -103,7 +103,7 @@ export const getRouter = (isLoggedIn: boolean) => {
         element: (
             <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
                 <section className="h-full w-full overflow-x-hidden overflow-y-auto bg-black/80 flex justify-center items-center">
-                    <Auth />
+                    <Auth endpoint='/auth/login'/>
                 </section>
             </main>
         )

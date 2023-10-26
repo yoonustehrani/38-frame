@@ -1,5 +1,5 @@
 import { RouteObject, createBrowserRouter } from 'react-router-dom'
-import Root from '../WebPanel/Root'
+import Root from './Root'
 import Auth from '../Auth'
 import Error404 from '../WebPanel/Error404'
 // import Dashboard from './Pages/Dashboard'
@@ -35,7 +35,7 @@ const routes: RouteObject[] = [
 ]
 
 export const getRouter = (isLoggedIn: boolean) => {
-    return isLoggedIn ? createBrowserRouter(routes, { basename: '/userarea'}) : createBrowserRouter([{
+    return isLoggedIn ? createBrowserRouter(routes, { basename: '/38panel'}) : createBrowserRouter([{
         path: '*',
         element: (
             <main className="w-full h-full bg-shark bg-no-repeat bg-center bg-cover">
@@ -44,5 +44,5 @@ export const getRouter = (isLoggedIn: boolean) => {
                 </section>
             </main>
         )
-    }], {basename: '/userarea'})
+    }], {basename: '/38panel'})
 }
