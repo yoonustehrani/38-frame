@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lab extends Model
 {
     use HasFactory, HasMetaAttribute;
-
+    protected $fillable = ['brand', 'bio', 'founded_in_year', 'address', 'owner_fullname', 'owner_national_id', 'phone_number', 'website', 'address_line', 'city_id', 'meta'];
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');

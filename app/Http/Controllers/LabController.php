@@ -51,7 +51,24 @@ class LabController extends Controller
      */
     public function store(StoreLabRequest $request)
     {
-        //
+        try {
+            \DB::beginTransaction();
+            $lab = new Lab();
+            $lab->fill($request->all());
+            $lab->slug = str_replace(' ', '-', $request->input('brand'));
+            $lab->active = $request->user()->isAdmin() ? $request->input('active') === 'yes' : false;
+            if ($lab->save()) {
+                $lab->services()->sync($request->input('services'));
+            }
+            \DB::commit();
+            return response()->json([
+                'okay' => true,
+                'data' => $lab->toArray()
+            ]);
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            throw $th;
+        }
     }
 
     /**
