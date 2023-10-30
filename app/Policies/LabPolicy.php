@@ -13,7 +13,7 @@ class LabPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->isAdmin();
     }
 
     /**
@@ -21,7 +21,7 @@ class LabPolicy
      */
     public function view(User $user, Lab $lab): bool
     {
-        //
+        return $user->isAdmin() || $lab->getKey() === $user->getKey();
     }
 
     /**
@@ -29,7 +29,7 @@ class LabPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->isAdmin() || $user->lab()->doesntExist();
     }
 
     /**
@@ -37,7 +37,7 @@ class LabPolicy
      */
     public function update(User $user, Lab $lab): bool
     {
-        //
+        return $user->isAdmin() || $lab->getKey() === $user->getKey();
     }
 
     /**
@@ -45,22 +45,6 @@ class LabPolicy
      */
     public function delete(User $user, Lab $lab): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Lab $lab): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Lab $lab): bool
-    {
-        //
+        return $user->isAdmin() || $lab->getKey() === $user->getKey();
     }
 }
