@@ -11,25 +11,35 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
-        if (Auth::guard('web')->attempt($credentials)) {
-            // $request->session()->regenerate();
-            return response()->json($request->user());
+        $user = User::whereEmail($request->input('email'))->first();
+        if ($user && (! Hash::check($request->input('password'), $user->password))) {
+            return response()->json([
+                'errors' => [
+                    'message' => 'Login failed',
+                    'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
+                ]
+            ], 419);
+        } else {
+            $user = new User([
+                // 'username' => \Str::random(12),
+                'email' => $request->input('email'),
+                'password' => bcrypt(\Str::random(12)),
+                'email_verfied_at' => now()
+            ]);
+            $user->meta = serialize([]);
+            $user->save();
         }
-        return response()->json([
-            'errors' => [
-                'message' => 'Login failed',
-                'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
-            ]
-        ], 419);
+        $request->session()->regenerate();
+        Auth::loginUsingId($user->getKey());
+        return response()->json($user);
     }
     public function adminLogin(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
@@ -60,7 +70,7 @@ class AuthController extends Controller
             $user = new User([
                 // 'username' => \Str::random(12),
                 'email' => $googleUser['email'],
-                'avatar' => $payload['picture'],
+                'avatar' => $googleUser['picture'],
                 'password' => bcrypt(\Str::random(12)),
                 'email_verfied_at' => now()
             ]);
