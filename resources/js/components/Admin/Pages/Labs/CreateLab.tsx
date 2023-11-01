@@ -29,11 +29,11 @@ const levels = [
             services: []
         }
     },
-    {
-        lazy: () => import('./Forms/Register/Logo'),
-        title: 'هویت بصری لابراتوار',
-        initialValues: {}
-    },
+    // {
+    //     lazy: () => import('./Forms/Register/Logo'),
+    //     title: 'هویت بصری لابراتوار',
+    //     initialValues: {}
+    // },
     {
         lazy: () => import('./Forms/Register/LabDetails'),
         title: 'اطلاعات تکمیلی',
