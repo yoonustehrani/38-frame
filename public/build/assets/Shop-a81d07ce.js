@@ -1,1 +1,0 @@
-import{r,j as o,F as e}from"./client-58cc365f.js";import{f as s}from"./react-userarea-bbb4809d.js";import"./Request-e20e83b2.js";const i=()=>{const t=s();return r.useLayoutEffect(()=>{t("/shop/register")},[]),o(e,{children:"فروشگاه"})};export{i as Component};
