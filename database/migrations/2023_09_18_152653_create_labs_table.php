@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('labs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('owner_id')->nullable()->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
             $table->string('brand');
             $table->string('slug')->unique();
-            $table->string('category');
+            $table->bigInteger('category_id');
             $table->boolean('active');
             // $table->enum('category');
             $table->text('bio');

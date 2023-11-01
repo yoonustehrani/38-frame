@@ -1,0 +1,1 @@
+import{R as t}from"./Request-c3ee7f25.js";const e={baseURL:window.location.origin+"/api",headers:{Accept:"application/json"}},n=()=>new t(e).to("/ads").send(),a=()=>new t(e).to("/site-categories").send(),r=s=>new t({...e,headers:{...e.headers,"Content-Type":"multipart/form-data"}}).method("post").to("/ads").send(s);export{a,n as f,r};

@@ -5,64 +5,107 @@
       "_client-58cc365f.js"
     ]
   },
-  "_BreadCrumb-79337d0d.js": {
-    "file": "assets/BreadCrumb-79337d0d.js",
+  "_Auth-a8dd6798.js": {
+    "file": "assets/Auth-a8dd6798.js",
     "imports": [
       "_client-58cc365f.js",
       "_ArrowIcon-18cff6a5.js",
-      "resources/js/react-userarea.tsx"
+      "_Request-c3ee7f25.js"
     ]
   },
-  "_Checkbox-c0828f60.js": {
-    "file": "assets/Checkbox-c0828f60.js",
-    "imports": [
-      "_styled-1092f92f.js",
-      "_client-58cc365f.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
-    ]
-  },
-  "_FormControl-5500baed.js": {
-    "file": "assets/FormControl-5500baed.js",
+  "_BreadCrumb-8e5dd50e.js": {
+    "file": "assets/BreadCrumb-8e5dd50e.js",
     "imports": [
       "_client-58cc365f.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js"
+      "_ArrowIcon-18cff6a5.js",
+      "_Auth-a8dd6798.js"
     ]
   },
-  "_FormSection-b5fa1c80.js": {
-    "file": "assets/FormSection-b5fa1c80.js",
+  "_Checkbox-5cf17d51.js": {
+    "file": "assets/Checkbox-5cf17d51.js",
+    "imports": [
+      "_styled-6f56fe61.js",
+      "_client-58cc365f.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
+    ]
+  },
+  "_CityComboBox-849df22d.js": {
+    "file": "assets/CityComboBox-849df22d.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_Request-c3ee7f25.js",
+      "_styled-6f56fe61.js",
+      "_createSvgIcon-14455242.js",
+      "_SwitchBase-f8d70df7.js",
+      "_FormControl-2a4efbc0.js"
+    ]
+  },
+  "_CreateLab-643f324c.js": {
+    "dynamicImports": [
+      "resources/js/components/Admin/Pages/Labs/Forms/Register/GeneralDataForm.tsx",
+      "resources/js/components/Admin/Pages/Labs/Forms/Register/LabServicesForm.tsx",
+      "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx",
+      "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
+    ],
+    "file": "assets/CreateLab-643f324c.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_index.esm-d15ecbe5.js",
+      "_formContext-c4ccf986.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js"
+    ],
+    "isDynamicEntry": true
+  },
+  "_FormControl-2a4efbc0.js": {
+    "file": "assets/FormControl-2a4efbc0.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js"
+    ]
+  },
+  "_FormSection-5d2c6e9c.js": {
+    "file": "assets/FormSection-5d2c6e9c.js",
     "imports": [
       "_client-58cc365f.js"
     ]
   },
-  "_Input-8093a8ee.js": {
-    "file": "assets/Input-8093a8ee.js",
-    "imports": [
-      "_client-58cc365f.js",
-      "_FormSection-b5fa1c80.js",
-      "_formContext-c4ccf986.js"
-    ]
-  },
-  "_Input-fb8632cd.js": {
-    "file": "assets/Input-fb8632cd.js",
+  "_Input-35c8ca82.js": {
+    "file": "assets/Input-35c8ca82.js",
     "imports": [
       "_client-58cc365f.js",
       "_index.esm-d15ecbe5.js",
-      "_FormSection-b5fa1c80.js"
+      "_FormSection-5d2c6e9c.js"
     ]
   },
-  "_RadioGroup-137a6be0.js": {
-    "file": "assets/RadioGroup-137a6be0.js",
+  "_Input-b33c5aed.js": {
+    "file": "assets/Input-b33c5aed.js",
     "imports": [
-      "_styled-1092f92f.js",
       "_client-58cc365f.js",
-      "_FormControl-5500baed.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_FormSection-5d2c6e9c.js",
+      "_formContext-c4ccf986.js"
     ]
   },
-  "_RegisterLab-4e5c46e7.js": {
+  "_PlusIcon-18108374.js": {
+    "file": "assets/PlusIcon-18108374.js",
+    "imports": [
+      "_client-58cc365f.js"
+    ]
+  },
+  "_RadioGroup-253ae28f.js": {
+    "file": "assets/RadioGroup-253ae28f.js",
+    "imports": [
+      "_styled-6f56fe61.js",
+      "_client-58cc365f.js",
+      "_FormControl-2a4efbc0.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
+    ]
+  },
+  "_RegisterLab-a898bf91.js": {
     "dynamicImports": [
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/GeneralDataForm.tsx",
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabServicesForm.tsx",
@@ -71,58 +114,72 @@
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/ContactInfoForm.tsx",
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx"
     ],
-    "file": "assets/RegisterLab-4e5c46e7.js",
+    "file": "assets/RegisterLab-a898bf91.js",
     "imports": [
       "_client-58cc365f.js",
-      "_BreadCrumb-79337d0d.js",
+      "_BreadCrumb-8e5dd50e.js",
       "_index.esm-d15ecbe5.js",
       "_formContext-c4ccf986.js",
       "_ArrowIcon-18cff6a5.js",
-      "_Request-e20e83b2.js"
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true
   },
-  "_Request-e20e83b2.js": {
-    "file": "assets/Request-e20e83b2.js"
+  "_Request-c3ee7f25.js": {
+    "file": "assets/Request-c3ee7f25.js"
   },
-  "_SelectBox-86ee8e8b.js": {
-    "file": "assets/SelectBox-86ee8e8b.js",
+  "_SelectBox-9a6d3771.js": {
+    "file": "assets/SelectBox-9a6d3771.js",
     "imports": [
-      "_styled-1092f92f.js",
       "_client-58cc365f.js",
-      "_FormSection-b5fa1c80.js",
+      "_FormSection-5d2c6e9c.js",
       "_formContext-c4ccf986.js"
     ]
   },
-  "_Switch-cb673037.js": {
-    "file": "assets/Switch-cb673037.js",
+  "_Switch-c67f22bf.js": {
+    "file": "assets/Switch-c67f22bf.js",
     "imports": [
-      "_styled-1092f92f.js",
+      "_styled-6f56fe61.js",
       "_client-58cc365f.js",
-      "_SwitchBase-d5bfe78b.js"
+      "_SwitchBase-f8d70df7.js"
     ]
   },
-  "_SwitchBase-d5bfe78b.js": {
-    "file": "assets/SwitchBase-d5bfe78b.js",
+  "_SwitchBase-f8d70df7.js": {
+    "file": "assets/SwitchBase-f8d70df7.js",
     "imports": [
-      "_styled-1092f92f.js",
+      "_styled-6f56fe61.js",
       "_client-58cc365f.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
     ]
   },
-  "_api-f6f1a853.js": {
-    "file": "assets/api-f6f1a853.js",
+  "_TextArea-1e1ce26a.js": {
+    "file": "assets/TextArea-1e1ce26a.js",
     "imports": [
-      "_Request-e20e83b2.js"
+      "_client-58cc365f.js",
+      "_Input-35c8ca82.js",
+      "_FormSection-5d2c6e9c.js"
+    ]
+  },
+  "_ThemeProvider-cd10f0f9.js": {
+    "file": "assets/ThemeProvider-cd10f0f9.js",
+    "imports": [
+      "_styled-6f56fe61.js",
+      "_client-58cc365f.js"
+    ]
+  },
+  "_api-41aed6c4.js": {
+    "file": "assets/api-41aed6c4.js",
+    "imports": [
+      "_Request-c3ee7f25.js"
     ]
   },
   "_client-58cc365f.js": {
     "file": "assets/client-58cc365f.js"
   },
-  "_createSvgIcon-b56db109.js": {
-    "file": "assets/createSvgIcon-b56db109.js",
+  "_createSvgIcon-14455242.js": {
+    "file": "assets/createSvgIcon-14455242.js",
     "imports": [
-      "_styled-1092f92f.js",
+      "_styled-6f56fe61.js",
       "_client-58cc365f.js"
     ]
   },
@@ -145,8 +202,8 @@
       "_client-58cc365f.js"
     ]
   },
-  "_styled-1092f92f.js": {
-    "file": "assets/styled-1092f92f.js",
+  "_styled-6f56fe61.js": {
+    "file": "assets/styled-6f56fe61.js",
     "imports": [
       "_client-58cc365f.js"
     ]
@@ -180,7 +237,7 @@
     "src": "public/images/white-black-rectangles.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-e83c87ed.css",
+    "file": "assets/app-140f25c2.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -196,11 +253,110 @@
     "isEntry": true,
     "src": "resources/js/app.js"
   },
-  "resources/js/components/Blog/index.ts": {
-    "file": "assets/index-d0a5f016.js",
+  "resources/js/components/Admin/Pages/Dashboard.tsx": {
+    "file": "assets/Dashboard-9d942235.js",
+    "imports": [
+      "_client-58cc365f.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Dashboard.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx": {
+    "file": "assets/ContactInfoForm-8e7eb5ef.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Request-e20e83b2.js"
+      "_Input-b33c5aed.js",
+      "_index.esm-d15ecbe5.js",
+      "_formContext-c4ccf986.js",
+      "_Checkbox-5cf17d51.js",
+      "_FormSection-5d2c6e9c.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/Forms/Register/GeneralDataForm.tsx": {
+    "file": "assets/GeneralDataForm-88fa88cd.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_Input-b33c5aed.js",
+      "_SelectBox-9a6d3771.js",
+      "_FormSection-5d2c6e9c.js",
+      "_formContext-c4ccf986.js",
+      "_CityComboBox-849df22d.js",
+      "_Auth-a8dd6798.js",
+      "_CreateLab-643f324c.js",
+      "_Switch-c67f22bf.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_Request-c3ee7f25.js",
+      "_styled-6f56fe61.js",
+      "_createSvgIcon-14455242.js",
+      "_SwitchBase-f8d70df7.js",
+      "_FormControl-2a4efbc0.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_index.esm-d15ecbe5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/GeneralDataForm.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx": {
+    "file": "assets/LabDetails-5828e02a.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_formContext-c4ccf986.js",
+      "_Input-b33c5aed.js",
+      "_Input-35c8ca82.js",
+      "_index-81c6ef03.js",
+      "_Switch-c67f22bf.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_FormSection-5d2c6e9c.js",
+      "_index.esm-d15ecbe5.js",
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/Forms/Register/LabServicesForm.tsx": {
+    "file": "assets/LabServicesForm-c0cac356.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_formContext-c4ccf986.js",
+      "_CreateLab-643f324c.js",
+      "_Input-35c8ca82.js",
+      "_TextArea-1e1ce26a.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
+      "_index.esm-d15ecbe5.js",
+      "_FormSection-5d2c6e9c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/LabServicesForm.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/Labs.tsx": {
+    "file": "assets/Labs-c29a9165.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_Auth-a8dd6798.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/Labs.tsx"
+  },
+  "resources/js/components/Blog/index.ts": {
+    "file": "assets/index-3f83da71.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Blog/index.ts"
@@ -214,17 +370,18 @@
     "src": "resources/js/components/Gallery/index.ts"
   },
   "resources/js/components/Labs/Labs.tsx": {
-    "file": "assets/Labs-a5f030ec.js",
+    "file": "assets/Labs-3eeb4819.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Request-e20e83b2.js",
-      "_styled-1092f92f.js",
-      "_createSvgIcon-b56db109.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_FormControl-5500baed.js",
+      "_CityComboBox-849df22d.js",
       "_ArrowIcon-18cff6a5.js",
-      "_Switch-cb673037.js",
-      "_hoist-non-react-statics.cjs-3f8ebaa8.js"
+      "_Switch-c67f22bf.js",
+      "_Request-c3ee7f25.js",
+      "_styled-6f56fe61.js",
+      "_createSvgIcon-14455242.js",
+      "_SwitchBase-f8d70df7.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_FormControl-2a4efbc0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Labs/Labs.tsx"
@@ -238,130 +395,134 @@
     "src": "resources/js/components/Roadmap/index.ts"
   },
   "resources/js/components/UserArea/Pages/Ads/Ads.tsx": {
-    "file": "assets/Ads-9aa382c0.js",
+    "file": "assets/Ads-aafa6967.js",
     "imports": [
       "_client-58cc365f.js",
-      "_BreadCrumb-79337d0d.js",
-      "resources/js/react-userarea.tsx",
-      "_api-f6f1a853.js",
-      "_styled-1092f92f.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_Auth-a8dd6798.js",
+      "_PlusIcon-18108374.js",
+      "_api-41aed6c4.js",
+      "_styled-6f56fe61.js",
       "_ArrowIcon-18cff6a5.js",
-      "_Request-e20e83b2.js"
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Ads/Ads.tsx"
   },
   "resources/js/components/UserArea/Pages/Ads/CreateAd.tsx": {
-    "file": "assets/CreateAd-5311991e.js",
+    "file": "assets/CreateAd-64ce4813.js",
     "imports": [
       "_client-58cc365f.js",
-      "_BreadCrumb-79337d0d.js",
-      "_api-f6f1a853.js",
-      "_FormSection-b5fa1c80.js",
+      "_BreadCrumb-8e5dd50e.js",
+      "_api-41aed6c4.js",
+      "_FormSection-5d2c6e9c.js",
       "_index.esm-d15ecbe5.js",
-      "_Input-fb8632cd.js",
-      "_FormControl-5500baed.js",
-      "_RadioGroup-137a6be0.js",
-      "_Checkbox-c0828f60.js",
-      "resources/js/react-userarea.tsx",
-      "_styled-1092f92f.js",
+      "_Input-35c8ca82.js",
+      "_TextArea-1e1ce26a.js",
+      "_FormControl-2a4efbc0.js",
+      "_RadioGroup-253ae28f.js",
+      "_Checkbox-5cf17d51.js",
+      "_Auth-a8dd6798.js",
+      "_styled-6f56fe61.js",
       "_ArrowIcon-18cff6a5.js",
-      "_Request-e20e83b2.js",
-      "_SwitchBase-d5bfe78b.js",
+      "_Request-c3ee7f25.js",
+      "_SwitchBase-f8d70df7.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_createSvgIcon-b56db109.js"
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Ads/CreateAd.tsx"
   },
   "resources/js/components/UserArea/Pages/Dashboard.tsx": {
-    "file": "assets/Dashboard-5e7b01bc.js",
+    "file": "assets/Dashboard-540930a1.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
+      "_ArrowIcon-18cff6a5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Dashboard.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-89b25925.js",
+    "file": "assets/AcceptPolicyForm-8014a24e.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
-      "_Checkbox-c0828f60.js",
+      "_Checkbox-5cf17d51.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/ContactInfoForm.tsx": {
-    "file": "assets/ContactInfoForm-1fbe4431.js",
+    "file": "assets/ContactInfoForm-4d6a8d45.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Input-8093a8ee.js",
+      "_Input-b33c5aed.js",
       "_index.esm-d15ecbe5.js",
       "_formContext-c4ccf986.js",
-      "_Checkbox-c0828f60.js",
-      "_FormSection-b5fa1c80.js",
+      "_Checkbox-5cf17d51.js",
+      "_FormSection-5d2c6e9c.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/ContactInfoForm.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/GeneralDataForm.tsx": {
-    "file": "assets/GeneralDataForm-16d7c651.js",
+    "file": "assets/GeneralDataForm-28e1c21f.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Input-8093a8ee.js",
-      "_SelectBox-86ee8e8b.js",
-      "_styled-1092f92f.js",
-      "_FormControl-5500baed.js",
-      "_RadioGroup-137a6be0.js",
-      "_FormSection-b5fa1c80.js",
+      "_Input-b33c5aed.js",
+      "_SelectBox-9a6d3771.js",
+      "_ThemeProvider-cd10f0f9.js",
+      "_styled-6f56fe61.js",
+      "_FormControl-2a4efbc0.js",
+      "_RadioGroup-253ae28f.js",
+      "_FormSection-5d2c6e9c.js",
       "_formContext-c4ccf986.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/GeneralDataForm.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabDetails.tsx": {
-    "file": "assets/LabDetails-9bbe3fe2.js",
+    "file": "assets/LabDetails-220b6614.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
-      "_Input-8093a8ee.js",
-      "_Input-fb8632cd.js",
+      "_Input-b33c5aed.js",
+      "_Input-35c8ca82.js",
       "_index-81c6ef03.js",
-      "_Switch-cb673037.js",
+      "_Switch-c67f22bf.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_FormSection-b5fa1c80.js",
+      "_FormSection-5d2c6e9c.js",
       "_index.esm-d15ecbe5.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js"
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabDetails.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabServicesForm.tsx": {
-    "file": "assets/LabServicesForm-68db3c15.js",
+    "file": "assets/LabServicesForm-d1836978.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
-      "_RegisterLab-4e5c46e7.js",
+      "_RegisterLab-a898bf91.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_BreadCrumb-79337d0d.js",
+      "_BreadCrumb-8e5dd50e.js",
       "_ArrowIcon-18cff6a5.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js",
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
       "_index.esm-d15ecbe5.js"
     ],
     "isDynamicEntry": true,
@@ -376,11 +537,12 @@
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/Logo.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Lab.tsx": {
-    "file": "assets/Lab-a094c3d1.js",
+    "file": "assets/Lab-ad5957fe.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Lab.tsx"
@@ -394,50 +556,52 @@
     "src": "resources/js/components/UserArea/Pages/Settings/AuthSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Settings/ProfileSettings.tsx": {
-    "file": "assets/ProfileSettings-de2e0fea.js",
+    "file": "assets/ProfileSettings-46d6afe6.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Switch-cb673037.js",
-      "_Request-e20e83b2.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js",
+      "_Auth-a8dd6798.js",
+      "_Switch-c67f22bf.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js",
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Settings/ProfileSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx": {
-    "file": "assets/SocialSettings-20dfd38a.js",
+    "file": "assets/SocialSettings-b075267d.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
+      "_ArrowIcon-18cff6a5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-d9efb47e.js",
+    "file": "assets/AcceptPolicyForm-d64458f5.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
-      "_Checkbox-c0828f60.js",
+      "_Checkbox-5cf17d51.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_styled-1092f92f.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_styled-6f56fe61.js",
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/ContactInfoForm.tsx": {
-    "file": "assets/ContactInfoForm-784cbb0e.js",
+    "file": "assets/ContactInfoForm-f6e18b7c.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Input-8093a8ee.js",
+      "_Input-b33c5aed.js",
       "_index.esm-d15ecbe5.js",
-      "_FormSection-b5fa1c80.js",
+      "_FormSection-5d2c6e9c.js",
       "_formContext-c4ccf986.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
     ],
@@ -445,19 +609,20 @@
     "src": "resources/js/components/UserArea/Pages/Shop/Forms/Register/ContactInfoForm.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/GeneralDataForm.tsx": {
-    "file": "assets/GeneralDataForm-0f36390b.js",
+    "file": "assets/GeneralDataForm-6d070213.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Input-8093a8ee.js",
-      "_SelectBox-86ee8e8b.js",
-      "_styled-1092f92f.js",
-      "_FormControl-5500baed.js",
-      "_RadioGroup-137a6be0.js",
-      "_FormSection-b5fa1c80.js",
+      "_Input-b33c5aed.js",
+      "_SelectBox-9a6d3771.js",
+      "_ThemeProvider-cd10f0f9.js",
+      "_styled-6f56fe61.js",
+      "_FormControl-2a4efbc0.js",
+      "_RadioGroup-253ae28f.js",
+      "_FormSection-5d2c6e9c.js",
       "_formContext-c4ccf986.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_SwitchBase-d5bfe78b.js",
-      "_createSvgIcon-b56db109.js"
+      "_SwitchBase-f8d70df7.js",
+      "_createSvgIcon-14455242.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/Forms/Register/GeneralDataForm.tsx"
@@ -471,15 +636,15 @@
     "src": "resources/js/components/UserArea/Pages/Shop/Forms/Register/Logo.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/ShopDetails.tsx": {
-    "file": "assets/ShopDetails-e50b6e41.js",
+    "file": "assets/ShopDetails-e56a688b.js",
     "imports": [
       "_client-58cc365f.js",
       "_formContext-c4ccf986.js",
-      "_Input-8093a8ee.js",
-      "_Input-fb8632cd.js",
+      "_Input-b33c5aed.js",
+      "_Input-35c8ca82.js",
       "_index-81c6ef03.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_FormSection-b5fa1c80.js",
+      "_FormSection-5d2c6e9c.js",
       "_index.esm-d15ecbe5.js"
     ],
     "isDynamicEntry": true,
@@ -493,39 +658,58 @@
       "resources/js/components/UserArea/Pages/Shop/Forms/Register/ContactInfoForm.tsx",
       "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx"
     ],
-    "file": "assets/RegisterShop-82230249.js",
+    "file": "assets/RegisterShop-e15ae111.js",
     "imports": [
       "_client-58cc365f.js",
-      "_BreadCrumb-79337d0d.js",
+      "_BreadCrumb-8e5dd50e.js",
       "_index.esm-d15ecbe5.js",
       "_formContext-c4ccf986.js",
       "_ArrowIcon-18cff6a5.js",
-      "_Request-e20e83b2.js",
-      "resources/js/react-userarea.tsx",
+      "_Request-c3ee7f25.js",
+      "_Auth-a8dd6798.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/RegisterShop.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Shop.tsx": {
-    "file": "assets/Shop-fae96bdb.js",
+    "file": "assets/Shop-e2a3c170.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/Shop.tsx"
   },
   "resources/js/components/UserArea/Pages/UserSettings.tsx": {
-    "file": "assets/UserSettings-fe9a7158.js",
+    "file": "assets/UserSettings-a46589c2.js",
     "imports": [
       "_client-58cc365f.js",
-      "resources/js/react-userarea.tsx",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_ArrowIcon-18cff6a5.js",
+      "_Request-c3ee7f25.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/UserSettings.tsx"
+  },
+  "resources/js/react-admin.tsx": {
+    "dynamicImports": [
+      "resources/js/components/Admin/Pages/Dashboard.tsx",
+      "resources/js/components/Admin/Pages/Labs/Labs.tsx",
+      "_CreateLab-643f324c.js"
+    ],
+    "file": "assets/react-admin-3dbbaba8.js",
+    "imports": [
+      "_client-58cc365f.js",
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
+      "_PlusIcon-18108374.js",
+      "_ArrowIcon-18cff6a5.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/react-admin.tsx"
   },
   "resources/js/react-app.tsx": {
     "dynamicImports": [
@@ -534,7 +718,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-5177058c.js",
+    "file": "assets/react-app-5040f409.js",
     "imports": [
       "_client-58cc365f.js"
     ],
@@ -553,12 +737,14 @@
       "resources/js/components/UserArea/Pages/Shop/Shop.tsx",
       "resources/js/components/UserArea/Pages/Shop/RegisterShop.tsx",
       "resources/js/components/UserArea/Pages/Lab/Lab.tsx",
-      "_RegisterLab-4e5c46e7.js"
+      "_RegisterLab-a898bf91.js"
     ],
-    "file": "assets/react-userarea-dc284f1e.js",
+    "file": "assets/react-userarea-f8cb86a8.js",
     "imports": [
       "_client-58cc365f.js",
-      "_Request-e20e83b2.js"
+      "_Auth-a8dd6798.js",
+      "_Request-c3ee7f25.js",
+      "_ArrowIcon-18cff6a5.js"
     ],
     "isEntry": true,
     "src": "resources/js/react-userarea.tsx"

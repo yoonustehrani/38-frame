@@ -1,14 +1,13 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
-import authContext from "./context/authContext";
-import { User } from "./types";
 import Request from "../../utils/HttpClient/Request";
+import useAuth from "../WebPanel/hooks/useAuth";
 interface TopNavProps {
     
 }
  
 const TopNav: FC<TopNavProps> = () => {
-    const {user, logout} = useContext(authContext)
+    const {user, logout} = useAuth()
     function handleLogout()
     {
         const [response, cancel] = new Request({

@@ -22,7 +22,8 @@ return new class extends Migration
                 'material',
                 'equipment', // tripod, monopod
                 'accessory', // strap
-                'service'
+                'service',
+                'lab_category'
             ])->nullable();
             $table->text('description');
         });

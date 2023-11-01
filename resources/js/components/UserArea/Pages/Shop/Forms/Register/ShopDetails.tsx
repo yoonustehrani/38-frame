@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useField } from "formik";
-import Input from "../../../../components/Formik/Input";
-import FormInput from "../../../../components/Form/Input";
+import Input from "../../../../../WebPanel/components/Formik/Input";
+import FormInput from "../../../../../WebPanel/components/Form/Input";
 //@ts-expect-error
 import { findBankByIBAN } from '../../../../../../utils/GripHook/index.js';
 

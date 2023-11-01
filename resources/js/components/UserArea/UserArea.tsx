@@ -1,9 +1,9 @@
-import { FC, StrictMode, useLayoutEffect, useState } from "react";
+import { FC, useLayoutEffect, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 import { getRouter } from "./router";
-import { User } from "./types";
+import { User } from "../WebPanel/types";
 import Request from "../../utils/HttpClient/Request";
-import authContext from "./context/authContext";
+import authContext from "../WebPanel/context/authContext";
 
 const ApiConfig = {
     baseURL: window.location.origin + '/api',
@@ -23,6 +23,9 @@ const UserArea: FC<UserAreaProps> = () => {
         },
         logout: () => {
             setUser(null)
+        },
+        disallow: () => {
+            
         }
     }
     const [loading, setLoading] = useState(true)

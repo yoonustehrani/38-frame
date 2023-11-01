@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateLabRequest;
 use App\Http\Resources\LabCollection;
 use App\Http\Resources\LabResource;
 use App\Models\Lab;
+use App\Models\SiteCategory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,24 @@ class LabController extends Controller
      */
     public function store(StoreLabRequest $request)
     {
-        //
+        try {
+            \DB::beginTransaction();
+            $lab = new Lab();
+            $lab->fill($request->all());
+            $lab->slug = str_replace(' ', '-', $request->input('brand'));
+            $lab->active = $request->user()->isAdmin() ? $request->input('active') === 'yes' : false;
+            if ($lab->save()) {
+                $lab->services()->sync($request->input('services'));
+            }
+            \DB::commit();
+            return response()->json([
+                'okay' => true,
+                'data' => $lab->toArray()
+            ]);
+        } catch (\Throwable $th) {
+            \DB::rollback();
+            throw $th;
+        }
     }
 
     /**
@@ -59,7 +77,7 @@ class LabController extends Controller
      */
     public function show($lab_slug)
     {
-        $lab = Lab::whereSlug($lab_slug)->with('services.category')->firstOrFail();
+        $lab = Lab::whereSlug($lab_slug)->with(['services.category', 'category'])->firstOrFail();
         if (request()->has('debug')) {
             return $lab;
         }

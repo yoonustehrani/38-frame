@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
-import Input from "../../../../components/Formik/Input";
-import TextArea from "../../../../components/Formik/TextArea";
+import Input from "../../../../../WebPanel/components/Formik/Input";
+import TextArea from "../../../../../WebPanel/components/Formik/TextArea";
 import { FormControl, FormControlLabel, Radio, RadioGroup, ThemeProvider, createTheme } from "@mui/material";
-import SelectBox from "../../../../components/Formik/SelectBox";
+import SelectBox from "../../../../../WebPanel/components/Formik/SelectBox";
 
 interface GeneralDataFormProps {}
  

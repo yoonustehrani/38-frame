@@ -1,11 +1,11 @@
 import { FC, Suspense, lazy, useState } from "react";
-import BreadCrumb, { BreadCrumbItem } from "../../components/BreadCrumb";
-import FormSubtitle from "../../components/FormSubtitle";
+import BreadCrumb, { BreadCrumbItem } from "../../../WebPanel/components/BreadCrumb";
+import FormSubtitle from "../../../WebPanel/components/FormSubtitle";
 import { toPersian } from "../../../../utils/Number/numbers";
 import LevelController from "./Forms/Register/components/LevelController";
 import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik";
 import { registerShopFormValidationSchema } from "./validationSchemas";
-import {formGeneralErrorsContext} from '../../context/formContext'
+import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 import { sendShopRegisteringRequest } from "./api";
 const levels = [
     {

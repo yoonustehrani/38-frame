@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, CreateAxiosDefaults, Canceler, AxiosRequestConfig} from 'axios'
 import { HttpRequestMethodType } from './types';
-import HttpResponse from './HttpResponse';
+import HttpResponse, { HttpErrorResponse } from './HttpResponse';
 
 /**
  * Creates a new Request instance
@@ -12,9 +12,11 @@ class Request
     HttpClient: AxiosInstance;
     HttpRequestMethod: HttpRequestMethodType;
     targetUrl: undefined | string;
-    constructor(config?: CreateAxiosDefaults) {
+    ErrorHandler: undefined | ((errorResponse: HttpErrorResponse) => void)
+    constructor(config?: CreateAxiosDefaults, ErrorHandler?: (errorResponse: HttpErrorResponse) => void) {
         this.HttpClient = axios.create(config);
         this.HttpRequestMethod = 'get'
+        this.ErrorHandler = ErrorHandler
     }
     /**
      * set HTTP Request method
@@ -63,7 +65,12 @@ class Request
             const response = await this.HttpClient.request(config)
             return new HttpResponse(response)
         } catch (error) {
-            return new HttpResponse().setErrors(error)
+            const response = new HttpResponse().setErrors(error)
+            let errObject = response.getErrorObject()
+            if (this.ErrorHandler && errObject) {
+                this.ErrorHandler(errObject)
+            }
+            return response
         }
     }
 }

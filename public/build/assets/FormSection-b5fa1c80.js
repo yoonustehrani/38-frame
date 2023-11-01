@@ -1,1 +1,0 @@
-import{j as o,a as e}from"./client-58cc365f.js";const l=({label:t,children:r,required:s=!1,className:i=""})=>o("div",{className:i,children:e("div",{className:"relative",children:[t&&e("label",{htmlFor:t.for,className:"absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-inherit",children:[t.text,s&&" *"]}),r]})});export{l as F};

@@ -13,6 +13,6 @@ export function requestSanctumCSRFCookie() {
     }).to('/sanctum/csrf-cookie').send()
 }
 
-export function requestLogin(data: unknown) {
-    return new Request(ApiConfig).to('/auth/login').method('post').send(data)
+export function requestLogin(endpoint: string, data: unknown) {
+    return new Request(ApiConfig).to(endpoint).method('post').send(data)
 }
