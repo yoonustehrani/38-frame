@@ -21,7 +21,9 @@
                 <h1 class="inline text-gray-700 text-3xl font-bold">{{ $lab->brand }}</h1>
                 <span class="text-gray-600"><span class="font-bold">مدیریت :‌ </span>{{ $lab->owner_fullname }}</span>
                 <div class="flex flex-wrap justify-center items-start gap-2">
-                    <h2 class="bg-x-yellow/40 text-yellow-800 py-1 px-2 rounded-full font-bold">@lang('models.labs.category.' . $lab->category)</h2>
+                    @if ($lab->category)
+                        <h2 class="bg-x-yellow/40 text-yellow-800 py-1 px-2 rounded-full font-bold">@lang('models.labs.category.' . $lab->category->name)</h2>
+                    @endif
                     @if ($lab->active)
                         <span class="bg-emerald-500/40 text-emerald-800 py-1 px-2 rounded-full font-bold text-sm">فعال</span>
                     @else

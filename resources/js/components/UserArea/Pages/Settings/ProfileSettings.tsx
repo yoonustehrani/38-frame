@@ -1,13 +1,13 @@
 import { Switch } from "@mui/material";
-import { FC, useContext } from "react";
-import authContext from "../../../WebPanel/context/authContext";
+import { FC } from "react";
+import useAuth from "../../../WebPanel/hooks/useAuth";
 
 interface ProfileSettingsProps {
     
 }
  
 const ProfileSettings: FC<ProfileSettingsProps> = () => {
-    const auth = useContext(authContext)
+    const auth = useAuth()
     return auth.user && (
         <section className="w-full mt-8 flex flex-col lg:flex-row gap-4 lg:gap-8">
             <section className="w-full lg:w-1/3 border border-black/5 shadow-md rounded-xl h-96 flex flex-col gap-8 justify-center items-center">

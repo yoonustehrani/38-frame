@@ -9,4 +9,9 @@ class Role extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
 }

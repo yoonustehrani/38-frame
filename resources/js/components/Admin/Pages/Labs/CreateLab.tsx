@@ -6,18 +6,20 @@ import LevelController from "./Forms/Register/components/LevelController";
 import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik";
 import { registerLabFormValidationSchema } from "./validationSchemas";
 import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
-// import { sendShopRegisteringRequest } from "./api";
+import { sendLabCreationRequest } from "./api";
 
 const levels = [
     {
         lazy: () => import('./Forms/Register/GeneralDataForm'),
         title: 'اطلاعات کلی لابراتوار',
         initialValues: {
-            brand: 'برند تستی',
-            founded_in_year: 1395,
+            brand: '',
+            founded_in_year: 1402,
             category: '',
-            bio: 'همیشه ارزون میفروشیم',
-            address: 'مشهد سناباد ۸۸',
+            bio: '',
+            address: '',
+            active: 'yes',
+            accpect_policy: 'yes'
         }
     },
     {
@@ -36,22 +38,22 @@ const levels = [
         lazy: () => import('./Forms/Register/LabDetails'),
         title: 'اطلاعات تکمیلی',
         initialValues: {
-            owner_fullname: 'یونس طهرانی',
-            owner_national_id: '0926534831',
+            owner_fullname: '',
+            owner_national_id: '',
             website: '',
-            iban: '130170000000114503193004'
+            iban: '' // 130170000000114503193004
         }
     },
     {
         lazy: () => import('./Forms/Register/ContactInfoForm'),
         title: 'راه های ارتباطی',
         initialValues: {
-            phone_number: '09150013422',
+            phone_number: '',
             address_line: '',
             meta: {
                 social: {
-                    instagram: 'soolakhi',
-                    telegram_channel: 'soolakhitg'
+                    instagram: '',
+                    telegram_channel: ''
                 },
                 workingDays: null,
                 onlySms: false
@@ -68,19 +70,19 @@ function getLevelKeys (level: number) {
 
 
 const RegisterLab: FC = () => {
-    const [level, setLevel] = useState(1)
+    const [level, setLevel] = useState(0)
     const [displayAllErrors, setDisplayAllErrors] = useState(false)
     if (level > levels.length) return null
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {
-        // const [response, cancel] = sendShopRegisteringRequest(values)
-        // response.then(r => {
-        //     if (r.hasErrors()) {
-        //         console.error(r.getContent());
-        //         return
-        //     }
-        //     console.log(r.getContent());
-        // })
+        const [response, cancel] = sendLabCreationRequest(values)
+        response.then(r => {
+            if (r.hasErrors()) {
+                console.error(r.getContent());
+                return
+            }
+            console.log(r.getContent());
+        })
     }
     const nextLevel = level < (levels.length - 1) ? () => { 
         setLevel(l => l + 1)
@@ -160,5 +162,5 @@ const RegisterLab: FC = () => {
         </formGeneralErrorsContext.Provider>
     );
 }
- 
+
 export {RegisterLab as Component}

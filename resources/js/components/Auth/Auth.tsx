@@ -1,10 +1,10 @@
-import { FC, useCallback, useContext, useEffect, useLayoutEffect, useReducer, useRef, useState} from "react";
+import { FC, useCallback, useEffect, useLayoutEffect, useReducer, useRef, useState} from "react";
 import Form from "./Form";
 import { requestLogin, requestSanctumCSRFCookie } from "./api";
 import HttpResponse from "../../utils/HttpClient/HttpResponse";
 import Request from "../../utils/HttpClient/Request";
-import authContext from "../WebPanel/context/authContext";
 import useGoogleLibrary from "./useGoogleLibrary";
+import useAuth from "../WebPanel/hooks/useAuth";
 
 const SET_EMAIL = 'SET_EMAIL'
 const SET_PASSWORD = 'SET_PASSWORD'
@@ -26,7 +26,7 @@ const credentialsReducer = (state: AuthFormState, action: CredentialsAction) => 
 }
 
 const Auth: FC<AuthProps> = ({endpoint, googleEndpoint}) => {
-    const Auth = useContext(authContext)
+    const Auth = useAuth()
     const [credentials, dispatch] = useReducer(credentialsReducer, {email: null, password: null})
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')

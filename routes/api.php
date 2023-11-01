@@ -28,10 +28,10 @@ Route::middleware('auth:sanctum')->group(function() {
             $request->query('type') ?: null
         )->get();
     })->name('site-categories.index');
-    Route::prefix('admin')->middleware('onlyAdmin')->name('admin.')->group(function() {
-        Route::get('/', function(Request $request) {
+    Route::middleware('onlyAdmin')->group(function() {
+        Route::get('/admin', function(Request $request) {
             return $request->user();
-        });
+        })->name('admin');
     });
     Route::prefix('user')->name('user.')->group(function() {
         Route::get('/', function (Request $request) {
@@ -46,7 +46,7 @@ Route::middleware('auth:sanctum')->group(function() {
     });
     Route::apiResource('shops/{shop}/merchandise', ShopController::class);
     Route::apiResource('shops', ShopController::class)->only(['destroy', 'store', 'update']);
-
+    Route::apiResource('labs', LabController::class)->except('index');
 
     Route::get('service-categorys/{category}/services', function($category, Request $request) {
         return LabService::whereCategoryId($category)->get();

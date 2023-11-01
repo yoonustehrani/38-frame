@@ -11,7 +11,7 @@ interface NavItemProps {
 const NavItem: FC<NavItemProps> = ({ uri, title, children, className = '' }) => {
     return (
         <li>
-            <NavLink to={uri} className={({ isActive }) => isActive ? 'active' : className}>
+            <NavLink to={uri} className={({ isActive }) => isActive ? 'active' : className} end>
                 {children !== null && (
                     <div className="inline-block h-5 svg-inherit">
                         {children}

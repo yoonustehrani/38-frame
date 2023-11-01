@@ -1,14 +1,13 @@
-import { FC, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import authContext from "../../WebPanel/context/authContext";
+import { FC } from "react";
 import Request from "../../../utils/HttpClient/Request";
+import useAuth from "../../WebPanel/hooks/useAuth";
 
 interface Error403Props {
     
 }
  
 const Error403: FC<Error403Props> = () => {
-    const {user, logout} = useContext(authContext)
+    const {user, logout} = useAuth()
     function handleLogout()
     {
         const [response, cancel] = new Request({

@@ -5,4 +5,5 @@ export interface User {
     credit: number
     password: string
     avatar: string
+    city_id: number
 }

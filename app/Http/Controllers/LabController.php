@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateLabRequest;
 use App\Http\Resources\LabCollection;
 use App\Http\Resources\LabResource;
 use App\Models\Lab;
+use App\Models\SiteCategory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -76,7 +77,7 @@ class LabController extends Controller
      */
     public function show($lab_slug)
     {
-        $lab = Lab::whereSlug($lab_slug)->with('services.category')->firstOrFail();
+        $lab = Lab::whereSlug($lab_slug)->with(['services.category', 'category'])->firstOrFail();
         if (request()->has('debug')) {
             return $lab;
         }

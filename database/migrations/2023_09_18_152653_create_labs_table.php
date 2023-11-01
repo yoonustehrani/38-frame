@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('owner_id')->nullable()->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
             $table->string('brand');
             $table->string('slug')->unique();
-            $table->string('category');
+            $table->bigInteger('category_id');
             $table->boolean('active');
             // $table->enum('category');
             $table->text('bio');
