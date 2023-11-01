@@ -88,7 +88,7 @@
     </div>
     <div class="flex items-center gap-2">
         <a class="pl-3 pr-1 py-1 gap-1 shadow-md rounded-md bg-slate-50 h-fit flex justify-center items-center text-sm" href="{{ route('userarea') }}">
-            <img height="28" width="28" src="{{ asset('/icons/009-lock.svg') }}" alt="">
+            <img height="28" width="28" src="{{ asset('/images/icons/009-lock.svg') }}" alt="">
             <span>ورود / ثبت نام</span>
         </a>
     </div>
