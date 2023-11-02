@@ -44,7 +44,7 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
         $user = User::whereEmail($request->input('email'))->first();
-        if (Hash::check($request->input('password'), $user->password) && $user->isAdmin()) {
+        if ($user && Hash::check($request->input('password'), $user->password) && $user->isAdmin()) {
             Auth::loginUsingId($user->getKey());
             return response()->json($request->user());
         }
