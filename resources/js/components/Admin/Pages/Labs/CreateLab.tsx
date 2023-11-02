@@ -8,6 +8,7 @@ import { registerLabFormValidationSchema } from "./validationSchemas";
 import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 import { sendLabCreationRequest } from "./api";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const levels = [
     {
@@ -71,6 +72,7 @@ function getLevelKeys (level: number) {
 const RegisterLab: FC = () => {
     const [level, setLevel] = useState(0)
     const [displayAllErrors, setDisplayAllErrors] = useState(false)
+    const navigate = useNavigate()
     if (level > levels.length) return null
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {
@@ -84,6 +86,7 @@ const RegisterLab: FC = () => {
                     return
                 }
                 resolve(r.getContent())
+                navigate('/labs')
             })
         });
         toast.promise(
