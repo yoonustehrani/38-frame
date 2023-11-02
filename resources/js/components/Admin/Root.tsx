@@ -3,6 +3,8 @@ import { Outlet, useNavigation } from "react-router-dom";
 import SideMenu from "../WebPanel/SideMenu";
 import TopNav from "./TopNav";
 import Nav from "./Nav/Nav";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 interface RootProps {
     
@@ -22,6 +24,7 @@ const Root: FC<RootProps> = () => {
                     {loading ? <div>در حال لود کردن</div> : <Outlet />}
                 </div>
             </main>
+            <ToastContainer />
         </>
     );
 }

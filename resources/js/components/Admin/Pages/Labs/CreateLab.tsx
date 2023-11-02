@@ -7,6 +7,7 @@ import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik"
 import { registerLabFormValidationSchema } from "./validationSchemas";
 import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 import { sendLabCreationRequest } from "./api";
+import { toast } from "react-toastify";
 
 const levels = [
     {
@@ -15,10 +16,10 @@ const levels = [
         initialValues: {
             brand: '',
             founded_in_year: 1402,
-            category: '',
+            category_id: '',
             bio: '',
             address: '',
-            active: 'yes',
+            active: true,
             accpect_policy: 'yes'
         }
     },
@@ -39,9 +40,7 @@ const levels = [
         title: 'اطلاعات تکمیلی',
         initialValues: {
             owner_fullname: '',
-            owner_national_id: '',
             website: '',
-            iban: '' // 130170000000114503193004
         }
     },
     {
@@ -55,7 +54,7 @@ const levels = [
                     instagram: '',
                     telegram_channel: ''
                 },
-                workingDays: null,
+                workingDays: [],
                 onlySms: false
             },
         }
@@ -75,14 +74,29 @@ const RegisterLab: FC = () => {
     if (level > levels.length) return null
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {
-        const [response, cancel] = sendLabCreationRequest(values)
-        response.then(r => {
-            if (r.hasErrors()) {
-                console.error(r.getContent());
-                return
+        setSubmitting(true)
+        const functionThatReturnPromise = () => new Promise((resolve, reject) => {
+            const [response, cancel] = sendLabCreationRequest(values)
+            response.then(r => {
+                setSubmitting(false)
+                if (r.hasErrors()) {
+                    reject(r.getErrors())
+                    return
+                }
+                resolve(r.getContent())
+            })
+        });
+        toast.promise(
+            functionThatReturnPromise,
+            {
+                pending: 'در حال بررسی',
+                success: 'آپلود شد 👌',
+                error: 'خطایی پیش آمد 🤯'
+            },
+            {
+                position: toast.POSITION.TOP_LEFT
             }
-            console.log(r.getContent());
-        })
+        )
     }
     const nextLevel = level < (levels.length - 1) ? () => { 
         setLevel(l => l + 1)
@@ -113,7 +127,7 @@ const RegisterLab: FC = () => {
                         validationSchema={registerLabFormValidationSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({errors, submitForm}) => {
+                        {({errors, submitForm, isSubmitting}) => {
                             return (
                                 <>
                                     <div className="w-full overflow-x-auto h-28 px-8">
@@ -151,7 +165,7 @@ const RegisterLab: FC = () => {
                                         <Suspense fallback={<>در حال لود کردن</>}>
                                             <CurrentLevel/>
                                         </Suspense>
-                                        <LevelController nextLevel={nextLevel} prevLevel={prevLevel}/>
+                                        {! isSubmitting && <LevelController nextLevel={nextLevel} prevLevel={prevLevel}/>}
                                     </Form>
                                 </>
                             )

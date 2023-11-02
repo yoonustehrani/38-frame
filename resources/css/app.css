@@ -375,4 +375,7 @@
             margin: 0;
         }
     }
+    .checkbox:checked + .check-icon {
+        display: flex;
+    }
 }

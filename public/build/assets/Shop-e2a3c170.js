@@ -1,1 +1,0 @@
-import{r,j as o,F as e}from"./client-58cc365f.js";import{i as s}from"./Auth-a8dd6798.js";import"./ArrowIcon-18cff6a5.js";import"./Request-c3ee7f25.js";const n=()=>{const t=s();return r.useLayoutEffect(()=>{t("/shop/register")},[]),o(e,{children:"فروشگاه"})};export{n as Component};

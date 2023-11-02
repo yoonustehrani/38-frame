@@ -28,10 +28,11 @@ Route::middleware('auth:sanctum')->group(function() {
             $request->query('type') ?: null
         )->get();
     })->name('site-categories.index');
-    Route::middleware('onlyAdmin')->group(function() {
-        Route::get('/admin', function(Request $request) {
+    Route::prefix('/admin')->middleware('onlyAdmin')->name('admin.')->group(function() {
+        Route::get('/', function(Request $request) {
             return $request->user();
-        })->name('admin');
+        })->name('user');
+        Route::apiResource('labs', 'App\Http\Controllers\Admin\LabController');
     });
     Route::prefix('user')->name('user.')->group(function() {
         Route::get('/', function (Request $request) {
@@ -46,14 +47,14 @@ Route::middleware('auth:sanctum')->group(function() {
     });
     Route::apiResource('shops/{shop}/merchandise', ShopController::class);
     Route::apiResource('shops', ShopController::class)->only(['destroy', 'store', 'update']);
-    Route::apiResource('labs', LabController::class)->except('index');
+    
 
     Route::get('service-categorys/{category}/services', function($category, Request $request) {
         return LabService::whereCategoryId($category)->get();
     })->name('labs.categorys.services');
 
     Route::post('auth/logout', 'App\Http\Controllers\AuthController@logout');
-    // Route::post('labs/register', [ShopController::class, 'store'])->name('labs.store');
+    Route::apiResource('labs', 'App\Http\Controllers\LabController')->except('index');
 });
 Route::get('labs', [LabController::class, 'index']);
 Route::get('cities', function(Request $request) {

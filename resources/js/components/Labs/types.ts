@@ -33,7 +33,7 @@ export interface PageMeta {
     total: number
 }
 
-export const initialFilters = { brand: '', onlyActive: false, city: -1, category: '', services: [] as string[] }
+export const initialFilters = { brand: '', onlyActive: false, city: -1, category: -1, services: [] as string[] }
 
 type SetFilterAction = {type: 'SET_FILTER', payload: Partial<typeof initialFilters>}
 type RemoveFilterAction = {type: 'REMOVE_FILTER', payload: keyof typeof initialFilters}

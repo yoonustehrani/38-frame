@@ -52,7 +52,7 @@ Route::get('/', function () {
     return view('pages.home', compact('roadmap'));
 })->name('pages.home');
 
-Route::get('labs', [LabController::class, 'index'])->name('pages.labs.index');
+Route::view('labs', 'pages.labs.index')->name('pages.labs.index');
 Route::get('labs/{lab}', [LabController::class, 'show'])->name('pages.labs.show');
 Route::view('contact', 'pages.contact')->name('pages.contact');
 Route::view('about', 'pages.about')->name('pages.about');

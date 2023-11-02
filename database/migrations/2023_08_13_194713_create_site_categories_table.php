@@ -16,15 +16,16 @@ return new class extends Migration
             $table->bigInteger('parent_id')->nullable();
             $table->string('name');
             $table->string('label');
-            $table->enum('type', [
-                'film',
-                'camera',
-                'material',
-                'equipment', // tripod, monopod
-                'accessory', // strap
-                'service',
-                'lab_category'
-            ])->nullable();
+            $table->string('type');
+            // $table->enum('type', [
+            //     'film',
+            //     'camera',
+            //     'material',
+            //     'equipment', // tripod, monopod
+            //     'accessory', // strap
+            //     'service',
+            //     'lab_category'
+            // ])->nullable();
             $table->text('description');
         });
     }

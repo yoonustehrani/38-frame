@@ -19,7 +19,7 @@ export const registerLabFormValidationSchema = object({
     founded_in_year: number().required(messages.required).min(1300).max(1402),
     bio: string().optional().min(10, messages.min(10)).max(300, messages.max(300)),
     address: string().optional().min(10, messages.min(10)).max(300, messages.max(300)),
-    category: string().required(messages.required),
+    category_id: string().required(messages.required),
     phone_number: string().required(messages.required).length(11, messages.length(11, 'رقم')).matches(/09[0-9]{9}/, {message: messages.invalid_phone_numbe}),
     address_line: string().length(11, messages.length(11, 'رقم')),
     meta: object({
@@ -43,9 +43,6 @@ export const registerLabFormValidationSchema = object({
         price: number().optional().min(1000),
         price_note: string().optional().min(3)
     })),
-    iban:  string().required().length(24, messages.length(24, 'رقم')),
-    owner_fullname: string().required().min(3, messages.min(3)).max(60, messages.max(60)),
-    owner_national_id: string().required().length(10, messages.length(10, 'رقم')),
-    website: string().optional().url(),
+    website: string().optional().matches(/[a-zA-Z0-9]{3,}\.[a-z]{2,}/, {message: 'دامنه معتبر نیست'}), // TODO: 383.com works fine and this shall not be
     active: string().optional()
 })

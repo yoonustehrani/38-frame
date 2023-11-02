@@ -15,9 +15,13 @@
     <section class="w-4/5 mx-[10%] grid md:grid-cols-3 place-items-start gap-4 font-iran-sans -mt-16">
         <div class="md:col-span-1 grid grid-cols-1 grid-flow-row gap-6">
             <section class="w-full pb-6 px-3 h-fit flex flex-col gap-6 items-center float-left bg-white border border-black/10 shadow-sm rounded-lg">
-                <div class="h-32 w-32 -mt-16 rounded-full ring-4 ring-black ring-opacity-40 overflow-hidden">
-                    <img class="h-full w-auto" src="{{ asset('/storage/images/bandar.jpg') }}" alt="">
-                </div>
+                @if ($lab->avatar)
+                    <div class="h-32 w-32 -mt-16 rounded-full ring-4 ring-black ring-opacity-40 overflow-hidden">
+                        <img class="h-full w-auto" src="{{ asset($lab->avatar) }}" alt="">
+                    </div>
+                @else
+                    <span class="h-2 block w-full"></span>
+                @endif
                 <h1 class="inline text-gray-700 text-3xl font-bold">{{ $lab->brand }}</h1>
                 <span class="text-gray-600"><span class="font-bold">مدیریت :‌ </span>{{ $lab->owner_fullname }}</span>
                 <div class="flex flex-wrap justify-center items-start gap-2">
@@ -54,7 +58,7 @@
                         @isset ($lab->meta->social)
                             <li class="flex flex-wrap justify-center items-center gap-2 font-sans w-fit">
                                 @if ($lab->meta->social->instagram)
-                                    <a class="bg-rose-200/40 text-rose-800 inline-flex flex-row-reverse gap-1 items-center justify-center py-1 px-2 rounded-lg" rel="nofollow" href="https://t.me/{{ $lab->meta->social->telegram_channel }}">
+                                    <a class="bg-rose-200/40 text-rose-800 inline-flex flex-row-reverse gap-1 items-center justify-center py-1 px-2 rounded-lg" rel="nofollow" href="https://instagram.com/{{ $lab->meta->social->instagram }}">
                                         <img class="w-4 h-4 inline" width="20" src="{{ asset('images/icons/social/instagram.svg') }}" alt="">
                                         <span class="inline-block">{{ $lab->meta->social->instagram }}</span>
                                     </a>
@@ -109,7 +113,11 @@
                                             <td class="p-3" aria-label="عنوان"  class="px-3">{{ $service->title }}</td>
                                             <td class="p-3" aria-label="قیمت" >
                                                 <div class="flex flex-col">
-                                                    <span class="block">{{ persian_numbers(number_format($service->pivot->price)) }} تومان</span>
+                                                    @if ($service->pivot->price)
+                                                        <span class="block">{{ persian_numbers(number_format($service->pivot->price)) }} تومان</span>
+                                                    @else
+                                                    - - -
+                                                    @endif
                                                     @if ($service->pivot->price_note)
                                                     <p class="text-xs text-gray-600 pt-2">{{ $service->pivot->price_note }}</p>    
                                                     @endif
