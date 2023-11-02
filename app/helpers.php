@@ -165,6 +165,7 @@ if (! function_exists('persian_numbers')) {
 if (! function_exists('extract_google_user_from_token')) {
     function extract_google_user_from_token(string $token) {
         list($headersB64, $payloadB64, $sig) = explode('.', $token);
+        \Log::alert($payloadB64);
         $payload = json_decode(base64_decode($payloadB64), true);
         if (
             now()->lt(new \Carbon\Carbon($payload['exp'])
