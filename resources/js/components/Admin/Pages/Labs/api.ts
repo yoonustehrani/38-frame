@@ -6,7 +6,7 @@ const ApiConfig = {
 }
 
 export const sendLabCreationRequest = (data: unknown) => {
-    return new Request(ApiConfig).method('post').to('/labs').send(data)
+    return new Request(ApiConfig).method('post').to('/admin/labs').send(data)
 }
 
 export const fetchCategories = () => {
@@ -19,4 +19,8 @@ export const fetchLabTypeCategories = () => {
 
 export const fetchServicesByCategoryId = (categoryId: number) => {
     return new Request(ApiConfig).to(`/service-categorys/${categoryId}/services`).send()
+}
+
+export const fetchLabs = (query: string = '') => {
+    return new Request(ApiConfig).to(`/admin/labs?${query}`).send()
 }

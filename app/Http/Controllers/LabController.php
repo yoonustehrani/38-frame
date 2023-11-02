@@ -18,33 +18,30 @@ class LabController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->wantsJson()) {
-            $query = Lab::with('city.province');
-            if ($request->get('brand') != null) {
-                $query->where('brand', 'like', "%{$request->query('brand')}%");
-            }
-            if ($request->has('onlyActive')) {
-                $query->where('active', $request->has('onlyActive'));
-            }
-            if ($request->has('category')) {
-                $query->where('category', $request->query('category'));
-            }
-            if ($request->has('city')) {
-                $query->where('city_id', $request->query('city'));
-            }
-            if ($request->has('services')) {
-                $services = $request->query('services');
-                if (gettype($services) == 'array') {
-                    $query->whereHas('services', function($query) use($services) {
-                        $query->whereIn('lab_service.service_id', $services)
-                            ->groupBy('lab_id')
-                            ->havingRaw('COUNT(distinct `lab_service`.`service_id`) = ' . count($services));
-                    });
-                }
-            }
-            return new LabCollection($query->paginate(8)->withQueryString());
+        $query = Lab::with(['city.province', 'category']);
+        if ($request->get('brand') != null) {
+            $query->where('brand', 'like', "%{$request->query('brand')}%");
         }
-        return view('pages.labs.index');
+        if ($request->has('onlyActive')) {
+            $query->where('active', $request->has('onlyActive'));
+        }
+        if ($request->has('category')) {
+            $query->where('category_id', $request->query('category'));
+        }
+        if ($request->has('city')) {
+            $query->where('city_id', $request->query('city'));
+        }
+        if ($request->has('services')) {
+            $services = $request->query('services');
+            if (gettype($services) == 'array') {
+                $query->whereHas('services', function($query) use($services) {
+                    $query->whereIn('lab_service.service_id', $services)
+                        ->groupBy('lab_id')
+                        ->havingRaw('COUNT(distinct `lab_service`.`service_id`) = ' . count($services));
+                });
+            }
+        }
+        return new LabCollection($query->paginate(8)->withQueryString());
     }
 
     /**
@@ -57,7 +54,8 @@ class LabController extends Controller
             $lab = new Lab();
             $lab->fill($request->all());
             $lab->slug = str_replace(' ', '-', $request->input('brand'));
-            $lab->active = $request->user()->isAdmin() ? $request->input('active') === 'yes' : false;
+            $lab->active = true;
+            $lab->verified_at = null;
             if ($lab->save()) {
                 $lab->services()->sync($request->input('services'));
             }

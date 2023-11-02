@@ -30,6 +30,7 @@ return new class extends Migration
             $table->foreignId('city_id')->references('id')->on('cities')->cascadeOnDelete()->cascadeOnUpdate();
             $table->json('meta');
             $table->timestamps();
+            $table->timestamp('verified_at')->nullable();
         });
     }
 

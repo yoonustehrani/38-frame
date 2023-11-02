@@ -22,6 +22,7 @@ class SiteCategorySeeder extends Seeder
             ['name' => 'process_photo', 'label' => 'خدمات ظهور عکس', 'description' => '', 'type' => 'service'],
             ['name' => 'scan_photo', 'label' => 'خدمات اسکن عکس', 'description' => '', 'type' => 'service'],
             ['name' => 'repairment', 'label' => 'خدمات تعمیرات دوربین و تجهیزات عکاسی', 'description' => '', 'type' => 'service'],
+            ['name' => 'print', 'label' => 'خدمات چاپ آنالوگ', 'description' => '', 'type' => 'service'],
             ['type' => 'lab_category', 'name' => 'special-lab', 'label' => 'لابراتوار تخصصی آنالوگ'],
             ['type' => 'lab_category', 'name' => 'photography-darkroom', 'label' => 'لابراتوار یا تاریکخانه عکاسی'],
             ['type' => 'lab_category', 'name' => 'home-lab', 'label' => 'لابراتوار شخصی / لابراتوار خانگی']

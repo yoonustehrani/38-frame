@@ -1,34 +1,16 @@
 import { FC, useCallback, useEffect, useReducer, useState } from "react";
-import { WorkingDayInstance } from "./types";
+import { ActionTypes, WorkingDayInstance, daysOfTheWeek } from "./types";
 import DayEditingCard from "./DayEditingCard";
 import { useField } from "formik";
 
-const dayNames = ['شنبه','یکشنبه','دوشنبه','سه شنبه','چهارشنبه','پنجشنبه','جمعه'] as const
 
-const daysOfTheWeek: WorkingDayInstance[] = dayNames.map((d, i) => ({
-    id: i,
-    label: d,
-    open: false,
-    hours: {
-        from: '9:00',
-        to: '17:00'
-    }
-}))
 
 interface WorkingDaysProps {
     className?: string
     name?: string
-    onChange?: (value: typeof daysOfTheWeek[keyof typeof daysOfTheWeek]) => void
+    initialData: WorkingDayInstance[]
+    handleChange: (data: WorkingDayInstance[]) => void
 }
-
-type TOGGLE_DAY_OPEN = {type: 'TOGGLE_DAY_OPEN', payload: number}
-type CLOSE_DAY = {type: 'CLOSE_DAY', payload: number}
-type SET_OPENING_HOUR = {type: 'SET_OPENING_HOUR', payload: {id: number, time: string} }
-type SET_CLOSING_HOUR = {type: 'SET_CLOSING_HOUR', payload: {id: number, time: string} }
-type OPEN_ALL_DAYS = {type: 'OPEN_ALL_DAYS'}
-
-
-type ActionTypes = TOGGLE_DAY_OPEN | OPEN_ALL_DAYS | CLOSE_DAY | SET_OPENING_HOUR | SET_CLOSING_HOUR
 
 const workingDaysReducer = (state: WorkingDayInstance[], action: ActionTypes) => {
     switch (action.type) {
@@ -52,9 +34,8 @@ const classes = {
     inActive: 'border-gray-400'
 }
 
-const WorkingDays: FC<WorkingDaysProps> = ({className}) => {
-    const [workingDays, dispatchChanges] = useReducer(workingDaysReducer, daysOfTheWeek)
-    const [WDField, WDMeta, WDHelpers] = useField({name: 'meta[workingDays]'})
+const WorkingDays: FC<WorkingDaysProps> = ({initialData, handleChange}) => {
+    const [workingDays, dispatchChanges] = useReducer(workingDaysReducer, initialData.length > 0 ? initialData : daysOfTheWeek)
     const [editingDay, setEditingDay] = useState<number>()
     const toggleDayOpen = (dayId: number) => dispatchChanges({type: 'TOGGLE_DAY_OPEN', payload: dayId})
     const setOpeningTime = useCallback((time: string) => {
@@ -67,10 +48,10 @@ const WorkingDays: FC<WorkingDaysProps> = ({className}) => {
             dispatchChanges({type: 'SET_CLOSING_HOUR', payload: {id: editingDay, time}})   
         }
     }, [editingDay]);
-    const ALL_DAYS_ARE_SELECTED = workingDays.filter(x => ! x.open).length === 0
+    // const ALL_DAYS_ARE_SELECTED = workingDays.filter(x => ! x.open).length === 0
     useEffect(() => {
         let worker = setTimeout(() => {
-            WDHelpers.setValue(workingDays)
+            handleChange(workingDays)
         }, 500);
         return () => {
             clearTimeout(worker)
@@ -79,7 +60,7 @@ const WorkingDays: FC<WorkingDaysProps> = ({className}) => {
     return (
         <div className="py-3">
             <div className="flex flex-wrap text-sm md:text-base text-gray-800 gap-4">
-                <button disabled={ALL_DAYS_ARE_SELECTED} onClick={() => dispatchChanges({type: 'OPEN_ALL_DAYS'})} type="button" className={`border ${ALL_DAYS_ARE_SELECTED ? classes.active : classes.inActive} px-2 py-1 rounded-md`}>همه روز ها</button>
+                {/* <button disabled={ALL_DAYS_ARE_SELECTED} onClick={() => dispatchChanges({type: 'OPEN_ALL_DAYS'})} type="button" className={`border ${ALL_DAYS_ARE_SELECTED ? classes.active : classes.inActive} px-2 py-1 rounded-md`}>همه روز ها</button> */}
                 <div className="flex">
                     {workingDays.map(day => (
                         <button 

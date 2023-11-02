@@ -1,12 +1,11 @@
-import { FC, useContext, useLayoutEffect, useState } from "react";
+import { FC, useLayoutEffect, useState } from "react";
 import Input from "../../../../../WebPanel/components/Formik/Input";
 import TextArea from "../../../../../WebPanel/components/Formik/TextArea";
-import { FormControl, FormControlLabel, Radio, RadioGroup, Switch, ThemeProvider, createTheme } from "@mui/material";
+import { Switch } from "@mui/material";
 import SelectBox from "../../../../../WebPanel/components/Formik/SelectBox";
 import FormSection from "../../../../../WebPanel/components/FormSection";
 import { useField } from "formik";
 import CityComboBox from "../../../../../Labs/components/CityComboBox";
-import authContext from "../../../../../WebPanel/context/authContext";
 import useAuth from "../../../../../WebPanel/hooks/useAuth";
 import { fetchLabTypeCategories } from "../../api";
 
@@ -31,7 +30,7 @@ const GeneralDataForm: FC<GeneralDataFormProps> = () => {
             }
         })
         return cancel
-    })
+    }, [])
     return (
         <>
             <Input required type="text" name="brand" id="brand" label="نام / برند لابراتوار" className="py-2 px-3"/>
@@ -41,7 +40,7 @@ const GeneralDataForm: FC<GeneralDataFormProps> = () => {
             </div>
             <Input required type="number" name="founded_in_year" id="year" label="سال شروع فعالیت" className="ltr py-2 px-3" min={1320} max={1402}/>
             {categories && (
-                <SelectBox required name="category_id" id="category_id" className="form-input py-1 pt-3 px-3" label='نوع لابراتوار' placeholder="نوع لابراتوار خود را مشخص کنید"
+                <SelectBox required name="category_id" id="category_id" className="form-input py-1 pt-3 px-3" label='نوع لابراتوار' placeholder="نوع لابراتوار را مشخص کنید"
                     options={categories.map(x => ({value: x.id, text: x.label}))} />
             )}
             <TextArea required name="bio" id="bio" label="بیوگرافی / معرفی لابراتوار" className="py-4 px-3"/>

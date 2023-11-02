@@ -14,7 +14,7 @@ const ContactInfoForm: FC<ContactInfoFormProps> = () => {
         <>
             <Input required type="text" name="phone_number" id="phone_number" label="تلفن همراه" className="ltr p-3">
                 <div className="w-full flex items-center mt-2 px-2">
-                    <label className="text-gray-700 font-bold text-xs cursor-pointer" htmlFor="sms-only">فقط از طریق پیامک پاسخگو هستم.</label>
+                    <label className="text-gray-700 font-bold text-xs cursor-pointer" htmlFor="sms-only">فقط از طریق پیامک</label>
                     <Checkbox {...onlySmsField} id="sms-only" color="default" size="small"/>
                 </div>
             </Input>

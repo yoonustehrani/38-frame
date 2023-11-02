@@ -1,9 +1,9 @@
 import { Switch } from "@mui/material";
 import { ChangeEvent, FC, useLayoutEffect, useMemo, useRef, useState } from "react";
 import CityComboBox from "./components/CityComboBox";
-import { LabCategory, ServiceGroup, initialFilters } from "./types";
+import { ServiceGroup, initialFilters } from "./types";
 import { SetFunc } from "./hooks";
-import { fetchServices } from "./api";
+import { fetchServiceCategories, fetchServices } from "./api";
 import ArrowIcon from "../Icons/ArrowIcon";
 import CloseButton from "./components/CloseButton";
 
@@ -11,9 +11,15 @@ interface FiltersSideBarProps {
     searchParams: Partial<typeof initialFilters>,
     setParams: SetFunc
 }
- 
+
+interface ServiceCategory {
+    id: number
+    label: string
+}
+
 const FiltersSideBar: FC<FiltersSideBarProps> = ({searchParams, setParams}) => {
     const [serviceGroups, setServiceGroups] = useState<ServiceGroup[]>([])
+    const [serviceCategories, setServiceCategories] = useState<ServiceCategory[]>([])
     const [displayForMobile, setDisplay] = useState(false)
     const defaultServices = useMemo(() => searchParams.services, [])
     const sideBarElement = useRef<HTMLElement>(null)
@@ -31,13 +37,22 @@ const FiltersSideBar: FC<FiltersSideBarProps> = ({searchParams, setParams}) => {
     }
     
     useLayoutEffect(() => {
-        const [response, cancel] = fetchServices()
-        response.then(r => {
+        const [requestServiceGroups, cancelServiceGroups] = fetchServices()
+        const [requestServiceCategories, cancelServiceCategories] = fetchServiceCategories()
+        requestServiceGroups.then(r => {
             if (! r.hasErrors()) {
                 setServiceGroups(r.getContent<ServiceGroup[]>())
             }
         })
-        return () => cancel()
+        requestServiceCategories.then(r => {
+            if (! r.hasErrors()) {
+                setServiceCategories(r.getContent<ServiceCategory[]>())
+            }
+        })
+        return () => {
+            cancelServiceCategories()
+            cancelServiceGroups()
+        }
     }, [])
     
     return (
@@ -63,10 +78,10 @@ const FiltersSideBar: FC<FiltersSideBarProps> = ({searchParams, setParams}) => {
             </div>
             <div className={`${displayForMobile ? '' : 'hidden'} md:block`}>
                 <h5 className="font-bold text-gray-700 text-lg">فیلتر بر اساس دسته بندی</h5>
-                <select className="form-input w-64 py-1 px-3 mt-3" value={searchParams.category ?? ''} onChange={e => setParams({category: e.target.value})}>
+                <select className="form-input w-64 py-1 px-3 mt-3" value={searchParams.category ?? ''} onChange={e => setParams({category: Number(e.target.value)})}>
                     <option value="">انتخاب کنید</option>
-                    {Object.entries(LabCategory).map(([k, label]) => (
-                        <option key={k} value={k}>{label}</option>
+                    {serviceCategories.map(category => (
+                        <option key={category.id} value={category.id}>{category.label}</option>
                     ))}
                 </select>
             </div>
