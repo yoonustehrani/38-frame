@@ -7,7 +7,7 @@ interface SideMenuProps {
 
 const SideMenu: FC<SideMenuProps> = ({children}) => {
     return (
-        <aside className="h-full pb-4 shrink-0 border-l border-dashed border-gray-300 px-3 hidden lg:flex lg:flex-col">
+        <aside className="h-full pb-4 shrink-0 border-l border-dashed border-gray-300 px-10 lg:px-3 w-full lg:w-auto bg-white fixed z-40 -right-full lg:right-0 lg:relative lg:flex lg:flex-col">
             <section className="py-3 flex grow-0 justify-center">
                 <img width="50" src="/images/logo-300w.webp" alt=""/>
             </section>
