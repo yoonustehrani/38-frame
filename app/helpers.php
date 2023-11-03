@@ -167,18 +167,18 @@ if (! function_exists('extract_google_user_from_token')) {
         list($headersB64, $payloadB64, $sig) = explode('.', $token);
         $payload = json_decode(base64_decode($payloadB64), true);
         \Log::alert($payload);
-        // if (
-        //     now()->lt(new \Carbon\Carbon($payload['exp'])
-        //     && $payload['aud'] != config('services.google.client_id'))
-        //     && ! in_array($payload['iss'], ['accounts.google.com', 'https://accounts.google.com'])
-        // ) {
+        if (
+            now()->lt(new \Carbon\Carbon($payload['exp'])
+            && $payload['aud'] != config('services.google.client_id'))
+            && ! in_array($payload['iss'], ['accounts.google.com', 'https://accounts.google.com'])
+        ) {
             return response()->json(['message' => 'Unauthorized'], 401);
-        // }
-        // return [
-        //     'email' => $payload['email'],
-        //     'name' => $payload['name'],
-        //     'picture' => $payload['picture'],
-        //     // 'email_verfied' => $payload['email_verfied']
-        // ];
+        }
+        return [
+            'email' => $payload['email'],
+            'name' => $payload['name'],
+            'picture' => $payload['picture'],
+            // 'email_verfied' => $payload['email_verfied']
+        ];
     }
 }
