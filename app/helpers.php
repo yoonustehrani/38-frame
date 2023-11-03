@@ -166,10 +166,9 @@ if (! function_exists('extract_google_user_from_token')) {
     function extract_google_user_from_token(string $token) {
         list($headersB64, $payloadB64, $sig) = explode('.', $token);
         $payload = json_decode(base64_decode($payloadB64), true);
-        \Log::alert($payload);
         if (
-            now()->lt(new \Carbon\Carbon($payload['exp'])
-            && $payload['aud'] != config('services.google.client_id'))
+            now()->lt(new \Carbon\Carbon($payload['exp']))
+            && $payload['aud'] != config('services.google.client_id')
             && ! in_array($payload['iss'], ['accounts.google.com', 'https://accounts.google.com'])
         ) {
             return response()->json(['message' => 'Unauthorized'], 401);
