@@ -22,7 +22,7 @@ class Lab extends Model
 
     public function category()
     {
-        return $this->belongsTo(SiteCategory::class)->whereType('lab_type');
+        return $this->belongsTo(SiteCategory::class)->whereType('lab_category');
     }
 
     public function city()
