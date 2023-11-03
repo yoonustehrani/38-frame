@@ -13,7 +13,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required'],
+            'password' => ['required', 'password'],
         ]);
         $user = User::whereEmail($request->input('email'))->first();
         if ($user && (! Hash::check($request->input('password'), $user->password))) {
@@ -27,7 +27,7 @@ class AuthController extends Controller
             $user = new User([
                 // 'username' => \Str::random(12),
                 'email' => $request->input('email'),
-                'password' => bcrypt(\Str::random(12)),
+                'password' => bcrypt($request->input('password')),
                 'email_verfied_at' => now()
             ]);
             $user->meta = serialize([]);
