@@ -55,7 +55,7 @@ const CreateAdForm: FC<CreateAdFormProps> = ({handleSubmit, categories, submitti
             e.stopPropagation()
             handleSubmit(state)
         }}>
-            <FormSection  label={{ for: 'category', text: 'دسته بندی آگهی' }}>
+            <FormSection label={{ for: 'category', text: 'دسته بندی آگهی' }}>
                 <select onChange={e => setAdInfo('category_id', Number(e.target.value))} defaultValue={initialFormValues.ad.category_id} name="category" id="category" className="form-input py-1 pt-3 px-3">
                     {categories.map(category => (
                         <option key={category.id} value={category.id}>{category.label}</option>
