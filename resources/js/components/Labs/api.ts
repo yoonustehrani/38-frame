@@ -18,7 +18,7 @@ export const fetchCity = (id: number | string) => {
 }
 
 export const fetchServices = () => {
-    return new Request(ApiConfig).to('lab-services').send();
+    return new Request(ApiConfig).to('site-categories?type=service&children=true').send();
 }
 
 export const fetchServiceCategories = () => {
