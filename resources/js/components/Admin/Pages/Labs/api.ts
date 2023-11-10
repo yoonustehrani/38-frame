@@ -22,7 +22,7 @@ export const fetchLabTypeCategories = () => {
 }
 
 export const fetchServicesByCategoryId = (categoryId: number) => {
-    return newRequest().to(`/service-categorys/${categoryId}/services`).send()
+    return newRequest().to(`/site-categories?type=service&parent_id=${categoryId}`).send()
 }
 
 export const fetchLabs = (query: string = '') => {

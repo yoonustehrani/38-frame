@@ -43,6 +43,6 @@ export const registerLabFormValidationSchema = object({
         price: number().optional().min(1000),
         price_note: string().optional().min(3)
     })),
-    website: string().optional().matches(/[a-zA-Z0-9]{3,}\.[a-z]{2,}/, {message: 'دامنه معتبر نیست'}), // TODO: 383.com works fine and this shall not be
+    website: string().optional().matches(/^https?\:\/\/[a-zA-Z0-9]{3,}\.[a-z]{2,}\/?$/, {message: 'آدرس وبسایت معتبر نیست'}), // TODO: 383.com works fine and this shall not be
     active: string().optional()
 })

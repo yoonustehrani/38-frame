@@ -1,24 +1,29 @@
 import { FC, useEffect, useMemo, useReducer } from "react";
-import PlusIcon from "../../../../../Icons/PlusIcon";
 import { useField } from "formik";
 import { ServiceItem } from "./components/types";
 import AddServiceRow from "./components/AddServiceRow";
 import { toPersian } from "../../../../../../utils/Number/numbers";
+import { v4 as uuidv4 } from 'uuid';
 
 interface LabServicesFormProps {
     
 }
 
 type ADD_SERVICE = {type: 'ADD_SERVICE', payload: ServiceItem}
-type REMOVE_SERVICE = {type: 'REMOVE_SERVICE', payload: number}
+type REMOVE_SERVICE = {type: 'REMOVE_SERVICE', payload: string}
 type Actions = ADD_SERVICE | REMOVE_SERVICE
 
-const servicesReducer = (state: ServiceItem[], action: Actions) => {
+
+interface StoredServiceItem extends ServiceItem {
+    id: string
+}
+
+const servicesReducer = (state: StoredServiceItem[], action: Actions) => {
     switch (action.type) {
         case 'ADD_SERVICE':
-            return [...state, action.payload]
+            return [...state, {...action.payload, id: uuidv4()}]
         case 'REMOVE_SERVICE':
-            return state.filter(x => x.service_id !== action.payload)
+            return state.filter(x => x.id !== action.payload)
         default:
             break;
     }
@@ -37,14 +42,10 @@ const LabServicesForm: FC<LabServicesFormProps> = () => {
             price_note: x.price_note
         })))
     }, [services.length])
-    function removeService(serviceId: number) {
+    function removeService(serviceId: string) {
         dispatchChanges({type: 'REMOVE_SERVICE', payload: serviceId})
     }
     function addService(service: ServiceItem) {
-        if (services.filter(x => x.service_id === service.service_id).length > 0) {
-            alert('قبلا اضافه شده است.')
-            return;
-        }
         dispatchChanges({type: 'ADD_SERVICE', payload: service})
     }
     return (
@@ -71,7 +72,7 @@ const LabServicesForm: FC<LabServicesFormProps> = () => {
                                 <td className="px-6 py-4">{service.price ? `${toPersian(service.price)} تومان` : ''}<br />{service.price_note}</td>
                                 <td className="px-6 py-4">{service.description}</td>
                                 <td className="px-6 py-4 flex justify-center items-center">
-                                    <button onClick={() => removeService(service.service_id)} type="button" className="bg-red-100 fill-red-900 w-7 h-7 rounded-md flex justify-center items-center">
+                                    <button onClick={() => removeService(service.id)} type="button" className="bg-red-100 fill-red-900 w-7 h-7 rounded-md flex justify-center items-center">
                                         <svg className="fill-inherit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M21,4H17.9A5.009,5.009,0,0,0,13,0H11A5.009,5.009,0,0,0,6.1,4H3A1,1,0,0,0,3,6H4V19a5.006,5.006,0,0,0,5,5h6a5.006,5.006,0,0,0,5-5V6h1a1,1,0,0,0,0-2ZM11,2h2a3.006,3.006,0,0,1,2.829,2H8.171A3.006,3.006,0,0,1,11,2Zm7,17a3,3,0,0,1-3,3H9a3,3,0,0,1-3-3V6H18Z"/><path d="M10,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,10,18Z"/><path d="M14,18a1,1,0,0,0,1-1V11a1,1,0,0,0-2,0v6A1,1,0,0,0,14,18Z"/></svg>
                                     </button>
                                 </td>

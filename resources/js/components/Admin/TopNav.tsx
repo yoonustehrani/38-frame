@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { User } from "../WebPanel/types";
 import Request from "../../utils/HttpClient/Request";
 import useAuth from "../WebPanel/hooks/useAuth";
+import { requestLogout } from "../WebPanel/api";
 interface TopNavProps {
     
 }
@@ -11,11 +12,7 @@ const TopNav: FC<TopNavProps> = () => {
     const {user, logout} = useAuth()
     function handleLogout()
     {
-        const [response, cancel] = new Request({
-            baseURL: window.location.origin + '/api/auth',
-            headers: {'Accept': 'application/json'}
-        }).method('post').to('/logout').send()
-        response.then(res => {
+        requestLogout().then(res => {
             if (! res.hasErrors()) {
                 logout()
             }
