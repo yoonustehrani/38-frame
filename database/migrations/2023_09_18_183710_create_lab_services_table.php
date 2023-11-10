@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('lab_services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignId('category_id')->nullable();
-            $table->string('slug')->unique()->index();
+            $table->foreignId('lab_id');
+            $table->foreignId('service_id');
+            $table->text('description');
+            $table->bigInteger('price')->nullable();
+            $table->string('price_note')->nullable();
         });
     }
 

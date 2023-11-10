@@ -4,7 +4,6 @@ import CityComboBox from "./components/CityComboBox";
 import { ServiceGroup, initialFilters } from "./types";
 import { SetFunc } from "./hooks";
 import { fetchServiceCategories, fetchServices } from "./api";
-import ArrowIcon from "../Icons/ArrowIcon";
 import CloseButton from "./components/CloseButton";
 
 interface FiltersSideBarProps {
@@ -91,10 +90,10 @@ const FiltersSideBar: FC<FiltersSideBarProps> = ({searchParams, setParams}) => {
                     <div key={group.id}>
                         <h6 className="text-gray-700">- {group.label}</h6>
                         <div className="flex flex-col gap-3 px-2 py-4">
-                            {group.services.map(service => (
+                            {group.children.map(service => (
                                 <div key={service.id} className="flex gap-2 items-center text-sm">
-                                    <input className="h-4 w-4 accent-x-green" defaultChecked={defaultServices?.includes(String(service.id))} onChange={handleToggle} value={service.id} type="checkbox" id={`service-group-${service.category_id}-${service.id}`} />
-                                    <label htmlFor={`service-group-${service.category_id}-${service.id}`}>{service.title}</label>
+                                    <input className="h-4 w-4 accent-x-green" defaultChecked={defaultServices?.includes(String(service.id))} onChange={handleToggle} value={service.id} type="checkbox" id={`service-group-${service.parent_id}-${service.id}`} />
+                                    <label htmlFor={`service-group-${service.parent_id}-${service.id}`}>{service.label}</label>
                                 </div>
                             ))}
                         </div>

@@ -16,10 +16,6 @@ export interface ServiceItem {
     price_note: null | string
 }
 
-export interface ServiceInstance {
-    id: number
-    title: string
-}
 
 export interface ServiceGroup {
     id: number
@@ -29,12 +25,8 @@ export interface ServiceGroup {
     description: string
 }
 
-export interface ServiceGroup {
-    id: number
-    name: string
-    label: string
-    type: 'service'
-    description: string
+export interface ServiceInstance extends ServiceGroup {
+    parent_id: number
 }
 
 type TOGGLE_DAY_OPEN = {type: 'TOGGLE_DAY_OPEN', payload: number}

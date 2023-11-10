@@ -75,10 +75,7 @@ class LabController extends Controller
      */
     public function show($lab_slug)
     {
-        $lab = Lab::whereSlug($lab_slug)->with(['services.category', 'category'])->firstOrFail();
-        if (request()->has('debug')) {
-            return $lab;
-        }
+        $lab = Lab::whereSlug($lab_slug)->with(['services.category.parent', 'category'])->firstOrFail();
         return view('pages.labs.show', compact('lab'));
     }
 

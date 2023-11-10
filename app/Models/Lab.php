@@ -17,12 +17,13 @@ class Lab extends Model
 
     public function services()
     {
-        return $this->belongsToMany(LabService::class, 'lab_service', 'lab_id', 'service_id')->withPivot(['price', 'price_note', 'description']);
+        return $this->hasMany(LabService::class);
+        // return $this->belongsToMany(LabService::class, 'lab_service', 'lab_id', 'service_id')->withPivot(['price', 'price_note', 'description']);
     }
 
     public function category()
     {
-        return $this->belongsTo(SiteCategory::class)->whereType('lab_type');
+        return $this->belongsTo(SiteCategory::class)->whereType('lab_category');
     }
 
     public function city()

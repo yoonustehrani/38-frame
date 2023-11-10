@@ -41,11 +41,11 @@ export type FilteringActions = SetFilterAction | RemoveFilterAction
 
 export interface LabService {
     id: number
-    category_id: number
-    title: string
+    label: number
+    parent_id: number
 }
 export interface ServiceGroup {
     id: number
     label: string
-    services: LabService[]
+    children: LabService[]
 }

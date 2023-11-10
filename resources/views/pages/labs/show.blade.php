@@ -40,7 +40,7 @@
                     <ul class="flex flex-col items-center gap-4 py-2">
                         @if ($lab->website)
                             <li class="font-sans font-semibold">
-                                <a rel="no-follow" href="https://{{ $lab->website }}" class="text-sky-600 hover:text-sky-800 fill-sky-600 hover:fill-sky-800 duration-300 flex flex-row-reverse flex-wrap justify-center items-center gap-1">
+                                <a rel="no-follow" href="{{ $lab->website }}" class="text-sky-600 hover:text-sky-800 fill-sky-600 hover:fill-sky-800 duration-300 flex flex-row-reverse flex-wrap justify-center items-center gap-1">
                                     <svg class="fill-inherit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
                                         <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
                                     </svg>
@@ -87,10 +87,7 @@
         <div class="md:col-span-2 overflow-hidden grid grid-cols-1 grid-flow-row gap-6">
             <section class="w-full bg-white border border-black/10 shadow-sm rounded-lg p-4">
                 @if ($lab->services->count())
-                    @php
-                        $service_groups = $lab->services->groupBy('category.label');
-                    @endphp
-                    @foreach ($service_groups as $group => $services)
+                    @foreach ($lab->services->groupBy('category.parent.label') as $group => $services)
                         <div class="w-full h-fit px-5">
                             {{-- overflow-x-auto overflow-y-hidden --}}
                             <table class="flex flex-row flex-wrap md:table md:table-fixed w-full text-center border-separate border-spacing-y-2">
@@ -110,20 +107,20 @@
                                             <th aria-label="ردیف" scope="row" class="p-3 text-3xl px-4 text-gray-900 border-dashed border-b-2 md:border-b-0 md:border-l-2 border-gray-300 relative circle-divider before:bg-white after:bg-white">
                                                 {{ persian_numbers($loop->index + 1) }}
                                             </th>
-                                            <td class="p-3" aria-label="عنوان"  class="px-3">{{ $service->title }}</td>
+                                            <td class="p-3" aria-label="عنوان"  class="px-3">{{ $service->category->label }}</td>
                                             <td class="p-3" aria-label="قیمت" >
                                                 <div class="flex flex-col">
-                                                    @if ($service->pivot->price)
-                                                        <span class="block">{{ persian_numbers(number_format($service->pivot->price)) }} تومان</span>
+                                                    @if ($service->price)
+                                                        <span class="block">{{ persian_numbers(number_format($service->price)) }} تومان</span>
                                                     @else
                                                     - - -
                                                     @endif
-                                                    @if ($service->pivot->price_note)
-                                                    <p class="text-xs text-gray-600 pt-2">{{ $service->pivot->price_note }}</p>    
+                                                    @if ($service->price_note)
+                                                    <p class="text-xs text-gray-600 pt-2">{{ $service->price_note }}</p>    
                                                     @endif
                                                 </div>
                                             </td>
-                                            <td class="p-3 text-sm" aria-label="توضیحات" class="text-sm">{{ $service->pivot->description }}</td>
+                                            <td class="p-3 text-sm" aria-label="توضیحات" class="text-sm">{{ $service->description }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

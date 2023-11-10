@@ -33,7 +33,7 @@ class LabController extends Controller
             $lab->active = $request->input('active');
             $lab->verified_at =  now();
             if ($lab->save()) {
-                $lab->services()->sync($request->input('services'));
+                $lab->services()->createMany($request->input('services'));
             }
             \DB::commit();
             return response()->json([
@@ -49,9 +49,10 @@ class LabController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($lab_slug)
+    public function show($id)
     {
-        $lab = Lab::whereSlug($lab_slug)->with(['services.category', 'category'])->firstOrFail();
+        // 'services.category', 
+        $lab = Lab::with(['category'])->whereId($id)->firstOrFail();
         return response()->json($lab);
     }
 

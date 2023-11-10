@@ -37,6 +37,10 @@ const routes: RouteObject[] = [
                     {
                         path: 'create',
                         lazy: () => import('./Pages/Labs/CreateLab')
+                    },
+                    {
+                        path: ':labId/edit',
+                        lazy: () => import('./Pages/Labs/EditLab')
                     }
                 ]
             }

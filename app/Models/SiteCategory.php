@@ -12,9 +12,18 @@ class SiteCategory extends Model
     protected $fillabled = ['name', 'label', 'type', 'description'];
     public $timestamps = false;
 
-
-    public function services()
+    public function children()
     {
-        return $this->hasMany(LabService::class, 'category_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+    
+    // public function services()
+    // {
+    //     return $this->hasMany(LabService::class, 'category_id');
+    // }
 }

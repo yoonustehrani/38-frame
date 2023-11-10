@@ -70,7 +70,11 @@ const AddServiceRow: FC<AddServiceRowProps> = ({appendService}) => {
             {selectedGroup && <ServiceSelectBox selectService={selectService} selectedService={service_id} selectedGroup={selectedGroup}/>}
             {service_id && (
                 <section className="w-full py-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Input value={price} onChange={e => changePrice(Number(e.target.value))} name="unimportant[price]" type="number" min={1000} step={1000} label="قیمت" key={`${service_id}-price`} id="service-price" className="px-3 py-2" />
+                    <Input value={price} onChange={e => changePrice(Number(e.target.value))} name="unimportant[price]" type="number" min={1000} step={1000} label="قیمت" key={`${service_id}-price`} id="service-price" className="px-3 py-2">
+                        {price && (
+                            <p className="py-4 px-3">{new Intl.NumberFormat('fa-IR').format(price)} تومان</p>
+                        )}
+                    </Input>
                     <Input value={price_note} onChange={e => changePriceNote(e.target.value)} name="unimportant[price_note]" label="توضیحات قیمت" key={`${service_id}-price-note`} id="service-price-note" className="px-3 py-2"/>
                     <TextArea required label="توضیحات" key={`${service_id}-description`} id="service-description" value={description} onChange={e => changeDescription(e.target.value)} name="unimportant[description]" className="px-3 py-2"/>
                 </section>
