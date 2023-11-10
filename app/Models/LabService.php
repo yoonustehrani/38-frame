@@ -9,8 +9,9 @@ class LabService extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['service_id', 'price', 'price_note', 'description'];
     public function category()
     {
-        return $this->belongsTo(SiteCategory::class, 'category_id')->whereType('service');
+        return $this->belongsTo(SiteCategory::class, 'service_id')->whereType('service');
     }
 }

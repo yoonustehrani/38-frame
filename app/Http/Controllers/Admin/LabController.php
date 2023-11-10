@@ -33,7 +33,7 @@ class LabController extends Controller
             $lab->active = $request->input('active');
             $lab->verified_at =  now();
             if ($lab->save()) {
-                $lab->services()->sync($request->input('services'));
+                $lab->services()->createMany($request->input('services'));
             }
             \DB::commit();
             return response()->json([
