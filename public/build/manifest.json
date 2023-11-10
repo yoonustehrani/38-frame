@@ -5,20 +5,20 @@
       "_client-abbe1494.js"
     ]
   },
-  "_Auth-85041acf.js": {
-    "file": "assets/Auth-85041acf.js",
+  "_Auth-5ab7aa84.js": {
+    "file": "assets/Auth-5ab7aa84.js",
     "imports": [
       "_client-abbe1494.js",
-      "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js"
     ]
   },
-  "_BreadCrumb-3e3a8b10.js": {
-    "file": "assets/BreadCrumb-3e3a8b10.js",
+  "_BreadCrumb-6af7d74d.js": {
+    "file": "assets/BreadCrumb-6af7d74d.js",
     "imports": [
       "_client-abbe1494.js",
       "_ArrowIcon-202630a0.js",
-      "_Auth-85041acf.js"
+      "_Auth-5ab7aa84.js"
     ]
   },
   "_Checkbox-235d27fe.js": {
@@ -30,11 +30,11 @@
       "_createSvgIcon-610a0a1c.js"
     ]
   },
-  "_CityComboBox-56a1492f.js": {
-    "file": "assets/CityComboBox-56a1492f.js",
+  "_CityComboBox-0b399943.js": {
+    "file": "assets/CityComboBox-0b399943.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_styled-92600658.js",
       "_createSvgIcon-610a0a1c.js",
       "_SwitchBase-91e0191a.js",
@@ -87,7 +87,7 @@
       "_createSvgIcon-610a0a1c.js"
     ]
   },
-  "_RegisterLab-40ddf7d0.js": {
+  "_RegisterLab-4684ac26.js": {
     "dynamicImports": [
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/GeneralDataForm.tsx",
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabServicesForm.tsx",
@@ -96,19 +96,19 @@
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/ContactInfoForm.tsx",
       "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx"
     ],
-    "file": "assets/RegisterLab-40ddf7d0.js",
+    "file": "assets/RegisterLab-4684ac26.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
+      "_BreadCrumb-6af7d74d.js",
       "_index.esm-14f15176.js",
       "_formContext-a684c324.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ],
     "isDynamicEntry": true
   },
-  "_Request-c3ee7f25.js": {
-    "file": "assets/Request-c3ee7f25.js"
+  "_Request-86ea05f5.js": {
+    "file": "assets/Request-86ea05f5.js"
   },
   "_SelectBox-bb282e8f.js": {
     "file": "assets/SelectBox-bb282e8f.js",
@@ -149,16 +149,16 @@
       "_client-abbe1494.js"
     ]
   },
-  "_api-41aed6c4.js": {
-    "file": "assets/api-41aed6c4.js",
+  "_api-952bf031.js": {
+    "file": "assets/api-952bf031.js",
     "imports": [
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ]
   },
-  "_api-8e2b663f.js": {
-    "file": "assets/api-8e2b663f.js",
+  "_api-9a86a3bf.js": {
+    "file": "assets/api-9a86a3bf.js",
     "imports": [
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ]
   },
   "_client-abbe1494.js": {
@@ -256,22 +256,34 @@
       "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx",
       "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
     ],
-    "file": "assets/CreateLab-f54651ef.js",
+    "file": "assets/CreateLab-5ef0b829.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
+      "_BreadCrumb-6af7d74d.js",
       "_index.esm-14f15176.js",
       "_formContext-a684c324.js",
       "_ArrowIcon-202630a0.js",
-      "_api-8e2b663f.js",
+      "_api-952bf031.js",
       "resources/js/react-admin.tsx",
-      "_Auth-85041acf.js",
+      "_Auth-5ab7aa84.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_PlusIcon-56c11ef8.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Admin/Pages/Labs/CreateLab.tsx"
+  },
+  "resources/js/components/Admin/Pages/Labs/EditLab.tsx": {
+    "file": "assets/EditLab-ab39005a.js",
+    "imports": [
+      "_client-abbe1494.js",
+      "_api-952bf031.js",
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Labs/EditLab.tsx"
   },
   "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx": {
     "file": "assets/ContactInfoForm-06456a88.js",
@@ -291,19 +303,19 @@
     "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
   },
   "resources/js/components/Admin/Pages/Labs/Forms/Register/GeneralDataForm.tsx": {
-    "file": "assets/GeneralDataForm-ec5f8caf.js",
+    "file": "assets/GeneralDataForm-662143fd.js",
     "imports": [
       "_client-abbe1494.js",
       "_Input-74baf0a1.js",
       "_SelectBox-bb282e8f.js",
       "_FormSection-0da77780.js",
       "_formContext-a684c324.js",
-      "_CityComboBox-56a1492f.js",
-      "_Auth-85041acf.js",
-      "_api-8e2b663f.js",
+      "_CityComboBox-0b399943.js",
+      "_Auth-5ab7aa84.js",
+      "_api-952bf031.js",
       "_Switch-e1493eef.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_styled-92600658.js",
       "_createSvgIcon-610a0a1c.js",
       "_SwitchBase-91e0191a.js",
@@ -314,7 +326,7 @@
     "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/GeneralDataForm.tsx"
   },
   "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx": {
-    "file": "assets/LabDetails-bd5bfed1.js",
+    "file": "assets/LabDetails-8f3e3f38.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-a684c324.js",
@@ -329,15 +341,15 @@
     "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx"
   },
   "resources/js/components/Admin/Pages/Labs/Forms/Register/LabServicesForm.tsx": {
-    "file": "assets/LabServicesForm-ff97f209.js",
+    "file": "assets/LabServicesForm-3546bd0e.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-a684c324.js",
-      "_api-8e2b663f.js",
+      "_api-952bf031.js",
       "_Input-4acd9be4.js",
       "_TextArea-3a09a8ba.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_index.esm-14f15176.js",
       "_FormSection-0da77780.js"
     ],
@@ -345,23 +357,23 @@
     "src": "resources/js/components/Admin/Pages/Labs/Forms/Register/LabServicesForm.tsx"
   },
   "resources/js/components/Admin/Pages/Labs/Labs.tsx": {
-    "file": "assets/Labs-a5313d83.js",
+    "file": "assets/Labs-fd735fdd.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
-      "_Auth-85041acf.js",
-      "_api-8e2b663f.js",
+      "_BreadCrumb-6af7d74d.js",
+      "_Auth-5ab7aa84.js",
+      "_api-952bf031.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Admin/Pages/Labs/Labs.tsx"
   },
   "resources/js/components/Blog/index.ts": {
-    "file": "assets/index-0cdb43a1.js",
+    "file": "assets/index-03105319.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Blog/index.ts"
@@ -375,13 +387,13 @@
     "src": "resources/js/components/Gallery/index.ts"
   },
   "resources/js/components/Labs/Labs.tsx": {
-    "file": "assets/Labs-4fa822d1.js",
+    "file": "assets/Labs-a7acd7d1.js",
     "imports": [
       "_client-abbe1494.js",
-      "_CityComboBox-56a1492f.js",
+      "_CityComboBox-0b399943.js",
       "_ArrowIcon-202630a0.js",
       "_Switch-e1493eef.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_styled-92600658.js",
       "_createSvgIcon-610a0a1c.js",
       "_SwitchBase-91e0191a.js",
@@ -400,26 +412,26 @@
     "src": "resources/js/components/Roadmap/index.ts"
   },
   "resources/js/components/UserArea/Pages/Ads/Ads.tsx": {
-    "file": "assets/Ads-4ac0e37c.js",
+    "file": "assets/Ads-52990bbb.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
-      "_Auth-85041acf.js",
+      "_BreadCrumb-6af7d74d.js",
+      "_Auth-5ab7aa84.js",
       "_PlusIcon-56c11ef8.js",
-      "_api-41aed6c4.js",
+      "_api-9a86a3bf.js",
       "_styled-92600658.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Request-86ea05f5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Ads/Ads.tsx"
   },
   "resources/js/components/UserArea/Pages/Ads/CreateAd.tsx": {
-    "file": "assets/CreateAd-e3ed6495.js",
+    "file": "assets/CreateAd-47b264a6.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
-      "_api-41aed6c4.js",
+      "_BreadCrumb-6af7d74d.js",
+      "_api-9a86a3bf.js",
       "_FormSection-0da77780.js",
       "_index.esm-14f15176.js",
       "_Input-4acd9be4.js",
@@ -427,10 +439,10 @@
       "_FormControl-a430915d.js",
       "_RadioGroup-98672c1f.js",
       "_Checkbox-235d27fe.js",
-      "_Auth-85041acf.js",
+      "_Auth-5ab7aa84.js",
       "_styled-92600658.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js",
+      "_Request-86ea05f5.js",
       "_SwitchBase-91e0191a.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
       "_createSvgIcon-610a0a1c.js"
@@ -439,18 +451,18 @@
     "src": "resources/js/components/UserArea/Pages/Ads/CreateAd.tsx"
   },
   "resources/js/components/UserArea/Pages/Dashboard.tsx": {
-    "file": "assets/Dashboard-0140a059.js",
+    "file": "assets/Dashboard-972b7f04.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_Request-c3ee7f25.js",
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Dashboard.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-63da9ea0.js",
+    "file": "assets/AcceptPolicyForm-b2069c72.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-a684c324.js",
@@ -518,16 +530,16 @@
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabDetails.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/LabServicesForm.tsx": {
-    "file": "assets/LabServicesForm-4e1c17a4.js",
+    "file": "assets/LabServicesForm-61af4ab1.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-a684c324.js",
-      "_RegisterLab-40ddf7d0.js",
+      "_RegisterLab-4684ac26.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
-      "_BreadCrumb-3e3a8b10.js",
+      "_BreadCrumb-6af7d74d.js",
       "_ArrowIcon-202630a0.js",
-      "_Auth-85041acf.js",
-      "_Request-c3ee7f25.js",
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
       "_index.esm-14f15176.js"
     ],
     "isDynamicEntry": true,
@@ -542,12 +554,12 @@
     "src": "resources/js/components/UserArea/Pages/Lab/Forms/Register/Logo.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Lab.tsx": {
-    "file": "assets/Lab-2eff1d4d.js",
+    "file": "assets/Lab-8251f7fe.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Lab/Lab.tsx"
@@ -561,13 +573,13 @@
     "src": "resources/js/components/UserArea/Pages/Settings/AuthSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Settings/ProfileSettings.tsx": {
-    "file": "assets/ProfileSettings-7e9d734b.js",
+    "file": "assets/ProfileSettings-542bb35c.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
+      "_Auth-5ab7aa84.js",
       "_Switch-e1493eef.js",
+      "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js",
       "_styled-92600658.js",
       "_SwitchBase-91e0191a.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
@@ -576,18 +588,18 @@
     "src": "resources/js/components/UserArea/Pages/Settings/ProfileSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx": {
-    "file": "assets/SocialSettings-dc14843a.js",
+    "file": "assets/SocialSettings-e18d169e.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_Request-c3ee7f25.js",
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-b2069c72.js",
+    "file": "assets/AcceptPolicyForm-63da9ea0.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-a684c324.js",
@@ -663,38 +675,38 @@
       "resources/js/components/UserArea/Pages/Shop/Forms/Register/ContactInfoForm.tsx",
       "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx"
     ],
-    "file": "assets/RegisterShop-31fc9f1e.js",
+    "file": "assets/RegisterShop-fad53392.js",
     "imports": [
       "_client-abbe1494.js",
-      "_BreadCrumb-3e3a8b10.js",
+      "_BreadCrumb-6af7d74d.js",
       "_index.esm-14f15176.js",
       "_formContext-a684c324.js",
       "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js",
-      "_Auth-85041acf.js",
+      "_Request-86ea05f5.js",
+      "_Auth-5ab7aa84.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/RegisterShop.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Shop.tsx": {
-    "file": "assets/Shop-df543187.js",
+    "file": "assets/Shop-0e8a0ec5.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/Shop/Shop.tsx"
   },
   "resources/js/components/UserArea/Pages/UserSettings.tsx": {
-    "file": "assets/UserSettings-88e3a6ae.js",
+    "file": "assets/UserSettings-d7563887.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_ArrowIcon-202630a0.js",
-      "_Request-c3ee7f25.js"
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/UserArea/Pages/UserSettings.tsx"
@@ -710,14 +722,15 @@
     "dynamicImports": [
       "resources/js/components/Admin/Pages/Dashboard.tsx",
       "resources/js/components/Admin/Pages/Labs/Labs.tsx",
-      "resources/js/components/Admin/Pages/Labs/CreateLab.tsx"
+      "resources/js/components/Admin/Pages/Labs/CreateLab.tsx",
+      "resources/js/components/Admin/Pages/Labs/EditLab.tsx"
     ],
-    "file": "assets/react-admin-65ff71f7.js",
+    "file": "assets/react-admin-bb29be8e.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_Request-c3ee7f25.js",
+      "_Auth-5ab7aa84.js",
       "_PlusIcon-56c11ef8.js",
+      "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js"
     ],
     "isEntry": true,
@@ -730,7 +743,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-7b1ac3ae.js",
+    "file": "assets/react-app-eab34500.js",
     "imports": [
       "_client-abbe1494.js"
     ],
@@ -749,13 +762,13 @@
       "resources/js/components/UserArea/Pages/Shop/Shop.tsx",
       "resources/js/components/UserArea/Pages/Shop/RegisterShop.tsx",
       "resources/js/components/UserArea/Pages/Lab/Lab.tsx",
-      "_RegisterLab-40ddf7d0.js"
+      "_RegisterLab-4684ac26.js"
     ],
-    "file": "assets/react-userarea-02f96e2d.js",
+    "file": "assets/react-userarea-34f7addd.js",
     "imports": [
       "_client-abbe1494.js",
-      "_Auth-85041acf.js",
-      "_Request-c3ee7f25.js",
+      "_Auth-5ab7aa84.js",
+      "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js"
     ],
     "isEntry": true,
