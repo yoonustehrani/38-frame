@@ -1,4 +1,4 @@
-<x-html-layout className="overflow-y-auto overflow-x-hidden float-left scroll-smooth z-0">
+<x-html-layout className="float-left scroll-smooth z-0">
     <x-slot:head>
         <title>{{ $title ?? 'Untitled Page' }}</title>
         @vite('resources/css/app.css')
