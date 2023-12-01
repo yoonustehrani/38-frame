@@ -62,6 +62,11 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    document.querySelector('button[data-menu-trigger]').addEventListener('click', function() {
+        const ulTag = document.querySelector('nav#navbar > div > #mobile-menu')
+        ulTag.classList.remove('hidden')
+        ulTag.classList.add('flex')
+    });
 
     function handleIntersection(entries, observer) {
         entries.forEach((entry) => {

@@ -1,4 +1,7 @@
-<nav data-animation="backInDown" class="opacity-0 grow-0 absolute z-10 flex items-center gap-4 px-4 justify-between h-20 shadow-md w-[90%] mt-4 {{ $classNames ?? 'bg-x-green/80' }}">
+{{-- 
+     data-animation="backInDown" opacity-0 
+    --}}
+<nav id="navbar" class="grow-0 absolute z-50 flex items-center gap-4 px-4 justify-between h-20 shadow-md w-[90%] mt-4 {{ $classNames ?? 'bg-x-green/80' }}">
     <div class="flex gap-4 h-full">
         <div class="h-full py-2">
             <img 
@@ -9,14 +12,25 @@
                 class="h-full w-auto"
             >
         </div>
-        <ul class="hidden lg:flex w-fit h-full justify-start items-center content-center gap-8 {{ $textColor ?? 'text-slate-50' }} font-semibold text-lg">
+        <ul id="mobile-menu" class="hidden lg:hidden flex-col lg:flex-row fixed w-full top-0 left-0 bg-red-600 z-50 h-screen lg:relative lg:w-fit lg:h-full justify-center lg:justify-start items-center content-center gap-8 {{ $textColor ?? 'text-slate-50' }} font-semibold text-lg">
             <li>
                 <a href="{{ route('pages.home') }}">صفحه اصلی</a>
             </li>
             <li>
                 <a href="{{ route('pages.labs.index') }}">تاریکخانه ها / تعمیرکاران</a>
             </li>
-            <li class="relative before:bg-x-grey before:delay-150 before:rotate-180 before:pointy-triangle before:middle-10px before:bottom-3 h-full flex items-center">
+            <li class="relative before:bg-x-grey before:delay-150 before:rotate-180 before:pointy-triangle before:middle-10px before:bottom-3 lg:h-full flex items-center">
+                <a data-has-sub href="#">فروشگاه ۳۸ فریم</a>
+            </li>
+        </ul>
+        <ul class="hidden lg:flex flex-col lg:flex-row h-full lg:relative lg:w-fit lg:h-full justify-center lg:justify-start items-center content-center gap-8 {{ $textColor ?? 'text-slate-50' }} font-semibold text-lg">
+            <li>
+                <a href="{{ route('pages.home') }}">صفحه اصلی</a>
+            </li>
+            <li>
+                <a href="{{ route('pages.labs.index') }}">تاریکخانه ها / تعمیرکاران</a>
+            </li>
+            <li class="relative before:bg-x-grey before:delay-150 before:rotate-180 before:pointy-triangle before:middle-10px before:bottom-3 lg:h-full flex items-center">
                 <a data-has-sub href="#">فروشگاه ۳۸ فریم</a>
                 <div class="hidden delay-500 absolute z-20 top-full -right-10 -mt-3 grid-cols-3 gap-1 w-[800px] bg-x-grey rounded-md p-1 text-black">
                     <ul class="grid grid-flow-row place-items-center place-content-center gap-2 hover:cursor-default">

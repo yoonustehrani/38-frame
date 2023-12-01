@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{ $head }}
 </head>
-<body class="w-full h-full relative {{ $className ?? '' }}">
+<body class="w-full h-full relative z-0 {{ $className ?? '' }}">
     {{ $slot }}
 </body>
 </html>
