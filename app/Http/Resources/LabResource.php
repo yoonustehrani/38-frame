@@ -18,7 +18,7 @@ class LabResource extends JsonResource
         return [
             'id' => $this->id,
             'brand' => $this->brand,
-            'rating' => random_int(0, 5),
+            'rating' => 5,
             'active' => !! $this->active,
             'location' => "{$this->city->province->name}، {$this->city->name}",
             'logo' => url()->asset('/images/sample-logo.png'),
