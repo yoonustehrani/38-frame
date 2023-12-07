@@ -44,7 +44,7 @@ const Labs: FC<LabsProps> = () => {
     return (
         <>
             <FiltersSideBar searchParams={params} setParams={setParams}/>
-            <div className="md:grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-6 py-4">
+            <div className="md:grow w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-6 py-4">
                 {loading ? [...Array(8)].map((a, i) => <LoadingLabItem key={i} />) : <LabList labs={labs} setPage={(url: string | null) => {
                     if(! url) return;
                     const page = /.+\?page\=(\d)/.exec(url) as RegExpExecArray

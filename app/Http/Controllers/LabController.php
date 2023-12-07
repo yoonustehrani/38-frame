@@ -41,7 +41,7 @@ class LabController extends Controller
                 });
             }
         }
-        return new LabCollection($query->paginate(8)->withQueryString());
+        return LabResource::collection($query->paginate(8)->withQueryString());
     }
 
     /**
