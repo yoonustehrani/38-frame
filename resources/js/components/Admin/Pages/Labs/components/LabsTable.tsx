@@ -30,7 +30,7 @@ const LabsTable: FC<LabsTableProps> = () => {
         response.then(r => {
             if (! r.hasErrors()) {
                 setLoading(false)
-                setLabItems(r.getContent<{data: LabItem[]}>().data)
+                setLabItems(r.getContent<LabItem[]>())
             }
         })
     }, [])
