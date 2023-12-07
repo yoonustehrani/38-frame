@@ -62,7 +62,6 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-
     function handleIntersection(entries, observer) {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Resources\MenuItemResource;
+use App\Http\Resources\MenuResource;
+use App\Models\Menu;
+
 if (! function_exists('icon')) {
     function icon($name) {
         include(
@@ -179,5 +183,17 @@ if (! function_exists('extract_google_user_from_token')) {
             'picture' => $payload['picture'],
             // 'email_verfied' => $payload['email_verfied']
         ];
+    }
+}
+
+if (! function_exists('get_menu')) {
+    function get_menu($key)
+    {
+        // return \Cache::rememberForever("menu::$key", function () use($key) {
+            $menu = Menu::where('key', $key)->with(['items' => function($query) {
+                $query->primary()->active();
+            }])->first(); 
+            return (new MenuResource($menu));
+        // });
     }
 }

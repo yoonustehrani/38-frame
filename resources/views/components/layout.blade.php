@@ -1,4 +1,4 @@
-<x-html-layout className="overflow-y-auto overflow-x-hidden float-left scroll-smooth z-0">
+<x-html-layout className="float-left scroll-smooth z-0">
     <x-slot:head>
         <title>{{ $title ?? 'Untitled Page' }}</title>
         @vite('resources/css/app.css')
@@ -17,6 +17,7 @@
     </x-slot:head>
     {{ $slot }}
     <x-footer classNames="float-left"/>
+    <div id="react-mobile-menu"></div>
     @viteReactRefresh
     @vite('resources/js/react-app.tsx')
     @vite('resources/js/app.js')

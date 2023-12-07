@@ -2,9 +2,10 @@ import { ReactNode, StrictMode, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import Loading from './components/Loading';
 import { StepObject } from './components/Roadmap/Roadmap';
-const Roadmap = lazy(() => import('./components/Roadmap'));
-const Gallery = lazy(() => import('./components/Gallery'));
-const Blog = lazy(() => import('./components/Blog'));
+const MobileMenu = lazy(() => import('./components/MobileMenu/MobileMenu'))
+const Roadmap = lazy(() => import('./components/Roadmap'))
+const Gallery = lazy(() => import('./components/Gallery'))
+const Blog = lazy(() => import('./components/Blog'))
 const Labs = lazy(() => import('./components/Labs/Labs'))
 
 type elementRendererArgumentTypes = {
@@ -30,6 +31,16 @@ if (roadmap) {
 
 (() => {
     [
+        {
+            element: document.getElementById('react-mobile-menu'),
+            toBeRendered: (
+                <StrictMode>
+                    <Loading>
+                        <MobileMenu />
+                    </Loading>
+                </StrictMode>
+            )
+        },
         {
             element: document.getElementById('react-blog'),
             toBeRendered: (

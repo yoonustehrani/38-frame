@@ -24,7 +24,7 @@
             </div>
         </div>
     </section>
-    <div class="w-full py-4 overflow-x-hidden">
+    <div class="w-full py-4 overflow-hidden">
         <section class="w-screen md:rotate-1 h-fit bg-[#111] py-3 flex justify-center items-center flex-col gap-1 overflow-hidden">
             <div class="px-2 bg-squares h-full md:h-5 w-4 md:w-full bg-repeat-y md:bg-repeat-x"></div>
             <section class="md:w-4/5 md:mx-[10%] grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-3 font-iran-sans service-list">
