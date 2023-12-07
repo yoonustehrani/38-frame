@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LabController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SiteCategoryController;
 use App\Http\Resources\CityResource;
@@ -54,6 +55,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('auth/logout', 'App\Http\Controllers\AuthController@logout');
     Route::apiResource('labs', 'App\Http\Controllers\LabController')->except('index');
 });
+Route::get('menus/{key}', [MenuController::class, 'show']);
 Route::get('labs', [LabController::class, 'index']);
 Route::get('cities', function(Request $request) {
     $request->validate([

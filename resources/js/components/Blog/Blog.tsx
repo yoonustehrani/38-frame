@@ -24,7 +24,7 @@ const Blog: FC<BlogProps> = () => {
         httpResponse.then(r => {
             if (! r.hasErrors()) {
                 setLoading(false)
-                setPosts(r.getContent<{data: BlogPost[]}>().data)
+                setPosts(r.getContent<BlogPost[]>())
             }
         })
         return cancel

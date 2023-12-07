@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // return get_menu('main');
     $roadmap = [
         [
             'title' => 'تهیه دوربین آنالوگ',
