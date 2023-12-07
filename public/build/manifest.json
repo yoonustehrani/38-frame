@@ -387,7 +387,7 @@
     "src": "resources/js/components/Gallery/index.ts"
   },
   "resources/js/components/Labs/Labs.tsx": {
-    "file": "assets/Labs-a7acd7d1.js",
+    "file": "assets/Labs-4a656779.js",
     "imports": [
       "_client-abbe1494.js",
       "_CityComboBox-0b399943.js",
@@ -404,7 +404,7 @@
     "src": "resources/js/components/Labs/Labs.tsx"
   },
   "resources/js/components/MobileMenu/MobileMenu.tsx": {
-    "file": "assets/MobileMenu-489874c3.js",
+    "file": "assets/MobileMenu-51e7264b.js",
     "imports": [
       "_client-abbe1494.js",
       "_Request-86ea05f5.js"
@@ -753,7 +753,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-54d0714e.js",
+    "file": "assets/react-app-36804c0a.js",
     "imports": [
       "_client-abbe1494.js"
     ],
