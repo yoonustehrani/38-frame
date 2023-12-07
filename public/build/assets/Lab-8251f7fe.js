@@ -1,1 +1,0 @@
-import{r,j as a,F as e}from"./client-abbe1494.js";import{j as o}from"./Auth-5ab7aa84.js";import"./Request-86ea05f5.js";import"./ArrowIcon-202630a0.js";const p=()=>{const t=o();return r.useLayoutEffect(()=>{t("/lab/register")},[]),a(e,{children:"فروشگاه"})};export{p as Component};
