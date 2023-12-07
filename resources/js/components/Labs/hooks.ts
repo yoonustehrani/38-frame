@@ -120,7 +120,7 @@ export function useDefaultCity(cityId: number | null)
             const [response, cancel] = fetchCity(cityId)
             response.then(r => {
                 if (! r.hasErrors()) {
-                    setDefaultCity(r.getContent<{data: CityObject}>().data)
+                    setDefaultCity(r.getContent<CityObject>())
                 }
             })
             return () => cancel()

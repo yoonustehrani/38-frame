@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useLayoutEffect, useState } from "react";
 import { fetchMenu } from "./api";
 import BottomNavbar from "./BottomNavbar";
 
@@ -23,7 +23,7 @@ interface Menu {
 const MobileMenu: FC<MobileMenuProps> = () => {
     const [menuItems, setMenuItems] = useState<MenuItem[]>()
     const [active, setActive] = useState<boolean>(false)
-    useEffect(() => {
+    useLayoutEffect(() => {
         const [fetchMenuFromApi, cancel] = fetchMenu('main')
         fetchMenuFromApi.then(res => {
             if (! res.hasErrors()) {
