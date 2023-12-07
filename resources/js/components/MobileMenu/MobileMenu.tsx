@@ -22,7 +22,7 @@ interface Menu {
 
 const MobileMenu: FC<MobileMenuProps> = () => {
     const [menuItems, setMenuItems] = useState<MenuItem[]>()
-    const [active, setActive] = useState<boolean>(true)
+    const [active, setActive] = useState<boolean>(false)
     useEffect(() => {
         const [fetchMenuFromApi, cancel] = fetchMenu('main')
         fetchMenuFromApi.then(res => {
