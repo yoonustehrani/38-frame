@@ -22,7 +22,7 @@ const CityComboBox: FC<CityComboBoxProps> = ({cityId, setCityId}) => {
             setCityLoading(true)
             response.then(r => {
                 if (! r.hasErrors()) {
-                    setCities(r.getContent<{data: CityObject[]}>().data)
+                    setCities(r.getContent<CityObject[]>())
                 }
                 setCityLoading(false)
             })
