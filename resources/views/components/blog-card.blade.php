@@ -1,7 +1,7 @@
 <div class="bg-creamy shadow-md rounded-b-md py-2 px-3 relative -mt-4 z-10 mb-8 flex flex-col">
     <img src="{{ $post->avatar }}" class="w-full" alt="{{ $post->title }}" />
     <div class="mt-4 relative grow flex flex-col justify-between gap-2">
-        <h5 class="font-bold text-lg text-gray-800">{{ $post->title }}</h5>
+        <a href="{{ route('pages.blog.show', ['slug' => $post->slug]) }}" class="font-bold text-lg hover:text-orange-600 text-gray-800">{{ $post->title }}</a>
         <p class="text-sm text-gray-700 text-justify px-1">{{ $post->description }}</p>
         <div class="flex justify-end">
             <a class="text-sm font-bold text-center w-fit hover:text-orange-600 hover:border-orange-600 border-transparent text-gray-500 duration-300 rounded-md mt-3 px-4 py-1 border-2 border-dashed" href={{ route('pages.blog.show', ['slug' => $post->slug]) }}>بخوانید</a>
