@@ -18,6 +18,11 @@ class BlogPostFactory extends Factory
     public function definition(): array
     {
         $title = fake()->words(3, true);
+        $body = '';
+        for ($i=0; $i < random_int(5, 20); $i++) { 
+            $paragraph = fake()->realText(random_int(7, 9) * 500, random_int(3, 5));
+            $body .= '<p>' . $paragraph . '</p>';
+        }
         return [
             'title' => $title,
             'subtitle' => fake()->words(4, true),
@@ -26,7 +31,8 @@ class BlogPostFactory extends Factory
             'avatar' => '/images/blog-' . rand(1, 4) . '.webp',
             // 'views' => fake()->randomNumber(5),
             'published_at' => now(),
-            'status' => 'published'
+            'status' => 'published',
+            'body' => $body
         ];
     }
 }
