@@ -2,6 +2,7 @@ import { FC, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLabs } from "../api";
 import TableRecord from "./TableRecord";
+import { useGroupActionList } from "../../../../../hooks/tableHooks";
 
 interface LabsTableProps {
     
@@ -25,12 +26,16 @@ interface LabItem {
 const LabsTable: FC<LabsTableProps> = () => {
     const [labItems, setLabItems] = useState<LabItem[]>([])
     const [loading, setLoading] = useState(true)
+    const groupedList = useGroupActionList([] as LabItem[])
+
+    console.log(groupedList.items);
+    
     useLayoutEffect(() => {
         const [response, cancel] = fetchLabs()
         response.then(r => {
             if (! r.hasErrors()) {
                 setLoading(false)
-                setLabItems(r.getContent<LabItem[]>())
+                setLabItems(r.getContent<{data: LabItem[]}>().data)
             }
         })
     }, [])
@@ -91,7 +96,13 @@ const LabsTable: FC<LabsTableProps> = () => {
                                 <th className="py-2">
                                     <div className="flex items-center justify-center">
                                         <div className="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
-                                            <input placeholder="checkbox" type="checkbox" className="accent-indigo-700 checkbox absolute cursor-pointer w-full h-full" />
+                                            <input onChange={(e) => {
+                                                if (e.target.checked) {
+                                                    groupedList.includeAll(labItems)
+                                                } else {
+                                                    groupedList.excludeAll()
+                                                }
+                                            }} placeholder="checkbox" type="checkbox" className="accent-indigo-700 checkbox absolute cursor-pointer w-full h-full" />
                                         </div>
                                     </div>
                                 </th>
@@ -109,7 +120,7 @@ const LabsTable: FC<LabsTableProps> = () => {
                                 <tr tabIndex={0} className="focus:outline-none h-16 border border-gray-100 rounded">
                                     <TableRecord>
                                         <div className="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
-                                            <input placeholder="checkbox" type="checkbox" className="accent-indigo-700 checkbox absolute cursor-pointer w-full h-full" />
+                                            <input onChange={e => groupedList.toggle(item)} checked={groupedList.items.includes(item.id)} placeholder="checkbox" type="checkbox" className="accent-indigo-700 checkbox absolute cursor-pointer w-full h-full" />
                                         </div>
                                     </TableRecord>
                                     <TableRecord>{index + 1}</TableRecord>
