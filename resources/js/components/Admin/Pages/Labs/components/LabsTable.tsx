@@ -27,8 +27,6 @@ const LabsTable: FC<LabsTableProps> = () => {
     const [labItems, setLabItems] = useState<LabItem[]>([])
     const [loading, setLoading] = useState(true)
     const groupedList = useGroupActionList([] as LabItem[])
-
-    console.log(groupedList.items);
     
     useLayoutEffect(() => {
         const [response, cancel] = fetchLabs()
@@ -39,9 +37,11 @@ const LabsTable: FC<LabsTableProps> = () => {
             }
         })
     }, [])
+
     if (loading) {
         return <p>{'در حال بارگیری ...'}</p>;
     }
+    
     if (labItems.length === 0) {
         return (
             <div className="flex items-center gap-4">

@@ -43,6 +43,15 @@ const routes: RouteObject[] = [
                         lazy: () => import('./Pages/Labs/EditLab')
                     }
                 ]
+            },
+            {
+                path: '/posts',
+                children: [
+                    {
+                        index: true,
+                        lazy: () => import('./Pages/Posts/Posts')
+                    }
+                ]
             }
         ]
     },

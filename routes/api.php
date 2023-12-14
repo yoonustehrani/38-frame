@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ShopController;
@@ -26,6 +27,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('site-categories', [SiteCategoryController::class, 'index'])->name('site-categories.index');
 
 Route::middleware('auth:sanctum')->group(function() {
+
+
+    Route::apiResource('posts', BlogPostController::class);
+
+
     Route::apiResource('ads', 'App\Http\Controllers\AdController');
     Route::prefix('/admin')->middleware('onlyAdmin')->name('admin.')->group(function() {
         Route::get('/', function(Request $request) {

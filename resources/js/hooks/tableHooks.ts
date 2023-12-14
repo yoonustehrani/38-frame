@@ -27,15 +27,16 @@ function groupActionsReducer<T extends GroupItem>(state: T[], action: ReducerAct
     }
 }
 
-export function useGroupActionList<T extends GroupItem>(initialItems: T[]) { // , key: keyof T
-    const [items, dispatch] = useReducer(groupActionsReducer<T>, initialItems)
+export function useGroupActionList<T extends GroupItem>(everyItem: T[]) { // , key: keyof T
+    const [items, dispatch] = useReducer(groupActionsReducer<T>, [])
     return {
         items: items.map(x => x.id),
-        toggle: (item: T) => {
-            if (items.map(x => x.id).includes(item.id)) {
-                dispatch({type: 'REMOVE_FROM_GROUP', payload: item.id})
+        toggle: (id: number) => {
+            let item = items.find(x => x.id === id)
+            if (item) {
+                dispatch({type: 'REMOVE_FROM_GROUP', payload: id})
             } else {
-                dispatch({type: 'ADD_TO_GROUP', payload: item})
+                dispatch({type: 'ADD_TO_GROUP', payload: everyItem.find(x => x.id === id)})
             }
         },
         // toggleAll: (allItems: T[]) => {
@@ -43,7 +44,7 @@ export function useGroupActionList<T extends GroupItem>(initialItems: T[]) { // 
         // },
         // add: (item: T) => dispatch({type: 'ADD_TO_GROUP', payload: item}),
         // remove: (id: number) => dispatch({type: 'REMOVE_FROM_GROUP', payload: id}),
-        includeAll: (allItems: T[]) => dispatch({type: 'INCLUDE_ALL', payload: allItems}),
+        includeAll: () => dispatch({type: 'INCLUDE_ALL', payload: everyItem}),
         excludeAll: () => dispatch({type: 'EXCLUDE_ALL'})
     }
 }
