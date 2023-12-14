@@ -63,7 +63,7 @@
     </section>
     <section class="w-4/5 mx-[10%] float-left mt-6 mb-12 md:px-6 py-4">
         <div class="w-full grid grid-cols-4 gap-6 font-iran-sans">
-            @foreach ($posts as $post)
+            @foreach (\App\Models\BlogPost::published()->with('author')->get() as $post)
                 <x-blog-card :post="$post"/>
             @endforeach
         </div>
