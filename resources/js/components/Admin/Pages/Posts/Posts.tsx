@@ -35,7 +35,7 @@ const Posts: FC = () => {
                 <BreadCrumbItem>لیست مقاله ها</BreadCrumbItem>
             </BreadCrumb>
             <section className="w-full my-6">
-                <DataTable loading={loading} items={posts || []}>
+                <DataTable loading={loading} items={posts || []} newItem={{ link: '/posts/create', title: 'مقاله' }}>
                     <Thead columns={[' ', 'عنوان']}/>
                     <groupActionsContext.Consumer>
                         {({toggle, items}) => (

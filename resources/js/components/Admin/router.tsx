@@ -50,7 +50,11 @@ const routes: RouteObject[] = [
                     {
                         index: true,
                         lazy: () => import('./Pages/Posts/Posts')
-                    }
+                    },
+                    {
+                        path: 'create',
+                        lazy: () => import('./Pages/Posts/CreatePost')
+                    },
                 ]
             }
         ]

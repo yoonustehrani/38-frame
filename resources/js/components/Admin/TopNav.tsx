@@ -1,7 +1,5 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
-import { User } from "../WebPanel/types";
-import Request from "../../utils/HttpClient/Request";
 import useAuth from "../WebPanel/hooks/useAuth";
 import { requestLogout } from "../WebPanel/api";
 interface TopNavProps {
@@ -22,7 +20,7 @@ const TopNav: FC<TopNavProps> = () => {
         <div className="w-full fixed lg:sticky top-0 left-0 z-30 gap-3 flex flex-row-reverse justify-start items-center shadow-md bg-white h-16 px-4">
             <Link to={'/settings'} className="pr-2">
                 <div className="h-12 w-12 rounded-full overflow-hidden cursor-pointer">
-                    <img className="h-full w-auto" src={user?.avatar} alt="" />
+                    <img className="h-full w-auto" src={location.origin + '/' + user?.avatar} alt="" />
                 </div>
             </Link>
             <button onClick={handleLogout}>

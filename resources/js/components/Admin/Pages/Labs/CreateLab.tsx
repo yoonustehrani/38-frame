@@ -111,7 +111,7 @@ const RegisterLab: FC = () => {
     return (
         <formGeneralErrorsContext.Provider value={displayAllErrors}>
             <section>
-                <h1 className="font-bold text-2xl">ثبت نام به عنوان لابراتوار، تاریکخانه، تعمیرکار</h1>
+                <h1 className="font-bold text-2xl">ایجاد لابراتوار، تاریکخانه، تعمیرکار</h1>
                 <BreadCrumb>
                     <BreadCrumbItem link="/">ناحیه کاربری</BreadCrumbItem>
                     <BreadCrumbItem link="/lab">لابراتوار</BreadCrumbItem>

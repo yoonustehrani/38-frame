@@ -17,10 +17,14 @@ interface DBRecordObject extends ItemWithId {
 interface DataTableProps {
     loading: boolean
     items: DBRecordObject[],
-    children: ReactNode
+    children: ReactNode,
+    newItem: {
+        link: string
+        title?: string
+    }
 }
  
-const DataTable: FC<DataTableProps> = ({loading, items, children}) => {
+const DataTable: FC<DataTableProps> = ({loading, items, children, newItem}) => {
     const groupedList = useGroupActionList(items)
     
     if (loading) {
@@ -30,9 +34,9 @@ const DataTable: FC<DataTableProps> = ({loading, items, children}) => {
     if (items.length === 0) {
         return (
             <div className="flex items-center gap-4">
-                <p>{'موردی برای نمایش وجود ندارد'}</p>
-                <Link to="/labs/create" className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-emerald-700 hover:bg-emerald-600 focus:outline-none rounded">
-                    <p className="text-sm font-medium leading-none text-white">افزودن لابراتوار</p>
+                <p>{'موردی برای نمایش وجود ندارد'}.</p>
+                <Link to={newItem.link} className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-2 py-2 bg-emerald-700 hover:bg-emerald-600 focus:outline-none rounded">
+                    <p className="text-sm font-medium leading-none text-white">افزودن{newItem.title ? ` ${newItem.title}` : ''}</p>
                 </Link>
             </div>
         );
