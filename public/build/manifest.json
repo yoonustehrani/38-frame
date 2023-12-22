@@ -1,4 +1,8 @@
 {
+  "AvatarPick.css": {
+    "file": "assets/AvatarPick-a242d77c.css",
+    "src": "AvatarPick.css"
+  },
   "_ArrowIcon-202630a0.js": {
     "file": "assets/ArrowIcon-202630a0.js",
     "imports": [
@@ -11,6 +15,17 @@
       "_client-abbe1494.js",
       "_Request-86ea05f5.js",
       "_ArrowIcon-202630a0.js"
+    ]
+  },
+  "_AvatarPick-fa7d48fe.js": {
+    "css": [
+      "assets/AvatarPick-a242d77c.css"
+    ],
+    "file": "assets/AvatarPick-fa7d48fe.js",
+    "imports": [
+      "_client-abbe1494.js",
+      "_formContext-6cf63da9.js",
+      "_Request-86ea05f5.js"
     ]
   },
   "_BreadCrumb-9b4d90e8.js": {
@@ -158,8 +173,8 @@
       "_client-abbe1494.js"
     ]
   },
-  "_api-0071e415.js": {
-    "file": "assets/api-0071e415.js",
+  "_api-2e2ce2c7.js": {
+    "file": "assets/api-2e2ce2c7.js",
     "imports": [
       "_Request-86ea05f5.js"
     ]
@@ -249,7 +264,7 @@
     "src": "public/images/white-black-rectangles.png"
   },
   "resources/css/app.css": {
-    "file": "assets/app-2c44d6cc.css",
+    "file": "assets/app-fdd57e99.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -280,7 +295,7 @@
       "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx",
       "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
     ],
-    "file": "assets/CreateLab-66f169b4.js",
+    "file": "assets/CreateLab-855682d5.js",
     "imports": [
       "_client-abbe1494.js",
       "_BreadCrumb-9b4d90e8.js",
@@ -397,39 +412,54 @@
     "isDynamicEntry": true,
     "src": "resources/js/components/Admin/Pages/Labs/Labs.tsx"
   },
-  "resources/js/components/Admin/Pages/Posts/CreatePost.css": {
-    "file": "assets/CreatePost-a242d77c.css",
-    "src": "resources/js/components/Admin/Pages/Posts/CreatePost.css"
-  },
   "resources/js/components/Admin/Pages/Posts/CreatePost.tsx": {
-    "css": [
-      "assets/CreatePost-a242d77c.css"
-    ],
-    "file": "assets/CreatePost-df0d5542.js",
+    "file": "assets/CreatePost-10aaed61.js",
     "imports": [
       "_client-abbe1494.js",
       "_BreadCrumb-9b4d90e8.js",
       "_formContext-6cf63da9.js",
       "_Input-afe2263d.js",
+      "_AvatarPick-fa7d48fe.js",
       "_TextArea-13072f5e.js",
-      "_Request-86ea05f5.js",
-      "_api-0071e415.js",
+      "_api-2e2ce2c7.js",
       "resources/js/react-admin.tsx",
       "_Auth-8243c99e.js",
       "_ArrowIcon-202630a0.js",
       "_hoist-non-react-statics.cjs-3f8ebaa8.js",
       "_FormSection-0da77780.js",
+      "_Request-86ea05f5.js",
       "_PlusIcon-56c11ef8.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/components/Admin/Pages/Posts/CreatePost.tsx"
   },
+  "resources/js/components/Admin/Pages/Posts/EditPost.tsx": {
+    "file": "assets/EditPost-429dff54.js",
+    "imports": [
+      "_client-abbe1494.js",
+      "_api-2e2ce2c7.js",
+      "_BreadCrumb-9b4d90e8.js",
+      "_Input-afe2263d.js",
+      "_TextArea-13072f5e.js",
+      "_AvatarPick-fa7d48fe.js",
+      "_formContext-6cf63da9.js",
+      "resources/js/react-admin.tsx",
+      "_Auth-8243c99e.js",
+      "_Request-86ea05f5.js",
+      "_ArrowIcon-202630a0.js",
+      "_FormSection-0da77780.js",
+      "_hoist-non-react-statics.cjs-3f8ebaa8.js",
+      "_PlusIcon-56c11ef8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/components/Admin/Pages/Posts/EditPost.tsx"
+  },
   "resources/js/components/Admin/Pages/Posts/Posts.tsx": {
-    "file": "assets/Posts-b8508a01.js",
+    "file": "assets/Posts-9d87c45e.js",
     "imports": [
       "_client-abbe1494.js",
       "_BreadCrumb-9b4d90e8.js",
-      "_api-0071e415.js",
+      "_api-2e2ce2c7.js",
       "_Auth-8243c99e.js",
       "_tableHooks-91b416c3.js",
       "_ArrowIcon-202630a0.js",
@@ -807,9 +837,10 @@
       "resources/js/components/Admin/Pages/Labs/CreateLab.tsx",
       "resources/js/components/Admin/Pages/Labs/EditLab.tsx",
       "resources/js/components/Admin/Pages/Posts/Posts.tsx",
-      "resources/js/components/Admin/Pages/Posts/CreatePost.tsx"
+      "resources/js/components/Admin/Pages/Posts/CreatePost.tsx",
+      "resources/js/components/Admin/Pages/Posts/EditPost.tsx"
     ],
-    "file": "assets/react-admin-0183bdd9.js",
+    "file": "assets/react-admin-c2f0e9a2.js",
     "imports": [
       "_client-abbe1494.js",
       "_Auth-8243c99e.js",

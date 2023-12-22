@@ -1,0 +1,1 @@
+import{R as e}from"./Request-86ea05f5.js";const n={baseURL:window.location.origin+"/api",headers:{Accept:"application/json"}};function s(){return new e(n)}const c=()=>s().to("/posts/?limit=8").send(),a=t=>s().to(`/posts/${t}`).send(),i=(t,o)=>s().to(`/posts/${t}`).method("patch").send(o),p=t=>s().to("/posts/").method("post").send(t);export{a,p as c,i as e,c as f};
