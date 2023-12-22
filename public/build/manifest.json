@@ -570,7 +570,7 @@
     "src": "resources/js/components/UserArea/Pages/Dashboard.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-859a27be.js",
+    "file": "assets/AcceptPolicyForm-ae3626b8.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-6cf63da9.js",
@@ -709,7 +709,7 @@
     "src": "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-ae3626b8.js",
+    "file": "assets/AcceptPolicyForm-859a27be.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-6cf63da9.js",

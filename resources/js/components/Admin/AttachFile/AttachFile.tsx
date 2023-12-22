@@ -23,7 +23,7 @@ const AttachFile: FC<AttachFileProps> = ({multiSelect, onSelect, children, class
             toggle: () => setDisplay(prevState => ! prevState)
          }}>
             <div className={className}>
-                <div className={`absolute z-20 ${display ? '' : 'hidden'} top-0 left-0 w-full h-screen px-12 py-6`}>
+                <div className={`fixed z-40 ${display ? '' : 'hidden'} top-0 left-0 w-full h-screen px-12 py-6`}>
                     <div className="flex justify-start">
                         <button type='button' role="button" onClick={() => setDisplay(false)} className="bg-red-50 text-red-500 text-sm py-1 px-4 rounded-t-md">بستن</button>
                     </div>
