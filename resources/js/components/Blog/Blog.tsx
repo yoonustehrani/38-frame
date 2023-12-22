@@ -13,7 +13,7 @@ const ApiConfig = {
 }
 
 function fetchPosts() {
-    return new Request(ApiConfig).to('posts?limit=4').send()
+    return new Request(ApiConfig).to('blog-posts?limit=4').send()
 }
 
 const Blog: FC<BlogProps> = () => {
