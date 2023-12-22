@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->tinyText('description');
-            $table->tinyText('avatar');
             $table->longText('body');
             $table->foreignId('author_id')->references('id')->on('users')->cascadeOnUpdate();
             $table->enum('status', [

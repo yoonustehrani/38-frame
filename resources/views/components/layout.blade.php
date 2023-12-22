@@ -2,6 +2,7 @@
     <x-slot:head>
         <title>{{ $title ?? 'Untitled Page' }}</title>
         @vite('resources/css/app.css')
+        {{ $headtag }}
         <style>
             :root {
                 --size: 50vmin;

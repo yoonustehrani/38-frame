@@ -70,7 +70,7 @@ class User extends Authenticatable
     //     // return $this->;
     // }
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
         return ! is_null($this->role) && $this->role->name === 'admin';
     }

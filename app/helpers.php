@@ -197,3 +197,16 @@ if (! function_exists('get_menu')) {
         // });
     }
 }
+
+if (! function_exists('make_thumbnail')) {
+    function make_thumbnail($path, $save_as) {
+        if (\Storage::exists($path)) {
+            $manager = \Intervention\Image\ImageManager::gd();
+            $image = $manager->read(\Storage::get($path));
+            $thumbnail = $image->toWebp(5);
+            \Storage::put("$save_as.webp", $thumbnail->toString());
+            return $save_as;
+        }
+        return null;
+    }
+}

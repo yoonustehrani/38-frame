@@ -1,7 +1,7 @@
 import Request from "../../../../utils/HttpClient/Request"
 
 const ApiConfig = {
-    baseURL: window.location.origin + '/api/posts',
+    baseURL: window.location.origin + '/api',
     headers: {'Accept': 'application/json'}
 }
 
@@ -10,5 +10,17 @@ function newRequest() {
 }
 
 export const fetchPosts = () => {
-    return newRequest().to('/?limit=8').send()
+    return newRequest().to('/posts/?limit=8').send()
+}
+
+export const fetchCategories = () => {
+    return newRequest().to('/site-categories/?type=blog-post')
+}
+
+export const createCategory = (data: any) => {
+    return newRequest().to('/site-categories/').method('post').send(data)
+}
+
+export const createPost = (data: any) => {
+    return newRequest().to('/posts/').method('post').send(data)
 }

@@ -1,10 +1,19 @@
-<x-layout :title="$post->title">
+<x-layout :title="$post->seo->html_title ?? $post->title">
+    <x-slot:headtag>
+        @if ($post->seo?->meta_description)
+            <meta name="description" content="{{ $post->seo->meta_desscription }}">
+            <meta name="robots" content="index, follow, max-image-preview:standard, max-snippet:-1, max-video-preview:-1">
+        @endif
+    </x-slot:headtag>
     <header class="h-36 overflow-hidden w-full flex md:flex-col justify-center items-center font-iran-sans relative">
         <x-nav classNames="absolute z-20 top-0 rounded-md bg-gray-800" />
         {{-- <img class="h-full w-auto md:min-w-fit md:h-auto md:w-full opacity-90" src="/images/blog-bg.webp" alt=""> --}}
     </header>
     <section class="w-full flex flex-col gap-6 items-center font-iran-sans">
         <section class="px-6 md:max-w-md flex flex-col gap-4">
+            @if ($post->avatar->count() > 0)
+                <img width="400" class="w-auto h-80 rounded-md" src="{{ asset($post->avatar[0]->path) }}" alt="">
+            @endif
             <h1 class="text-gray-900 font-bold text-4xl leading-relaxed">{{ $post->title }}</h1>
             <h2 class="text-gray-600 text-xl">{{ $post->subtitle }}</h2>
             <div class="flex gap-4 items-center">
@@ -12,8 +21,8 @@
                 <div class="flex flex-col gap-3 text-sm">
                     <span class="text-gray-700 font-bold">{{ $post->author->username }}</span>
                     <span class="text-gray-500 flex items-center gap-2">
-                        <span>11 دقیقه زمان مطالعه</span>
-                        <span class="w-1 h-1 rounded-full bg-gray-500 inline-block"></span>
+                        {{-- <span>11 دقیقه زمان مطالعه</span> --}}
+                        {{-- <span class="w-1 h-1 rounded-full bg-gray-500 inline-block"></span> --}}
                         <span>{{ $post->created_at->diffForHumans() }}</span>
                     </span>
                 </div>

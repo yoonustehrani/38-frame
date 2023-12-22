@@ -98,10 +98,10 @@ return [
     'mimes' => 'The :attribute field must be a file of type: :values.',
     'mimetypes' => 'The :attribute field must be a file of type: :values.',
     'min' => [
-        'array' => 'The :attribute field must have at least :min items.',
-        'file' => 'The :attribute field must be at least :min kilobytes.',
-        'numeric' => 'The :attribute field must be at least :min.',
-        'string' => 'The :attribute field must be at least :min characters.',
+        'array' => 'فیلد :attribute باید حداقل شامل :min مورد باشد.',
+        'file' => 'فایل :attribute باید حداقل :min کیلوبایت باشد.',
+        'numeric' => 'مقدار :attribute باید حداقل :min باشد.',
+        'string' => 'فیلد :attribute باید حداقل :min حرف داشته باشد.',
     ],
     'min_digits' => 'The :attribute field must have at least :min digits.',
     'missing' => 'The :attribute field must be missing.',
@@ -181,10 +181,22 @@ return [
     */
 
     'attributes' => [
-        'ad.title' => 'عنوان آگهی',
-        'ad.price' => 'قیمت آگهی',
-        'ad.phone_number' => 'شماره تلفن',
-        'ad.description' => 'توضیحات آگهی'
+        'ad' => [
+            'title' => 'عنوان آگهی',
+            'price' => 'قیمت آگهی',
+            'phone_number' => 'شماره تلفن',
+            'description' => 'توضیحات آگهی',
+        ],
+        'blogPost' => [
+            'title' => 'عنوان مقاله',
+            'subtitle' => 'زیرعنوان مقاله',
+            'description' => 'توضیحات مقاله',
+            'body' => 'محتوای مقاله'
+        ],
+        'seo' => [
+            'html_title' => 'عنوان صفحه html',
+            'meta_description' => 'متای توضیحات'
+        ]
     ],
 
 ];

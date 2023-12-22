@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useRef } from 'react';
+import React, { FC, ReactNode, useEffect, useMemo, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as E } from 'tinymce'
 import { useField } from 'formik';
@@ -11,23 +11,25 @@ interface RichTextProps extends React.DetailedHTMLProps<React.TextareaHTMLAttrib
 	label?: string
 }
 
-// type RichTextPropsFinal = RichTextProps & ({id?: string, label?: undefined} | {label: string, id: string})
-
 const RichTextEditor: FC<RichTextProps> = ({name, className, label, required}) => {
 	const editorRef = useRef<E | null>(null);
-	const [field, {error, touched}] = useField({ type: 'textarea', name });
-	// useEffect(() => {
-	// 	if (editorRef.current) {
-	// 		console.log('yeah');
-	// 	}
-	// }, [editorRef.current])
+	const [field, meta, {setValue}] = useField({ type: 'textarea', name })
+	const initialContent = useMemo(() => field.value, [name])
+	useEffect(() => {
+		if (editorRef.current) {
+			const autosave = setInterval(() => {
+				setValue(editorRef.current?.getContent() || '')
+			}, 5000)
+			return () => clearInterval(autosave)
+		}
+	}, [editorRef.current])
 	return (
 		<div className={className}>
 			{label && <div className='pb-3 px-2 text-gray-700 text-sm'>- {label}{required ? ' *' : ''}</div>}
 			<Editor
 				tinymceScriptSrc={location.origin + '/tinymce/tinymce.min.js'}
 				onInit={(evt, editor) => editorRef.current = editor}
-				initialValue='<p>سلام</p>'
+				initialValue={initialContent}
 				init={{
 					height: 500,
 					menubar: false,
@@ -52,7 +54,7 @@ const RichTextEditor: FC<RichTextProps> = ({name, className, label, required}) =
 					body { font-family: IranSansWeb; font-size:14px }
 					`
 				}}
-				onBlur={(evt, editor) => editor.getContent()}
+				onBlur={(evt, editor) => setValue(editor?.getContent() || '')}
 			/>
 		</div>
 	);

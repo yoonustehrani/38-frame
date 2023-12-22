@@ -1,10 +1,7 @@
 import { FC, ReactNode, useContext } from "react";
 import { Link } from "react-router-dom";
-// import { toPersianDateTime } from "./utils";
-// import TableRecord from "./TableRecord";
 import { useGroupActionList } from "../../../../../../hooks/tableHooks";
 import groupActionsContext from "./groupActionsContext";
-// import TableRecord from "./TableRecord";
 
 
 type ItemWithId = {id: number }
@@ -21,10 +18,11 @@ interface DataTableProps {
     newItem: {
         link: string
         title?: string
-    }
+    },
+    title: string
 }
  
-const DataTable: FC<DataTableProps> = ({loading, items, children, newItem}) => {
+const DataTable: FC<DataTableProps> = ({loading, title, items, children, newItem}) => {
     const groupedList = useGroupActionList(items)
     
     if (loading) {
@@ -45,7 +43,7 @@ const DataTable: FC<DataTableProps> = ({loading, items, children, newItem}) => {
         <div className="sm:px-6 w-full">
             <div className="px-4 md:px-10 py-4 md:py-7">
                 <div className="flex items-center justify-between">
-                    <p tabIndex={0} className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">لابراتوار ها</p>
+                    <p tabIndex={0} className="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">{title}</p>
                     <div className="py-3 px-4 flex items-center text-sm font-medium leading-none text-gray-600 bg-gray-200 hover:bg-gray-300 cursor-pointer rounded">
                         <p>مرتب سازی بر اساس:</p>
                         <select aria-label="select" className="focus:text-emerald-600 focus:outline-none bg-transparent ml-1">
@@ -63,7 +61,7 @@ const DataTable: FC<DataTableProps> = ({loading, items, children, newItem}) => {
                                 <p>همه</p>
                             </div>
                         </a>
-                        <a className="rounded-md focus:outline-none focus:ring-2 focus:bg-emerald-50 focus:ring-emerald-800">
+                        {/* <a className="rounded-md focus:outline-none focus:ring-2 focus:bg-emerald-50 focus:ring-emerald-800">
                             <div className="py-2 px-3 text-gray-600 hover:text-emerald-700 hover:bg-emerald-100 rounded-md ">
                                 <p>تایید شده</p>
                             </div>
@@ -72,10 +70,10 @@ const DataTable: FC<DataTableProps> = ({loading, items, children, newItem}) => {
                             <div className="py-2 px-3 text-gray-600 hover:text-emerald-700 hover:bg-emerald-100 rounded-md ">
                                 <p>در انتظار تایید</p>
                             </div>
-                        </a>
+                        </a> */}
                     </div>
-                    <Link to="/labs/create" className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-emerald-700 hover:bg-emerald-600 focus:outline-none rounded">
-                        <p className="text-sm font-medium leading-none text-white">افزودن لابراتوار</p>
+                    <Link to={newItem.link} className="focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-emerald-700 hover:bg-emerald-600 focus:outline-none rounded">
+                        <p className="text-sm font-medium leading-none text-white">افزودن{newItem.title ? ` ${newItem.title}` : ''}</p>
                     </Link>
                 </div>
                 <div className="mt-7 overflow-x-auto">

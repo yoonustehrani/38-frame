@@ -57,6 +57,6 @@ Route::get('labs/{lab}', [LabController::class, 'show'])->name('pages.labs.show'
 Route::view('contact', 'pages.contact')->name('pages.contact');
 Route::view('about', 'pages.about')->name('pages.about');
 Route::view('blog', 'pages.blog.index')->name('pages.blog.index');
-Route::get('blog/{slug}', [BlogPostController::class, 'showUser'])->name('pages.blog.show');
+Route::get('blog/{slug}', [BlogPostController::class, 'showPublic'])->name('pages.blog.show');
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
 Route::view('38panel/{path?}', 'pages.admin')->where('path', '.*')->name('admin');

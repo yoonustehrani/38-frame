@@ -14,6 +14,11 @@ class BlogPostResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        if ($request->user()?->isAdmin()) {
+            $array = parent::toArray($request);
+            $array['avatar'] = (new UploadedFileResource($this->avatar[0]))->toArray($request) ?? null;
+            return $array;
+        }
         return [
             'id' => $this->id,
             'title' => $this->title,

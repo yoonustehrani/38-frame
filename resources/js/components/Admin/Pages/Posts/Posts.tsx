@@ -4,11 +4,15 @@ import { fetchPosts } from "./api";
 import DataTable, { Thead } from "./components/DataTable/DataTable";
 import TableRecord from "./components/DataTable/TableRecord";
 import groupActionsContext from "./components/DataTable/groupActionsContext";
+import { File as UploadedFile } from "../../FileManager/types";
+import { toPersianDateTime } from "./components/DataTable/utils";
 
 interface PostItem {
     id: number
     title: string
-    avatar: string
+    avatar: UploadedFile
+    created_at: string
+    updated_at: string
 }
 
 const Posts: FC = () => {
@@ -34,9 +38,9 @@ const Posts: FC = () => {
                 <BreadCrumbItem link="/">پنل مدیریت</BreadCrumbItem>
                 <BreadCrumbItem>لیست مقاله ها</BreadCrumbItem>
             </BreadCrumb>
-            <section className="w-full my-6">
-                <DataTable loading={loading} items={posts || []} newItem={{ link: '/posts/create', title: 'مقاله' }}>
-                    <Thead columns={[' ', 'عنوان']}/>
+            <section className="w-full my-6 text-sm">
+                <DataTable title="مقاله ها" loading={loading} items={posts || []} newItem={{ link: '/posts/create', title: 'مقاله' }}>
+                    <Thead columns={[' ', 'عنوان', 'تاریخ ایجاد', 'آخرین ویرایش']}/>
                     <groupActionsContext.Consumer>
                         {({toggle, items}) => (
                             <>
@@ -50,10 +54,16 @@ const Posts: FC = () => {
                                             </TableRecord>
                                             <TableRecord>{index + 1}</TableRecord>
                                             <TableRecord>
-                                                <img width={50} height={50} src={window.location.origin + post.avatar} alt="" />
+                                                {post.avatar.thumbnailUri && <img width={50} height={50} src={post.avatar.thumbnailUri} alt="" />}
                                             </TableRecord>
                                             <TableRecord>
                                                 <p className="text-base font-medium leading-none text-gray-700">{post.title}</p>
+                                            </TableRecord>
+                                            <TableRecord>
+                                                {toPersianDateTime(post.created_at)}
+                                            </TableRecord>
+                                            <TableRecord>
+                                                {toPersianDateTime(post.updated_at)}
                                             </TableRecord>
                                         </tr>
                                     </tbody>

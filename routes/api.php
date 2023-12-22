@@ -6,6 +6,7 @@ use App\Http\Controllers\LabController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SiteCategoryController;
+use App\Http\Controllers\UploadedFileController;
 use App\Http\Resources\CityResource;
 use App\Models\City;
 use App\Models\LabService;
@@ -30,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
 
     Route::apiResource('posts', BlogPostController::class);
-
+    Route::apiResource('files', UploadedFileController::class);
 
     Route::apiResource('ads', 'App\Http\Controllers\AdController');
     Route::prefix('/admin')->middleware('onlyAdmin')->name('admin.')->group(function() {
