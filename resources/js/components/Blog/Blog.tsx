@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { BlogPost, mockedPosts } from "./types";
+import { BlogPost } from "./types";
 import BlogPostCard from "./BlogPostCard";
 import Request from "../../utils/HttpClient/Request";
 
