@@ -439,7 +439,7 @@
     "src": "resources/js/components/Admin/Pages/Posts/Posts.tsx"
   },
   "resources/js/components/Blog/index.ts": {
-    "file": "assets/index-5aabbd04.js",
+    "file": "assets/index-846e6566.js",
     "imports": [
       "_client-abbe1494.js",
       "_Request-86ea05f5.js"
@@ -828,7 +828,7 @@
       "resources/js/components/Blog/index.ts",
       "resources/js/components/Labs/Labs.tsx"
     ],
-    "file": "assets/react-app-27228e9f.js",
+    "file": "assets/react-app-813296fb.js",
     "imports": [
       "_client-abbe1494.js"
     ],
