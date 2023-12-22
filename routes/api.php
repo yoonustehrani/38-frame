@@ -80,4 +80,4 @@ Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSign
 Route::post('auth/login', 'App\Http\Controllers\AuthController@login')->name('auth.login');
 Route::post('admin/auth/google', 'App\Http\Controllers\AuthController@handleGoogleAdminSignIn')->name('auth.login.admin.google');
 Route::post('admin/auth/login', 'App\Http\Controllers\AuthController@adminLogin')->name('auth.login.admin');
-Route::get('blog-posts', 'App\Http\Controllers\BlogPostController@apiIndex')->name('posts.index');
+Route::get('blog-posts', 'App\Http\Controllers\BlogPostController@apiIndex')->name('blog-posts.index');
