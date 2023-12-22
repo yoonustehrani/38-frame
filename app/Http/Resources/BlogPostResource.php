@@ -14,7 +14,7 @@ class BlogPostResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        if ($request->user()?->isAdmin()) {
+        if (str_contains($request->url(), '38panel')) {
             $array = parent::toArray($request);
             $array['avatar'] = (new UploadedFileResource($this->avatar[0]))->toArray($request) ?? null;
             return $array;
@@ -23,7 +23,7 @@ class BlogPostResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'avatar' => $this->avatar,
+            'avatar' => (new UploadedFileResource($this->avatar[0]))->toArray($request) ?? null,
             'views' => 1,
             'url' => route('pages.blog.show', ['slug' => $this->slug]),
             'author' => $this->author

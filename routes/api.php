@@ -78,6 +78,6 @@ Route::get('cities/{city}', function($city) {
 Route::apiResource('lab-services', 'App\Http\Controllers\LabServiceController');
 Route::post('auth/google', 'App\Http\Controllers\AuthController@handleGoogleSignIn')->name('auth.login.google');
 Route::post('auth/login', 'App\Http\Controllers\AuthController@login')->name('auth.login');
-Route::post('admin/auth/google', 'App\Http\Controllers\AuthController@handleGoogleAdminSignIn')->name('auth.login.google');
-Route::post('admin/auth/login', 'App\Http\Controllers\AuthController@adminLogin')->name('auth.login');
-Route::get('posts', 'App\Http\Controllers\BlogPostController@index')->name('posts.index');
+Route::post('admin/auth/google', 'App\Http\Controllers\AuthController@handleGoogleAdminSignIn')->name('auth.login.admin.google');
+Route::post('admin/auth/login', 'App\Http\Controllers\AuthController@adminLogin')->name('auth.login.admin');
+Route::get('blog-posts', 'App\Http\Controllers\BlogPostController@apiIndex')->name('posts.index');

@@ -3,24 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBlogPostRequest;
-use App\Http\Resources\BlogPostCollection;
 use App\Http\Resources\BlogPostResource;
 use App\Models\BlogPost;
 use App\Models\SEOConfig;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
 class BlogPostController extends Controller
 {
-    public function index(Request $request)
+    public function apiIndex(Request $request)
     {
         $posts = BlogPost::query();
         if ($request->has('limit')) {
             $posts->limit($request->query('limit', 4));
         }
-        if (Gate::denies('viewAny', BlogPost::class)) {
-            $posts->with('author')->where('published_at', '<=', now());
-            return BlogPostResource::collection($posts->get());
+        $posts->with(['author', 'avatar'])->where('published_at', '<=', now());
+        return BlogPostResource::collection($posts->get());
+    }
+    public function index(Request $request)
+    {
+        $posts = BlogPost::query();
+        if ($request->has('limit')) {
+            $posts->limit($request->query('limit', 4));
         }
         $posts = $posts->with('avatar')->get();
         return BlogPostResource::collection($posts);
