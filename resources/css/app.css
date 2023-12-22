@@ -282,7 +282,7 @@
         @apply border-red-500 focus:ring-red-500/10;
     }
     .form-textarea {
-        @apply form-input w-3/4 h-32 py-2 pt-3 px-3;
+        @apply form-input md:w-3/4 h-32 py-2 pt-3 px-3;
     }
     @keyframes fadeIn {
         0% {

@@ -14,7 +14,6 @@ interface RichTextProps extends React.DetailedHTMLProps<React.TextareaHTMLAttrib
 const RichTextEditor: FC<RichTextProps> = ({name, className, label, required}) => {
 	const editorRef = useRef<E | null>(null);
 	const [field, meta, {setValue}] = useField({ type: 'textarea', name })
-	const initialContent = useMemo(() => field.value, [name])
 	useEffect(() => {
 		if (editorRef.current) {
 			const autosave = setInterval(() => {
@@ -29,7 +28,7 @@ const RichTextEditor: FC<RichTextProps> = ({name, className, label, required}) =
 			<Editor
 				tinymceScriptSrc={location.origin + '/tinymce/tinymce.min.js'}
 				onInit={(evt, editor) => editorRef.current = editor}
-				initialValue={initialContent}
+				initialValue={meta.initialValue}
 				init={{
 					height: 500,
 					menubar: false,

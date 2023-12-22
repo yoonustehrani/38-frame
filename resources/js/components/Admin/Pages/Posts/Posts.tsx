@@ -6,6 +6,7 @@ import TableRecord from "./components/DataTable/TableRecord";
 import groupActionsContext from "./components/DataTable/groupActionsContext";
 import { File as UploadedFile } from "../../FileManager/types";
 import { toPersianDateTime } from "./components/DataTable/utils";
+import { Link } from "react-router-dom";
 
 interface PostItem {
     id: number
@@ -40,7 +41,7 @@ const Posts: FC = () => {
             </BreadCrumb>
             <section className="w-full my-6 text-sm">
                 <DataTable title="مقاله ها" loading={loading} items={posts || []} newItem={{ link: '/posts/create', title: 'مقاله' }}>
-                    <Thead columns={[' ', 'عنوان', 'تاریخ ایجاد', 'آخرین ویرایش']}/>
+                    <Thead columns={[' ', 'عنوان', 'تاریخ ایجاد', 'آخرین ویرایش', 'کنترل']}/>
                     <groupActionsContext.Consumer>
                         {({toggle, items}) => (
                             <>
@@ -64,6 +65,9 @@ const Posts: FC = () => {
                                             </TableRecord>
                                             <TableRecord>
                                                 {toPersianDateTime(post.updated_at)}
+                                            </TableRecord>
+                                            <TableRecord>
+                                                <Link to={`/posts/${post.id}/edit`} className="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-gray-200 focus:outline-none">ویرایش</Link>
                                             </TableRecord>
                                         </tr>
                                     </tbody>

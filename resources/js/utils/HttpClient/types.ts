@@ -1,4 +1,4 @@
-export type HttpRequestMethodType = 'get' | 'post';
+export type HttpRequestMethodType = 'get' | 'post' | 'put' | 'patch' | 'delete';
 export const SERVER_FAULT = 'SERVER_FAULT'
 export const NETWORK_FAULT = 'NETWORK_FAULT'
 export const CONFIG_FAULT = 'CONFIG_FAULT'

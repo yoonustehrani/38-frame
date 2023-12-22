@@ -55,6 +55,10 @@ const routes: RouteObject[] = [
                         path: 'create',
                         lazy: () => import('./Pages/Posts/CreatePost')
                     },
+                    {
+                        path: ':postId/edit',
+                        lazy: () => import('./Pages/Posts/EditPost')
+                    }
                 ]
             }
         ]
