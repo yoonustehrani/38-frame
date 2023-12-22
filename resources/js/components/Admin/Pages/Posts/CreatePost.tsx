@@ -65,7 +65,7 @@ const CreatePost: FC<CreatePostProps> = () => {
             <h1 className="font-bold text-2xl">ایجاد مقاله</h1>
             <BreadCrumb>
                 <BreadCrumbItem link="/">ناحیه کاربری</BreadCrumbItem>
-                <BreadCrumbItem link="/lab">لابراتوار</BreadCrumbItem>
+                <BreadCrumbItem link="/posts">مقاله ها</BreadCrumbItem>
                 <BreadCrumbItem>ایجاد مقاله</BreadCrumbItem>
             </BreadCrumb>
             <Formik

@@ -76,7 +76,7 @@ const DataTable: FC<DataTableProps> = ({loading, title, items, children, newItem
                         <p className="text-sm font-medium leading-none text-white">افزودن{newItem.title ? ` ${newItem.title}` : ''}</p>
                     </Link>
                 </div>
-                <div className="mt-7 overflow-x-auto">
+                <div className="mt-7 overflow-y-auto">
                     <table className="w-full whitespace-nowrap">
                         <groupActionsContext.Provider value={groupedList}>
                             {children}

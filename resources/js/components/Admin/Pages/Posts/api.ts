@@ -13,6 +13,14 @@ export const fetchPosts = () => {
     return newRequest().to('/posts/?limit=8').send()
 }
 
+export const fetchPost = (id: number | string) => {
+    return newRequest().to(`/posts/${id}`).send()
+}
+
+export const editPost = (id: number, data: any) => {
+    return newRequest().to(`/posts/${id}`).method('patch').send(data)
+}
+
 export const fetchCategories = () => {
     return newRequest().to('/site-categories/?type=blog-post')
 }

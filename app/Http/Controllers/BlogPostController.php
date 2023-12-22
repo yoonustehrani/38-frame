@@ -31,7 +31,8 @@ class BlogPostController extends Controller
     public function show(BlogPost $post, Request $request)
     {
         $this->authorize('update', $post);
-        return $post;
+        $post->load(['avatar', 'seo']);
+        return new BlogPostResource($post);
     }
     public function showPublic(string $slug, Request $request)
     {
@@ -58,5 +59,24 @@ class BlogPostController extends Controller
             \DB::rollback();
             throw $th;
         }
+    }
+
+    public function update(BlogPost $post, Request $request)
+    {
+        if ($request->has('avatar')) {
+            $post->avatar()->sync($request->input('avatar'));
+        }
+        if ($request->has('blogPost')) {
+            $post->fill($request->input('blogPost'));
+            $post->save();
+        }
+        if ($request->has('seo')) {
+            $seo = $post->seo()->first();
+            $seo->fill($request->input('seo'));
+            $seo->save();
+        }
+        return [
+            'okay' => true
+        ];
     }
 }
