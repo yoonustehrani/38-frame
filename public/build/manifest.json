@@ -17,11 +17,11 @@
       "_ArrowIcon-202630a0.js"
     ]
   },
-  "_AvatarPick-fa7d48fe.js": {
+  "_AvatarPick-1b82f96c.js": {
     "css": [
       "assets/AvatarPick-a242d77c.css"
     ],
-    "file": "assets/AvatarPick-fa7d48fe.js",
+    "file": "assets/AvatarPick-1b82f96c.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-6cf63da9.js",
@@ -295,7 +295,7 @@
       "resources/js/components/Admin/Pages/Labs/Forms/Register/LabDetails.tsx",
       "resources/js/components/Admin/Pages/Labs/Forms/Register/ContactInfoForm.tsx"
     ],
-    "file": "assets/CreateLab-855682d5.js",
+    "file": "assets/CreateLab-db19978e.js",
     "imports": [
       "_client-abbe1494.js",
       "_BreadCrumb-9b4d90e8.js",
@@ -413,13 +413,13 @@
     "src": "resources/js/components/Admin/Pages/Labs/Labs.tsx"
   },
   "resources/js/components/Admin/Pages/Posts/CreatePost.tsx": {
-    "file": "assets/CreatePost-10aaed61.js",
+    "file": "assets/CreatePost-35e53380.js",
     "imports": [
       "_client-abbe1494.js",
       "_BreadCrumb-9b4d90e8.js",
       "_formContext-6cf63da9.js",
       "_Input-afe2263d.js",
-      "_AvatarPick-fa7d48fe.js",
+      "_AvatarPick-1b82f96c.js",
       "_TextArea-13072f5e.js",
       "_api-2e2ce2c7.js",
       "resources/js/react-admin.tsx",
@@ -434,14 +434,14 @@
     "src": "resources/js/components/Admin/Pages/Posts/CreatePost.tsx"
   },
   "resources/js/components/Admin/Pages/Posts/EditPost.tsx": {
-    "file": "assets/EditPost-429dff54.js",
+    "file": "assets/EditPost-5d20314f.js",
     "imports": [
       "_client-abbe1494.js",
       "_api-2e2ce2c7.js",
       "_BreadCrumb-9b4d90e8.js",
       "_Input-afe2263d.js",
       "_TextArea-13072f5e.js",
-      "_AvatarPick-fa7d48fe.js",
+      "_AvatarPick-1b82f96c.js",
       "_formContext-6cf63da9.js",
       "resources/js/react-admin.tsx",
       "_Auth-8243c99e.js",
@@ -570,7 +570,7 @@
     "src": "resources/js/components/UserArea/Pages/Dashboard.tsx"
   },
   "resources/js/components/UserArea/Pages/Lab/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-ae3626b8.js",
+    "file": "assets/AcceptPolicyForm-859a27be.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-6cf63da9.js",
@@ -709,7 +709,7 @@
     "src": "resources/js/components/UserArea/Pages/Settings/SocialSettings.tsx"
   },
   "resources/js/components/UserArea/Pages/Shop/Forms/Register/AcceptPolicyForm.tsx": {
-    "file": "assets/AcceptPolicyForm-859a27be.js",
+    "file": "assets/AcceptPolicyForm-ae3626b8.js",
     "imports": [
       "_client-abbe1494.js",
       "_formContext-6cf63da9.js",
@@ -840,7 +840,7 @@
       "resources/js/components/Admin/Pages/Posts/CreatePost.tsx",
       "resources/js/components/Admin/Pages/Posts/EditPost.tsx"
     ],
-    "file": "assets/react-admin-c2f0e9a2.js",
+    "file": "assets/react-admin-05274f60.js",
     "imports": [
       "_client-abbe1494.js",
       "_Auth-8243c99e.js",
