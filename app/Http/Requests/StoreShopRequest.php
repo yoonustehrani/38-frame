@@ -11,7 +11,7 @@ class StoreShopRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->shop()->exis;
+        return $this->user()->shop()->doesntExist();
     }
 
     /**
