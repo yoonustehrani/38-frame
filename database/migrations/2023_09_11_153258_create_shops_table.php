@@ -16,9 +16,10 @@ return new class extends Migration
             $table->foreignId('owner_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('brand');
             $table->string('category');
+            $table->string('avatar');
             // $table->enum('category');
             $table->text('bio');
-            $table->year('founded_in_year');
+            $table->integer('founded_in_year');
             $table->text('address')->nullable();
             $table->string('address_line')->nullable();
             $table->string('owner_fullname');
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->json('meta');
             $table->timestamps();
+            $table->timestamp('verified_at')->nullable();
         });
     }
 
