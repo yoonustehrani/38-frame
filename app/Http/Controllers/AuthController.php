@@ -13,17 +13,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'password'],
-        ]);
+            'password' => ['required'],
+        ]); // , 'password'
         $user = User::whereEmail($request->input('email'))->first();
-        if ($user && (! Hash::check($request->input('password'), $user->password))) {
-            return response()->json([
-                'errors' => [
-                    'message' => 'Login failed',
-                    'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
-                ]
-            ], 419);
-        } else {
+        if (! $user) {
             $user = new User([
                 // 'username' => \Str::random(12),
                 'email' => $request->input('email'),
@@ -32,6 +25,13 @@ class AuthController extends Controller
             ]);
             $user->meta = serialize([]);
             $user->save();
+        } elseif(! Hash::check($request->input('password'), $user->password)) {
+            return response()->json([
+                'errors' => [
+                    'message' => 'Login failed',
+                    'email' => ['کاربری با این ایمیل و رمزعبور یافت نشد.']
+                ]
+            ], 419);
         }
         $request->session()->regenerate();
         Auth::loginUsingId($user->getKey());
