@@ -26,7 +26,7 @@ class StoreShopRequest extends FormRequest
             'founded_in_year' => 'required|integer|digits:4',
             'bio' => 'required|string|min:6|max:300',
             'address' => 'required_if:in_person_sale,yes|string|min:10|max:150',
-            'category' => 'required|string',
+            'category' => 'required|integer',
             'phone_number' => 'required|string|numeric|digits:11|regex:/09[0-9]{9}/',
             'address_line' => 'nullable|string|numeric',
             'meta.social.instagram' => 'nullable|string|min:4|max:60',
@@ -35,7 +35,7 @@ class StoreShopRequest extends FormRequest
             'owner_fullname' => 'required|string|min:3|max:60',
             'owner_national_id' => 'required|string|numeric|digits:10',
             'website' => 'nullable|string|url',
-            'accpect_policy' => 'required|accepted'
+            'accept_policy' => 'required|accepted'
         ];
     }
 }

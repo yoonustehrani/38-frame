@@ -1,6 +1,11 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import {errorType, SERVER_FAULT, NETWORK_FAULT} from './types';
 
+export interface ErrorObject {
+    message: string
+    errors: {[key: string]: string[]}
+}
+
 export class HttpErrorResponse
 {
     statusCode: number;
@@ -60,8 +65,8 @@ class HttpResponse
     public getErrorObject() {
         return this.ErrorResponse
     }
-    public getErrors() {
-        return this.ErrorResponse?.getResponse()
+    public getErrors(): null | ErrorObject {
+        return this.ErrorResponse?.getResponse() as ErrorObject
     }
 }
 

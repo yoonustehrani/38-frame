@@ -7,7 +7,7 @@ interface AcceptPolicyFormProps {
 }
  
 const AcceptPolicyForm: FC<AcceptPolicyFormProps> = () => {
-    let [policyField, meta, helpers] = useField({ name: 'accpect_policy' })
+    let [policyField, meta, helpers] = useField({ name: 'accept_policy', type: 'checkbox' })
     return (
         <div className="col-span-full px-6">
             <p className="text-gray-700 leading-loose">

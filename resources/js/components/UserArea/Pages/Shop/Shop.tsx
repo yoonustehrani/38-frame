@@ -1,17 +1,15 @@
-import { FC, useEffect, useLayoutEffect } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { FC } from "react";
+import useShop from "../../hooks/useShop";
 
 interface ShopProps {
     
 }
  
 const Shop: FC<ShopProps> = () => {
-    const navigate = useNavigate()
-    useLayoutEffect(() => {
-        navigate('/shop/register')
-    }, [])
+    const {shop} = useShop()
+    if (! shop) return null
     return (
-        <>فروشگاه</>
+        <>فروشگاه من</>
     );
 }
  

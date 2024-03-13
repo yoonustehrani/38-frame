@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
 use App\Models\Shop;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ShopController extends Controller
 {
@@ -22,8 +24,10 @@ class ShopController extends Controller
     public function store(StoreShopRequest $request)
     {
         $this->authorize('create', Shop::class);
-        $details = collect($request->validated())->except(['iban']);
-        $shop = new Shop($details->toArray());
+        $details = collect($request->validated())->except(['iban', 'meta']);
+        $shop = new Shop();
+        $shop->fill($details->toArray());
+        $shop->meta = $request->get('meta', []);
         try {
             \DB::beginTransaction();
             $request->user()->shop()->save($shop);
@@ -34,9 +38,9 @@ class ShopController extends Controller
             throw $th;
         }
         return response()->json([
-            'user' => $request->user(),
-            'shop' => $shop->toArray()
-        ]);
+            'message' => __('models.shop.created', ['title' => $shop->title]),
+            'data' => $shop->toArray()
+        ], 201);
     }
 
     /**
@@ -52,7 +56,20 @@ class ShopController extends Controller
      */
     public function update(UpdateShopRequest $request, Shop $shop)
     {
-        //
+        $this->authorize('update', $shop);
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $file_hash = sha1_file($file->getRealPath(), false);
+            $file_name = "$file_hash.{$file->guessExtension()}";
+            $uploaded = Storage::exists("public/avatars/$file_name") || $file->storePubliclyAs('public/avatars', $file_name);
+            $shop->avatar = $uploaded ? "public/avatars/$file_name" : $shop->avatar;
+        }
+        $shop->fill($request->except('avatar'));
+        $shop->save();
+        return response()->json([
+            'message' => __('models.shop.updated'),
+            'data' => $shop->toArray()
+        ]);
     }
 
     /**

@@ -6,5 +6,5 @@ const ApiConfig = {
 }
 
 export const sendShopRegisteringRequest = (data: unknown) => {
-    return new Request(ApiConfig).method('post').to('/register').send(data)
+    return new Request(ApiConfig).method('post').to('/').send(data)
 }

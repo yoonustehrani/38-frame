@@ -1,36 +1,11 @@
 import { FC } from "react";
-import { NavLink, Outlet, useNavigation } from "react-router-dom";
+import TabularComponent from "../components/TabularComponent";
 
 interface UserSettingsProps {
     
 }
 
-const Tabs = [
-    {
-        text: 'اطلاعات فردی',
-        uri: '/settings'
-    },
-    {
-        text: 'مالی و بانکی',
-        uri: '/settings/finance'
-    },
-    {
-        text: 'اطلاعیه ها',
-        uri: '/settings/notifications'
-    },
-    {
-        text: 'شبکه های اجتماعی',
-        uri: '/settings/social'
-    },
-    {
-        text: 'امنیت حساب',
-        uri: '/settings/auth'
-    }
-];
-
 const UserSettings: FC<UserSettingsProps> = () => {
-    const navigation = useNavigation()
-    console.log(navigation);
     return (
         <>
             <h1 className="font-bold text-2xl">تنظیمات حساب کاربری</h1>
@@ -45,24 +20,13 @@ const UserSettings: FC<UserSettingsProps> = () => {
                     <li className="text-gray-500">تنظیمات حساب کاربری</li>
                 </ul>
             </nav>
-            <section className="w-full float-left">
-                <section className="w-full lg:w-4/5">
-                    <nav className="w-full overflow-x-auto py-6 md:py-4">
-                        <ul className="flex flex-nowrap gap-4 text-gray-400 font-semibold w-max snap-x snap-mandatory">
-                            {Tabs.map(({text, uri}) => (
-                                <li key={uri} className="snap-always snap-center">
-                                    <NavLink end className={({isActive}) => {
-                                        return `px-4 py-2 ${isActive ? 'text-gray-700 bg-white border-b-2 border-b-gray-700 rounded-t-lg' : ''}`
-                                    }} to={uri}>
-                                        {text}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                    {navigation.state === 'loading' ? <div>در حال لود کردن</div> : <Outlet />}
-                </section>
-            </section>
+            <TabularComponent tabs={[
+                { text: 'اطلاعات فردی', uri: '/settings' },
+                { text: 'مالی و بانکی', uri: '/settings/finance' },
+                { text: 'اطلاعیه ها', uri: '/settings/notifications' },
+                { text: 'شبکه های اجتماعی', uri: '/settings/social' },
+                { text: 'امنیت حساب', uri: '/settings/auth' }
+            ]} />
         </>
     );
 }

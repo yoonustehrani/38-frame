@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy, useState } from "react";
+import { FC, Suspense, lazy, useEffect, useState } from "react";
 import BreadCrumb, { BreadCrumbItem } from "../../../WebPanel/components/BreadCrumb";
 import FormSubtitle from "../../../WebPanel/components/FormSubtitle";
 import { toPersian } from "../../../../utils/Number/numbers";
@@ -7,6 +7,12 @@ import { Form, Formik, FormikErrors, FormikHelpers, FormikValues } from "formik"
 import { registerShopFormValidationSchema } from "./validationSchemas";
 import { formGeneralErrorsContext } from "../../../WebPanel/context/formContext";
 import { sendShopRegisteringRequest } from "./api";
+import { toast } from "react-toastify";
+import ToastError from "../../../../utils/ToastError/ToastError";
+import { ResponseData } from "../../../../utils/HttpClient/types";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useShop, { Shop, getShop } from "../../hooks/useShop";
+
 const levels = [
     {
         lazy: () => import('./Forms/Register/GeneralDataForm'),
@@ -14,15 +20,11 @@ const levels = [
         initialValues: {
             brand: 'برند تستی',
             founded_in_year: 1395,
-            category: 'فروشگاه تخصصی لوازم عکاسی',
+            category: '1',
             bio: 'همیشه ارزون میفروشیم',
+            __inShop: 'yes',
             address: 'مشهد سناباد ۸۸',
         }
-    },
-    {
-        lazy: () => import('./Forms/Register/Logo'),
-        title: 'هویت بصری فروشگاه',
-        initialValues: {}
     },
     {
         lazy: () => import('./Forms/Register/ShopDetails'),
@@ -52,7 +54,7 @@ const levels = [
         lazy: () => import('./Forms/Register/AcceptPolicyForm'),
         title: 'شرایط و ضوابط',
         initialValues: {
-            accpect_policy: ''
+            accept_policy: ''
         }
     }
 ] as const
@@ -63,20 +65,41 @@ function getLevelKeys (level: number) {
     return Object.keys(levels[level].initialValues)
 }
 
+async function loader(): Promise<Shop | null> {
+    const [request] = getShop()
+    let response = await request
+    if (! response.hasErrors()) {
+        return response.getContent<Shop>()
+    }
+    return null
+}
+
 
 const RegisterShop: FC = () => {
+    const navigate = useNavigate()
     const [level, setLevel] = useState(0)
     const [displayAllErrors, setDisplayAllErrors] = useState(false)
+    const shop = (useLoaderData() as Shop | null)
+    useEffect(() => {
+        shop && navigate('/shop')
+    }, []);
+    
     if (level > levels.length) return null
+
     const CurrentLevel = lazy(levels[level].lazy)
     const handleSubmit = (values: FormikValues, { setSubmitting }: FormikHelpers<any>) => {
+        const loadingId = toast.loading("در حال ارسال ...")
         const [response, cancel] = sendShopRegisteringRequest(values)
         response.then(r => {
+            toast.done(loadingId)
             if (r.hasErrors()) {
-                console.error(r.getContent());
+                ToastError(r.getErrors())
                 return
             }
-            console.log(r.getContent());
+            toast.success(r.getContent<ResponseData>().message)
+            setTimeout(() => {
+                navigate('/shop')
+            }, 500);
         })
     }
     const nextLevel = level < (levels.length - 1) ? () => { 
@@ -86,7 +109,7 @@ const RegisterShop: FC = () => {
     function getLevelErrors(_level: number, errors: FormikErrors<typeof formInitialValues>) {
         return getLevelKeys(_level).filter(key => Object.keys(errors).includes(key))
     }
-    return (
+    return !shop && (
         <formGeneralErrorsContext.Provider value={displayAllErrors}>
             <section>
                 <h1 className="font-bold text-2xl">ثبت نام به عنوان فروشنده</h1>
@@ -158,4 +181,4 @@ const RegisterShop: FC = () => {
     );
 }
  
-export {RegisterShop as Component}
+export {RegisterShop as Component, loader}

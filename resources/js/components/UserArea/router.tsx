@@ -68,6 +68,16 @@ const routes: RouteObject[] = [
                         path: 'register',
                         lazy: () => import('./Pages/Shop/RegisterShop')
                     },
+                    {
+                        path: 'setting',
+                        lazy: () => import('./Pages/Shop/UpdateShop'),
+                        children: [
+                            {
+                                index: true,
+                                lazy: () => import('./Pages/Shop/Setting/ShopGeneralSetting')
+                            }
+                        ]
+                    }
                     // {
                     //     path: 'lab'
                     // }

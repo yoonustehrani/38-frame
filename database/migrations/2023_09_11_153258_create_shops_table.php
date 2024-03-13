@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('owner_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('brand');
-            $table->string('category');
+            $table->integer('category');
             $table->string('avatar');
             // $table->enum('category');
             $table->text('bio');

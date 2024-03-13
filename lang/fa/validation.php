@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'accepted' => 'The :attribute field must be accepted.',
+    'accepted' => 'فیلد :attribute می بایست توسط شما تایید شود.',
     'accepted_if' => 'The :attribute field must be accepted when :other is :value.',
     'active_url' => 'The :attribute field must be a valid URL.',
     'after' => 'The :attribute field must be a date after :date.',
@@ -196,7 +196,8 @@ return [
         'seo' => [
             'html_title' => 'عنوان صفحه html',
             'meta_description' => 'متای توضیحات'
-        ]
+        ],
+        'accept_policy' => 'پذیرش شرایط و ضوابط'
     ],
 
 ];

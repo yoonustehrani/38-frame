@@ -24,7 +24,7 @@ const Root: FC<RootProps> = () => {
                     {loading ? <div>در حال لود کردن</div> : <Outlet />}
                 </div>
             </main>
-            <ToastContainer />
+            <ToastContainer toastStyle={{ fontFamily: 'IranSansWeb' }} position="top-left"/>
         </>
     );
 }

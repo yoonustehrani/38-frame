@@ -32,5 +32,5 @@ export const registerShopFormValidationSchema = object({
     owner_fullname: string().required().min(3, messages.min(3)).max(60, messages.max(60)),
     owner_national_id: string().required().length(10, messages.length(10, 'رقم')),
     website: string().optional().url(),
-    accpect_policy: string().required(),
+    accept_policy: string().required(),
 })

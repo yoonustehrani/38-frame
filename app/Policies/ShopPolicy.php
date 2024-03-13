@@ -37,7 +37,7 @@ class ShopPolicy
      */
     public function update(User $user, Shop $shop): bool
     {
-        return $user->getKey() === $shop->owner_id;
+        return $user->isAdmin() || $user->id === $shop->owner_id;
     }
 
     /**

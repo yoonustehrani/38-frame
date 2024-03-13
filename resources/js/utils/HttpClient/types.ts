@@ -6,3 +6,9 @@ export type serverError = 'SERVER_FAULT'
 export type networkError = 'NETWORK_FAULT'
 export type configError = 'CONFIG_FAULT'
 export type errorType = serverError | networkError | configError
+
+
+export interface ResponseData {
+    message: string
+    data: {[key: string]: any}
+}
