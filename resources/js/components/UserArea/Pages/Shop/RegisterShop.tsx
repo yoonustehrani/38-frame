@@ -16,36 +16,36 @@ import useShop, { Shop, getShop } from "../../hooks/useShop";
 const levels = [
     {
         lazy: () => import('./Forms/Register/GeneralDataForm'),
-        title: 'اطلاعات کلی فروشگاه',
+        title: '',
         initialValues: {
-            brand: 'برند تستی',
+            brand: '',
             founded_in_year: 1395,
             category: '1',
-            bio: 'همیشه ارزون میفروشیم',
-            __inShop: 'yes',
-            address: 'مشهد سناباد ۸۸',
+            bio: '',
+            __inShop: 'no',
+            address: '',
         }
     },
     {
         lazy: () => import('./Forms/Register/ShopDetails'),
         title: 'اطلاعات تکمیلی',
         initialValues: {
-            owner_fullname: 'یونس طهرانی',
-            owner_national_id: '0926534831',
+            owner_fullname: '',
+            owner_national_id: '',
             website: '',
-            iban: '130170000000114503193004'
+            iban: '',
         }
     },
     {
         lazy: () => import('./Forms/Register/ContactInfoForm'),
         title: 'راه های ارتباطی',
         initialValues: {
-            phone_number: '09150013422',
+            phone_number: '',
             address_line: '',
             meta: {
                 social: {
-                    instagram: 'soolakhi',
-                    telegram_channel: 'soolakhitg'
+                    instagram: '',
+                    telegram_channel: '',
                 },
             },
         }
@@ -77,7 +77,7 @@ async function loader(): Promise<Shop | null> {
 
 const RegisterShop: FC = () => {
     const navigate = useNavigate()
-    const [level, setLevel] = useState(0)
+    const [level, setLevel] = useState(3)
     const [displayAllErrors, setDisplayAllErrors] = useState(false)
     const shop = (useLoaderData() as Shop | null)
     useEffect(() => {

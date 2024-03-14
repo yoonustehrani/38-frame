@@ -12,7 +12,10 @@ export default function ToastError(ErrorObject: ErrorObject | null) {
         return;
     }
     toastError(ErrorObject.message)
-    Object.entries(ErrorObject.errors).map(([key, messages]) => {
-        messages.forEach(m => m != ErrorObject.message && toastError(m))
+    Object.entries(ErrorObject.errors).map(([key, messages], i) => {
+        const min = i == 0 ? 1 : 0;
+        for (let index = min; index < messages.length; index++) {
+            toastError(messages[index])
+        }
     })
 }

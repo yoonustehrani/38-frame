@@ -143,7 +143,7 @@ return [
         'string' => 'The :attribute field must be :size characters.',
     ],
     'starts_with' => 'The :attribute field must start with one of the following: :values.',
-    'string' => 'The :attribute field must be a string.',
+    'string' => 'فیلد :attribute باید از نوع متنی باشد.',
     'timezone' => 'The :attribute field must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -197,6 +197,23 @@ return [
             'html_title' => 'عنوان صفحه html',
             'meta_description' => 'متای توضیحات'
         ],
+        'address' => 'آدرس',
+        'founded_in_year' => 'سال تاسیس',
+        'brand' => 'نام برند',
+        'category' => 'دسته بندی',
+        'phone_number' => 'شماره تلفن',
+        'address_line' => 'شماره ثابت',
+        'meta' => [
+            'social' => [
+                'instagram' => 'آدرس پیج اینستاگرام',
+                'telegram_channel' => 'آدرس کانال تلگرام'
+            ]
+        ],
+        'bio' => 'بیوگرافی',
+        'iban' => 'شماره شبا',
+        'owner_fullname' => 'نام و نام خانوادگی مالک فروشگاه',
+        'owner_national_id' => 'کد ملی',
+        'website' => 'آدرس وب سایت',
         'accept_policy' => 'پذیرش شرایط و ضوابط'
     ],
 

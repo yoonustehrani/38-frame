@@ -28,9 +28,9 @@ export const registerShopFormValidationSchema = object({
             telegram_channel: string().optional().min(4, messages.min(4)).max(60, messages.max(60)),
         }),
     }),
-    iban:  string().required().length(24, messages.length(24, 'رقم')),
-    owner_fullname: string().required().min(3, messages.min(3)).max(60, messages.max(60)),
-    owner_national_id: string().required().length(10, messages.length(10, 'رقم')),
-    website: string().optional().url(),
+    iban:  string().required(messages.required).length(24, messages.length(24, 'رقم')),
+    owner_fullname: string().required(messages.required).min(3, messages.min(3)).max(60, messages.max(60)),
+    owner_national_id: string().required(messages.required).length(10, messages.length(10, 'رقم')),
+    website: string().optional().matches(/^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)(?:\/.*)?$/, 'یک دامنه معتبر وارد نمایید.'),
     accept_policy: string().required(),
 })

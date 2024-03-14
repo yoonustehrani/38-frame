@@ -25,7 +25,7 @@ class StoreShopRequest extends FormRequest
             'brand' => 'required|string|min:3|max:40',
             'founded_in_year' => 'required|integer|digits:4',
             'bio' => 'required|string|min:6|max:300',
-            'address' => 'required_if:in_person_sale,yes|string|min:10|max:150',
+            'address' => 'required_if_accepted:__inShop',
             'category' => 'required|integer',
             'phone_number' => 'required|string|numeric|digits:11|regex:/09[0-9]{9}/',
             'address_line' => 'nullable|string|numeric',
@@ -34,7 +34,7 @@ class StoreShopRequest extends FormRequest
             'iban' => 'required|string|numeric|digits:24',
             'owner_fullname' => 'required|string|min:3|max:60',
             'owner_national_id' => 'required|string|numeric|digits:10',
-            'website' => 'nullable|string|url',
+            'website' => 'nullable|string|regex:/^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)(?:\/.*)?$/',
             'accept_policy' => 'required|accepted'
         ];
     }
