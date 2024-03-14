@@ -33,7 +33,9 @@ class UpdateShopRequest extends FormRequest
                 File::types(['jpg', 'png', 'webp'])
                 ->min('10kb')
                 ->max('1mb')
-            ]
+            ],
+            'meta.social.instagram' => 'nullable|string|min:4|max:60',
+            'meta.social.telegram_channel' => 'nullable|string|min:4|max:60',
         ];
     }
 }

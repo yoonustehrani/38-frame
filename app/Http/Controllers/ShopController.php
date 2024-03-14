@@ -64,7 +64,8 @@ class ShopController extends Controller
             $uploaded = Storage::exists("public/avatars/$file_name") || $file->storePubliclyAs('public/avatars', $file_name);
             $shop->avatar = $uploaded ? "public/avatars/$file_name" : $shop->avatar;
         }
-        $shop->fill($request->except('avatar'));
+        $shop->fill($request->except(['avatar', 'meta']));
+        $shop->meta = $request->get('meta', $shop->meta);
         $shop->save();
         return response()->json([
             'message' => __('models.shop.updated'),
