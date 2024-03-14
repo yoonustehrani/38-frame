@@ -90,7 +90,16 @@ const ShopGeneralSetting = () => {
                                 ذخیره تغییرات
                             </button>
                         </div>
-                        {/* <div>
+                    </Form>
+                </Formik>
+            </section>
+        </section>
+    );
+}
+
+export {ShopGeneralSetting as Component}
+
+{/* <div>
                             <div className="relative">
                                 <label htmlFor="username" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">نام کاربری</label>
                                 <input defaultValue={shop.username} id="username" type="text" name="username" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
@@ -109,9 +118,8 @@ const ShopGeneralSetting = () => {
                             </div>
                         </div>
                          */}
-                    </Form>
-                </Formik>
-                <form className="grid md:grid-cols-2 gap-6 my-6 pb-6" action="#">
+
+{/* <form className="grid md:grid-cols-2 gap-6 my-6 pb-6" action="#">
                     <h2 className="font-semibold text-gray-800 mb-4 h-5 svg-inherit col-span-full">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
                             <path d="M18,6c0-3.309-2.691-6-6-6S6,2.691,6,6c0,2.968,2.166,5.439,5,5.916v11.084c0,.552,.448,1,1,1s1-.448,1-1V11.916c2.834-.477,5-2.948,5-5.916Zm-6,4c-2.206,0-4-1.794-4-4s1.794-4,4-4,4,1.794,4,4-1.794,4-4,4Z"/>
@@ -153,10 +161,4 @@ const ShopGeneralSetting = () => {
                             ذخیره تغییرات
                         </button>
                     </div>
-                </form>
-            </section>
-        </section>
-    );
-}
-
-export {ShopGeneralSetting as Component}
+                </form> */}
