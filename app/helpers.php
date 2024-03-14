@@ -3,6 +3,7 @@
 use App\Http\Resources\MenuItemResource;
 use App\Http\Resources\MenuResource;
 use App\Models\Menu;
+use App\Services\RedisCartService;
 
 if (! function_exists('icon')) {
     function icon($name) {
@@ -208,5 +209,12 @@ if (! function_exists('make_thumbnail')) {
             return $save_as;
         }
         return null;
+    }
+}
+
+if (! function_exists('cart')) {
+    function cart() {
+        $key = auth()->id() ?? session()->remember('cart_id', fn() => \Str::uuid()->toString()); 
+        return RedisCartService::cart($key);
     }
 }
