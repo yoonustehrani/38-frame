@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Merchandise extends Model
 {
-    use HasFactory, HasMetaAttribute, HasUlids;
+    use HasFactory, HasMetaAttribute, HasUlids, SoftDeletes;
     public $table = 'merchandise';
 
     public function shop()
@@ -32,5 +33,10 @@ class Merchandise extends Model
     public function scopeAvailable(Builder $query)
     {
         $query->whereNotNull('published_at')->whereStatus(MerchandiseStatusType::Published);
+    }
+
+    public function scopeUnavailable(Builder $query)
+    {
+        $query->whereNull('published_at')->where('status', '!=', MerchandiseStatusType::Published);
     }
 }

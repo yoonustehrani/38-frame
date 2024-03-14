@@ -3,6 +3,7 @@
 use App\Http\Resources\MenuItemResource;
 use App\Http\Resources\MenuResource;
 use App\Models\Menu;
+use App\Models\Shop;
 use App\Services\RedisCartService;
 
 if (! function_exists('icon')) {
@@ -216,5 +217,17 @@ if (! function_exists('cart')) {
     function cart() {
         $key = auth()->id() ?? session()->remember('cart_id', fn() => \Str::uuid()->toString()); 
         return RedisCartService::cart($key);
+    }
+}
+
+if (! function_exists('get_user_shop')) {
+    function get_user_shop(): Shop {
+        return Shop::whereOwnerId(auth()->id())->select('id')->firstOrFail();
+    }
+}
+
+if (! function_exists('get_user_shop_id') && function_exists('get_user_shop')) {
+    function get_user_shop_id(): int {
+        return get_user_shop()?->id;
     }
 }
