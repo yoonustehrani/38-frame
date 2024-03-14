@@ -13,8 +13,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('merchandise', function (Blueprint $table) {
-            $table->ulid()->primary();
-            $table->foreignId('shop_id')->references('id')->on('shops')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->ulid('id')->primary();
+            $table->foreignId('shop_id')->index()->references('id')->on('shops')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('avatar_id');
             $table->string('title');
             $table->text('description');
             $table->integer('available_quantity')->unsigned();
@@ -24,11 +25,11 @@ return new class extends Migration
                 'on-price'
             ])->nullable();
             $table->bigInteger('offer_amount')->nullable();
-            $table->foreignId('category_id')->references('id')->on('site_categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->index()->nullable()->references('id')->on('site_categories')->nullOnDelete()->cascadeOnUpdate();
             $table->enum('status', get_enum_values(MerchandiseStatusType::class))->default(MerchandiseStatusType::AwaitingConfirmation->value);
             $table->json('meta');
             $table->timestamps();
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable()->index();
             $table->softDeletes();
         });
     }

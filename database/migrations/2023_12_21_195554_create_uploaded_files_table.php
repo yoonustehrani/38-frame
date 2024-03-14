@@ -12,13 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('uploaded_files', function (Blueprint $table) {
-            $table->id();
+            $table->id()->index();
             $table->string('type');
             $table->string('name');
             $table->string('extension');
             $table->string('path');
             $table->string('thumbnail_path')->nullable();
             $table->string('driver')->default('local');
+            $table->enum('mode', [
+                'user-uplaoded',
+                'admin-uploaded'
+            ])->index();
+            $table->bigInteger('uploaded_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
