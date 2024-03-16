@@ -28,8 +28,8 @@ const ShopSocialMediaSetting = () => {
                 <Formik onSubmit={submitData} initialValues={{ 
                     meta: {
                         social: {
-                            instagram: shop.meta.social.instagram,
-                            telegram_channel: shop.meta.social.telegram_channel
+                            instagram: shop.meta?.social?.instagram ?? '',
+                            telegram_channel: shop.meta?.social?.telegram_channel ?? ''
                         }
                     }
                 }}>

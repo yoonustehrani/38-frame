@@ -5,7 +5,7 @@ const ApiConfig = {
     headers: {'Accept': 'application/json'}
 }
 
-export const sendShopAlterRequest = (id: number | string, data: {[key:string]: any}) => {
+export const sendShopAlterRequest = (shopId: number | string, data: {[key:string]: any}) => {
     let conf = data.avatar ? {
         baseURL: ApiConfig.baseURL,
         headers: {
@@ -14,5 +14,5 @@ export const sendShopAlterRequest = (id: number | string, data: {[key:string]: a
         }
     } : ApiConfig
     data = {...data, _method: 'PATCH'}
-    return new Request(conf).method('post').to(`/${id}`).send(data)
+    return new Request(conf).method('post').to(`/${shopId}`).send(data)
 }
