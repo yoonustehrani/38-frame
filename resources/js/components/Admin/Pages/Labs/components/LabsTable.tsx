@@ -1,18 +1,12 @@
 import { FC, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLabs } from "../api";
-import TableRecord from "./TableRecord";
+import TableRecord from "../../../../TableRecord";
 import { useGroupActionList } from "../../../../../hooks/tableHooks";
+import { persianDateTime } from "../../../../../utils/DateTime/functions";
 
 interface LabsTableProps {
     
-}
-
-function persianDateTime(dateTimeString: string) {
-    return new Intl.DateTimeFormat('fa-IR', {
-        timeStyle: 'short',
-        dateStyle: 'medium'
-    }).format(new Date(dateTimeString))
 }
 
 interface LabItem {
