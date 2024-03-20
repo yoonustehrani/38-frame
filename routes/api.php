@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MerchandiseApiController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SiteCategoryController;
 use App\Http\Controllers\UploadedFileController;
@@ -52,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function() {
             return \App\Models\User::latest()->first();
         });
     });
-    Route::apiResource('shops/{shop}/merchandise', ShopController::class);
+    Route::apiResource('shops/{shop}/merchandise', MerchandiseApiController::class);
     Route::apiResource('shops', ShopController::class)->only(['destroy', 'store', 'update']);
     
 

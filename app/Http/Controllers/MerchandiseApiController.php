@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\MerchandiseStatusType;
 use App\Http\Requests\StoreMerchandiseRequest;
 use App\Http\Requests\UpdateMerchandiseRequest;
 use App\Models\Merchandise;
 use App\Models\Shop;
+use App\Models\UploadedFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class MerchandiseApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Shop $shop)
     {
-        $shop = get_user_shop();
         $shop->load('merchandise');
         return response()->json($shop->merchandise);
     }
@@ -28,12 +31,52 @@ class MerchandiseApiController extends Controller
     {
         $shop = get_user_shop();
         $item = new Merchandise();
-        $item->fill($request->except('meta'));
-        $merchandise = $shop->merchandise()->save($item);
-        return response()->json([
-            'message' => __('models.merchandise.created'),
-            'data' => $merchandise->toArray()
-        ]);
+        try {
+            DB::beginTransaction();
+            $item->fill($request->except(['meta', 'images', 'avatar']));
+            $item->status = MerchandiseStatusType::AwaitingConfirmation;
+            $item->meta = [];
+            if ($request->hasFile('avatar')) {
+                $file = $request->file('avatar');
+                $file_hash = sha1_file($file->getRealPath(), false);
+                $file_name = "$file_hash.{$file->guessExtension()}";
+                $uploaded = Storage::exists("public/avatars/$file_name") || $file->storePubliclyAs('public/avatars', $file_name);
+                $item->avatar()->associate($uploaded);
+            }
+            $merchandise = $shop->merchandise()->save($item);
+            if ($request->hasFile('images')) {
+                $files = collect($request->file('images'));
+                $uploaded_photos = $files->map(function (\Illuminate\Http\UploadedFile $file) {
+                    $file_hash = sha1_file($file->getRealPath(), false);
+                    $file_name = "$file_hash.{$file->guessExtension()}";
+                    $uploaded = Storage::exists("public/avatars/$file_name") || $file->storePubliclyAs('public/avatars', $file_name);
+                    if ($uploaded) {
+                        $uf = new UploadedFile([
+                            'path' => "public/avatars/$file_name",
+                            'mode' => 'user-uplaoded',
+                            'uploaded_by' => auth()->id(),
+                            'type' => 'image',
+                            'extension' => $file->guessExtension(),
+                            'name' => $file->getClientOriginalName(),
+                        ]);
+                        $uf->save();
+                        return $uf->id;
+                    }
+                });
+                
+                $merchandise->images()->attach($uploaded_photos->toArray());
+            }
+            DB::commit();
+            return response()->json([
+                'message' => __('models.merchandise.created', ['title' => $merchandise->title]),
+                'data' => $merchandise->toArray()
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            throw $th;
+        }
+        
     }
 
     /**

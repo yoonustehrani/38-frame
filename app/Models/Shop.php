@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     use HasFactory, HasMetaAttribute;
-    protected $fillable = ['brand', 'category', 'bio', 'founded_in_year', 'owner_fullname', 'owner_national_id', 'phone_number'];
+    protected $fillable = ['brand', 'category', 'bio', 'founded_in_year', 'owner_fullname', 'owner_national_id', 'phone_number', 'website'];
 
     public function owner()
     {

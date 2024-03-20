@@ -18,8 +18,6 @@ const GeneralMerchandiseData: FC<GeneralDataFormProps> = () => {
         const [request, cancel] = getMerchandiseCategories()
         request.then(res => {
             if (res.hasErrors()) return ToastError(res.getErrors())
-            console.log(res.getContent());
-            
             setCategories(res.getContent())
         })
         return cancel

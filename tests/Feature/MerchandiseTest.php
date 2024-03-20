@@ -59,7 +59,7 @@ class MerchandiseTest extends TestCase
     function test_confirmed_merchandise_available()
     {
         $merchandise = Merchandise::factory()->for(Shop::factory(), 'shop')->state([
-            'status' => MerchandiseStatusType::Published,
+            'status' => MerchandiseStatusType::Verified,
             'published_at' => now()
         ])->create();
         $response = $this->get("/shops/{$merchandise->shop_id}/merchandise/{$merchandise->id}");

@@ -26,7 +26,8 @@ return new class extends Migration
             ])->nullable();
             $table->bigInteger('offer_amount')->nullable();
             $table->foreignId('category_id')->index()->nullable()->references('id')->on('site_categories')->nullOnDelete()->cascadeOnUpdate();
-            $table->enum('status', get_enum_values(MerchandiseStatusType::class))->default(MerchandiseStatusType::AwaitingConfirmation->value);
+            $table->string('status');
+            // $table->enum('status', get_enum_values(MerchandiseStatusType::class))->default(MerchandiseStatusType::AwaitingConfirmation->value);
             $table->json('meta');
             $table->timestamps();
             $table->timestamp('published_at')->nullable()->index();

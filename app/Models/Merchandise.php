@@ -14,6 +14,7 @@ class Merchandise extends Model
 {
     use HasFactory, HasMetaAttribute, HasUlids, SoftDeletes;
     public $table = 'merchandise';
+    protected $fillable = ['title', 'description', 'category_id', 'price', 'offer_type', 'offer_amount'];
 
     public function shop()
     {
@@ -32,11 +33,11 @@ class Merchandise extends Model
 
     public function scopeAvailable(Builder $query)
     {
-        $query->whereNotNull('published_at')->whereStatus(MerchandiseStatusType::Published);
+        $query->whereNotNull('published_at')->whereStatus(MerchandiseStatusType::Verified);
     }
 
     public function scopeUnavailable(Builder $query)
     {
-        $query->whereNull('published_at')->where('status', '!=', MerchandiseStatusType::Published);
+        $query->whereNull('Verified_at')->where('status', '!=', MerchandiseStatusType::Verified);
     }
 }

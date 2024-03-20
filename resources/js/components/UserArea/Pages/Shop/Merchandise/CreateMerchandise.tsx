@@ -21,7 +21,7 @@ const levels = [
     },
     {
         lazy: () => import('./Forms/MerchandisePricing'),
-        title: 'قیمت گذاری محصول',
+        title: 'قیمت گذاری کالا',
         initialValues: {
             price: '',
             __hasOffer: 'no',
@@ -31,20 +31,20 @@ const levels = [
     },
     {
         lazy: () => import('./Forms/MerchandiseImageUpload'),
-        title: 'تصاویر',
+        title: 'تصاویر کالا',
         initialValues: {
             images: [],
             avatar: null
         }
     },
-    {
-        lazy: () => import('./Forms/MerchandiseImageUpload'),
-        title: 'تحویل کالا',
-        initialValues: {
-            images: [],
-            avatar: ''
-        }
-    },
+    // {
+    //     lazy: () => import('./Forms/MerchandiseImageUpload'),
+    //     title: 'تحویل کالا',
+    //     initialValues: {
+    //         images: [],
+    //         avatar: ''
+    //     }
+    // },
     // {
     //     lazy: () => import('./Forms/ContactInfoForm'),
     //     title: 'راه های ارتباطی',

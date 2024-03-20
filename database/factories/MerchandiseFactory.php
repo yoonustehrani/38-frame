@@ -18,14 +18,16 @@ class MerchandiseFactory extends Factory
      */
     public function definition(): array
     {
+        $status = fake()->randomElement(get_enum_values(MerchandiseStatusType::class));
         return [
             'title' => fake()->words(3, true),
             'description' => fake()->sentences(6, true),
             'available_quantity' => fake()->randomNumber(2),
             'price' => random_int(1, 100) * 100000,
-            'status' => fake()->randomElement(get_enum_values(MerchandiseStatusType::class)),
+            'status' => $status,
             'meta' => [],
-            'category_id' => SiteCategory::factory()->state(['type' => 'merchandise_group'])
+            'category_id' => SiteCategory::factory()->state(['type' => 'merchandise_group']),
+            'published_at' => $status === MerchandiseStatusType::Verified->value ? now() : null
         ];
     }
     public function withOffer()

@@ -20,7 +20,7 @@ class ShopFactory extends Factory
         return [
             'brand' => fake()->unique()->company(),
             'category' => fake()->randomElement([1,2,3]),
-            'avatar' => '/',
+            'avatar' => '/images/yoosof.webp',
             'bio' => fake()->text(300),
             'founded_in_year' => fake()->numberBetween(1300, 1402),
             'owner_fullname' => fake()->name(),
