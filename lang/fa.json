@@ -1,4 +1,9 @@
 {
     "(and :count more errors)": "و :count خطای دیگر",
-    "(and :count more error)": "و :count خطای دیگر"
+    "(and :count more error)": "و :count خطای دیگر",
+    "pagination.next": "بعدی",
+    "Showing": "نمایش",
+    "to": "تا",
+    "of": "از",
+    "results": "نتیجه"
 }
