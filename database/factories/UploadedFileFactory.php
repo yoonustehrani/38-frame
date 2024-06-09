@@ -20,8 +20,8 @@ class UploadedFileFactory extends Factory
             'type' => 'image',
             'name' => fake()->word(),
             'extension' => fake()->randomElement(['jpg', 'webp', 'png']),
-            'path' => '/storage/public/test.jpg',
-            'thumbnail_path' => '/storage/public/tn_test.jpg',
+            'path' => '/storage/test.jpg',
+            'thumbnail_path' => '/storage/tn_test.jpg',
             'driver' => 'local',
             'mode' => 'user-uplaoded'
         ];

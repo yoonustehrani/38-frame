@@ -28,7 +28,7 @@ class BlogPostFactory extends Factory
             'subtitle' => fake()->words(4, true),
             'description' => fake()->sentences(5, true),
             'slug' => \Str::kebab($title),
-            'avatar' => '/images/blog-' . rand(1, 4) . '.webp',
+            // 'avatar' => '/images/blog-' . rand(1, 4) . '.webp',
             // 'views' => fake()->randomNumber(5),
             'published_at' => now(),
             'status' => 'published',
