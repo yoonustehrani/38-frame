@@ -11,7 +11,7 @@
         </div>
         <ul class="hidden lg:flex flex-col lg:flex-row h-full lg:relative lg:w-fit lg:h-full justify-center lg:justify-start items-center content-center gap-8 {{ $textColor ?? 'text-slate-50' }} font-semibold text-lg">
             @if (get_menu('main'))
-                @foreach (get_menu('main')->items as $item)
+                @foreach (get_menu('main')?->items as $item)
                     <li>
                         <a href="{{ $item->url }}">{{ $item->title }}</a>
                     </li>

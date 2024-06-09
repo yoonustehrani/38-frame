@@ -195,7 +195,7 @@ if (! function_exists('get_menu')) {
             $menu = Menu::where('key', $key)->with(['items' => function($query) {
                 $query->primary()->active();
             }])->first(); 
-            return (new MenuResource($menu));
+            return $menu ? (new MenuResource($menu)) : null;
         // });
     }
 }
