@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\LabController;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -60,3 +61,12 @@ Route::view('blog', 'pages.blog.index')->name('pages.blog.index');
 Route::get('blog/{slug}', [BlogPostController::class, 'showPublic'])->name('pages.blog.show');
 Route::view('userarea/{path?}', 'pages.userarea')->where('path', '.*')->name('userarea');
 Route::view('38panel/{path?}', 'pages.admin')->where('path', '.*')->name('admin');
+
+Route::get('shops/{shop}', function() {
+    
+});
+
+Route::get('shops/{shop}/merchandise/{merchandise}', function(Shop $shop, $merchandise) {
+    $merchandise = $shop->merchandise()->available()->findOrFail($merchandise);
+    return response()->json($merchandise);
+});

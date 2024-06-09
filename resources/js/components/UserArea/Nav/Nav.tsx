@@ -46,9 +46,9 @@ const Nav: FC<NavProps> = () => {
             {/* If Shop */}
             <span className="mr-1 text-gray-900 font-bold text-sm">- فروشگاه</span>
             <ul className="flex flex-col a-full mt-2 mb-4">
-                <NavItem uri="/shop" title="ایجاد کالا" />
-                <NavItem uri="/shop" title="مدیریت کالاها" />
-                <NavItem uri="/shop" title="پیگیری فروش کالاها" />
+                <NavItem uri="/shop/merchandise/create" title="ایجاد کالا" />
+                <NavItem uri="/shop/merchandise" title="مدیریت کالاها" />
+                <NavItem uri="/shop/sales" title="پیگیری فروش کالاها" />
                 <NavItem uri="/shop/setting" title="تنظیمات فروشگاه" />
             </ul>
             {/* EndIf Photographer */}

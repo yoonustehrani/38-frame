@@ -39,7 +39,7 @@ const ShopGeneralSetting = () => {
                     <Formik onSubmit={submitData} initialValues={{ avatar: null }}>
                         {({submitForm}) => (
                             <UploadAvatar submit={submitForm} inputName="avatar" setAvatar={(avatar: string) => setShop((shop) => ({...shop, avatar} as Shop))}>
-                                {shop.avatar ? (
+                                {shop.avatar !== '' ? (
                                     <img className="h-full w-auto" src={shop.avatar} alt="" />
                                 ) : (
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64"><path d="M19.14,21.75H4.86a2.61,2.61,0,0,1-2.61-2.61V4.86A2.61,2.61,0,0,1,4.86,2.25H19.14a2.61,2.61,0,0,1,2.61,2.61V19.14A2.61,2.61,0,0,1,19.14,21.75ZM4.86,3.75A1.11,1.11,0,0,0,3.75,4.86V19.14a1.11,1.11,0,0,0,1.11,1.11H19.14a1.11,1.11,0,0,0,1.11-1.11V4.86a1.11,1.11,0,0,0-1.11-1.11Z"/><path d="M3,18.81a.76.76,0,0,1-.57-.26.75.75,0,0,1,.09-1.06l5.12-4.32a2,2,0,0,1,2.7.11l2.43,2.43a.5.5,0,0,0,.65,0L15.78,14a2,2,0,0,1,2.44,0l3.25,2.59a.75.75,0,1,1-.94,1.18l-3.24-2.6a.5.5,0,0,0-.61,0L14.32,17a2,2,0,0,1-2.61-.18L9.28,14.34a.5.5,0,0,0-.67,0L3.48,18.64A.72.72,0,0,1,3,18.81Z"/><path d="M15,11.75A2.75,2.75,0,1,1,17.75,9,2.75,2.75,0,0,1,15,11.75Zm0-4A1.25,1.25,0,1,0,16.25,9,1.25,1.25,0,0,0,15,7.75Z"/></svg>    
@@ -60,7 +60,8 @@ const ShopGeneralSetting = () => {
                     brand: shop.brand,
                     bio: shop.bio,
                     category: shop.category,
-                    founded_in_year: shop.founded_in_year
+                    founded_in_year: shop.founded_in_year,
+                    website: shop.website
                 }}>
                     <Form className="grid md:grid-cols-2 gap-6 gap-y-8 my-6 pb-6" action="#">
                         <h2 className="font-semibold text-gray-800 h-5 svg-inherit col-span-full">
@@ -84,13 +85,23 @@ const ShopGeneralSetting = () => {
                             ]}
                         />
                         <Input required type="number" name="founded_in_year" id="year" label="سال شروع فعالیت" className="ltr py-2 px-3" min={1320} max={1402}/>
+                        <Input name="website" id="website" label="وبسایت فروشگاه" className="py-2 px-3 text-left [direction:ltr]"/>
                         <TextArea name="bio" id="bio" label="بیوگرافی فروشگاه" className="p-3"/>
                         <div className="col-span-full flex justify-center">
                             <button className="border-2 border-dashed border-transparent hover:border-x-dark-blue hover:text-x-dark-blue duration-300 text-gray-700 flex flex-row-reverse justify-center items-center gap-2 px-4 py-2 rounded-lg">
                                 ذخیره تغییرات
                             </button>
                         </div>
-                        {/* <div>
+                    </Form>
+                </Formik>
+            </section>
+        </section>
+    );
+}
+
+export {ShopGeneralSetting as Component}
+
+{/* <div>
                             <div className="relative">
                                 <label htmlFor="username" className="absolute -top-2 right-2 text-xs bg-white rounded-full px-2 text-gray-600">نام کاربری</label>
                                 <input defaultValue={shop.username} id="username" type="text" name="username" className="w-full [direction:ltr] text-left bg-transparent border border-black/10 rounded-md py-2 pt-3 px-3" />
@@ -109,9 +120,8 @@ const ShopGeneralSetting = () => {
                             </div>
                         </div>
                          */}
-                    </Form>
-                </Formik>
-                <form className="grid md:grid-cols-2 gap-6 my-6 pb-6" action="#">
+
+{/* <form className="grid md:grid-cols-2 gap-6 my-6 pb-6" action="#">
                     <h2 className="font-semibold text-gray-800 mb-4 h-5 svg-inherit col-span-full">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512">
                             <path d="M18,6c0-3.309-2.691-6-6-6S6,2.691,6,6c0,2.968,2.166,5.439,5,5.916v11.084c0,.552,.448,1,1,1s1-.448,1-1V11.916c2.834-.477,5-2.948,5-5.916Zm-6,4c-2.206,0-4-1.794-4-4s1.794-4,4-4,4,1.794,4,4-1.794,4-4,4Z"/>
@@ -153,10 +163,4 @@ const ShopGeneralSetting = () => {
                             ذخیره تغییرات
                         </button>
                     </div>
-                </form>
-            </section>
-        </section>
-    );
-}
-
-export {ShopGeneralSetting as Component}
+                </form> */}

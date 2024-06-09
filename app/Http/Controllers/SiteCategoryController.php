@@ -13,7 +13,7 @@ class SiteCategoryController extends Controller
     public function index(Request $request)
     {
         $query = SiteCategory::whereType(
-            $request->query('type') ?: null
+            $request->query('type') ?: ''
         );
         if ($request->query('parent_id')) {
             $query->whereParentId($request->query('parent_id'));

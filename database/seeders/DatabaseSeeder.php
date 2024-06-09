@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('hello1234');
         $user->role_id = Role::whereName('admin')->firstOrFail()?->id;
         $user->save();
+
+        $this->call(ShopSeeder::class);
     }
 }

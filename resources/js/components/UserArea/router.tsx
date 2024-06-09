@@ -69,12 +69,33 @@ const routes: RouteObject[] = [
                         lazy: () => import('./Pages/Shop/RegisterShop')
                     },
                     {
+                        path: 'merchandise',
+                        children: [
+                            {
+                                index: true,
+                                lazy: () => import('./Pages/Shop/Merchandise/Merchandise')
+                            },
+                            {
+                                path: 'create',
+                                lazy: () => import('./Pages/Shop/Merchandise/CreateMerchandise')
+                            },
+                            {
+                                path: 'edit/:merchandiseId',
+                                lazy: () => import('./Pages/Shop/Merchandise/UpdateMerchandise')
+                            }
+                        ]
+                    },
+                    {
                         path: 'setting',
                         lazy: () => import('./Pages/Shop/UpdateShop'),
                         children: [
                             {
                                 index: true,
                                 lazy: () => import('./Pages/Shop/Setting/ShopGeneralSetting')
+                            },
+                            {
+                                path: 'social',
+                                lazy: () => import('./Pages/Shop/Setting/ShopSocialMediaSetting')
                             }
                         ]
                     }

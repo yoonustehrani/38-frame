@@ -33,7 +33,10 @@ class UpdateShopRequest extends FormRequest
                 File::types(['jpg', 'png', 'webp'])
                 ->min('10kb')
                 ->max('1mb')
-            ]
+            ],
+            'website' => 'nullable|string|regex:/^(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9-]+(?:\.[a-zA-Z]{2,})+)(?:\/.*)?$/',
+            'meta.social.instagram' => 'nullable|string|min:4|max:60',
+            'meta.social.telegram_channel' => 'nullable|string|min:4|max:60',
         ];
     }
 }

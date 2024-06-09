@@ -41,7 +41,7 @@ const ShopDetails: FC<ShopDetailsProps> = () => {
         <>
             <Input required type="text" name="owner_fullname" id="owner_fullname" label="نام مدیریت فروشگاه" className="py-2 px-3 h-full"/>
             <Input required type="text" maxLength={10} name="owner_national_id" id="owner_national_id" label="کد ملی مدیریت فروشگاه" className="ltr py-2 px-3 h-full"/>
-            <Input type="text" maxLength={10} name="website" id="website" label="وب سایت فروشگاه" className="ltr py-2 px-3 h-full" placeholder="اگر وب سایت دارید اینجا وارد کنید"/>
+            <Input type="text" name="website" id="website" label="وب سایت فروشگاه" className="ltr py-2 px-3 h-full" placeholder="اگر وب سایت دارید اینجا وارد کنید"/>
             <div>
                 <FormInput required {...ibanField.onBlur} onChange={e => ibanHelpers.setValue(getRawIban(e.target.value))} value={getFormattedIBAN(ibanField.value)} maxLength={30} type="text" name="iban" id="iban" label="شماره شبا معتبر" className="ltr py-2 pt-3 px-3 pl-9">
                     <div className="h-12 w-10 absolute left-0 top-0 flex justify-center items-center px-3">

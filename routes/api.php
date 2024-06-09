@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MerchandiseApiController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SiteCategoryController;
 use App\Http\Controllers\UploadedFileController;
@@ -51,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function() {
             return \App\Models\User::latest()->first();
         });
     });
-    Route::apiResource('shops/{shop}/merchandise', ShopController::class);
+    Route::apiResource('shops/{shop}/merchandise', MerchandiseApiController::class);
     Route::apiResource('shops', ShopController::class)->only(['destroy', 'store', 'update']);
     
 
@@ -81,3 +83,10 @@ Route::post('auth/login', 'App\Http\Controllers\AuthController@login')->name('au
 Route::post('admin/auth/google', 'App\Http\Controllers\AuthController@handleGoogleAdminSignIn')->name('auth.login.admin.google');
 Route::post('admin/auth/login', 'App\Http\Controllers\AuthController@adminLogin')->name('auth.login.admin');
 Route::get('blog-posts', 'App\Http\Controllers\BlogPostController@apiIndex')->name('blog-posts.index');
+
+Route::controller(CartController::class)->prefix('/cart')->group(function() {
+    Route::get('/', 'index');
+    Route::post('/', 'store');
+    Route::delete('/{productId}', 'destroy');
+    Route::patch('/{productId}', 'update');
+});

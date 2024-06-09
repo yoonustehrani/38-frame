@@ -4,10 +4,10 @@ namespace App\Enums;
 
 use App\Traits\HasTranslatedLabels;
 
-enum MerchandiseStatusType : int {
+enum MerchandiseStatusType : string {
     use HasTranslatedLabels;
 
-    case Rejected = -1;
-    case AwaitingConfirmation = 0;
-    case Published = 1;
+    case Rejected = 'rejected';
+    case AwaitingConfirmation = 'awaiting confirmation';
+    case Verified = 'verified';
 }

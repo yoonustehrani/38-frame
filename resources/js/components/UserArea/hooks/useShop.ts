@@ -20,6 +20,7 @@ export interface Shop {
     }
     owner_fullname: string
     owner_national_id: string
+    website: string
 }
 
 const ApiConfig = {
