@@ -12,8 +12,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class BlogPost extends Model
 {
-use HasFactory, HasSeoConfig;
-    // protected $hidden = ['avatar'];
+    use HasFactory, HasSeoConfig;
     protected $fillable = ['title', 'subtitle', 'body', 'description'];
 
     public function author()
@@ -24,14 +23,21 @@ use HasFactory, HasSeoConfig;
     {
         return $this->morphOne(Avatar::class, 'relatable')->with('file');
     }
-    public function categories()
-    {
-        return $this->morphToMany(SiteCategory::class, 'categorized');
-    }
+    // public function categories()
+    // {
+    //     return $this->morphToMany(SiteCategory::class, 'categorized');
+    // }
 
     public function scopePublished(Builder $query)
     {
         return $query->where('published_at', '<=', now());
     }
-
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'tagged', 'taggable');
+    }
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'categorized', 'categorizable');
+    }
 }

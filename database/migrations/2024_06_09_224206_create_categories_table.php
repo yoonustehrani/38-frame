@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorizable', function (Blueprint $table) {
-            $table->foreignId('category_id');
-            $table->morphs('categorized');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->bigInteger('parent_id')->unsigned()->nullable();
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorizable');
+        Schema::dropIfExists('categories');
     }
 };
