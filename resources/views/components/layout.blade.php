@@ -2,7 +2,7 @@
     <x-slot:head>
         <title>{{ $title ?? 'Untitled Page' }}</title>
         @vite('resources/css/app.css')
-        {{ $headtag ?? '' }}
+        {{ $headTag ?? '' }}
         <style>
             :root {
                 --size: 50vmin;
@@ -19,7 +19,10 @@
     {{ $slot }}
     <x-footer classNames="float-left"/>
     <div id="react-mobile-menu"></div>
-    @viteReactRefresh
-    @vite('resources/js/react-app.tsx')
-    @vite('resources/js/app.js')
+    <x-slot:scripts>
+        @viteReactRefresh
+        @vite('resources/js/react-app.tsx')
+        @vite('resources/js/app.js')
+        {{ $scriptTags ?? '' }}
+    </x-slot:scripts>
 </x-html-layout>

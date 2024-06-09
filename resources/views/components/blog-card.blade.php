@@ -1,8 +1,7 @@
 <div class="bg-creamy shadow-md rounded-b-md py-2 px-3 relative -mt-4 z-10 mb-8 flex flex-col">
-    @if ($post->avatar->count() > 0)
-        <img class="w-full" src="{{ asset($post->avatar[0]->path) }}" alt=""/>
+    @if ($post->avatar)
+        <img class="w-full" src="{{ asset($post->avatar->path) }}" alt="{{ $post->avatar->alt }}"/>
     @endif
-    
     <div class="mt-4 relative grow flex flex-col justify-between gap-2">
         <a href="{{ route('pages.blog.show', ['slug' => $post->slug]) }}" class="font-bold text-lg hover:text-orange-600 text-gray-800">{{ $post->title }}</a>
         <p class="text-sm text-gray-700 text-justify px-1">{{ $post->description }}</p>

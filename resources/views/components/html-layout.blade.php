@@ -8,5 +8,6 @@
 </head>
 <body class="w-full h-full relative z-0 {{ $className ?? '' }}">
     {{ $slot }}
+    {{ $scripts ?? '' }}
 </body>
 </html>

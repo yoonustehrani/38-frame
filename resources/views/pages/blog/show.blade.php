@@ -11,8 +11,8 @@
     </header>
     <section class="w-full flex flex-col gap-6 items-center font-iran-sans">
         <section class="px-6 md:max-w-md flex flex-col gap-4">
-            @if ($post->avatar->count() > 0)
-                <img width="400" class="w-auto h-80 rounded-md" src="{{ asset($post->avatar[0]->path) }}" alt="">
+            @if ($post->avatar)
+                <img width="400" class="w-auto h-80 rounded-md" data-src="{{ asset($post->avatar->path) }}" src="{{ asset($post->avatar->thumbnail_path) }}" alt="{{ $post->avatar->alt }}">
             @endif
             <h1 class="text-gray-900 font-bold text-4xl leading-relaxed">{{ $post->title }}</h1>
             <h2 class="text-gray-600 text-xl">{{ $post->subtitle }}</h2>
